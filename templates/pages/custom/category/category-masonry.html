@@ -1,0 +1,88 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+products:
+    featured:
+        limit: 6
+    top_sellers:
+        limit: 6
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+<div class="themevale_category-banner">
+    {{#if page_type '==' 'category'}}
+        {{#if banners.top}}
+        <div class="banners" data-banner-location="top">
+            {{#each (limit banners.top_metadata 1)}}
+            <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+                <div data-event-type="promotion-click">
+                    {{{this.content}}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+    {{/if}}
+    <div class="themevale_category-heading">
+        <h1 class="page-heading">{{category.name}}</h1>
+        {{{region name="category_below_header"}}}
+        {{#if category.description}}
+            <div class="category-description">
+                {{{category.description}}}
+            </div>
+        {{/if}}
+        {{{snippet 'categories'}}}
+    </div>
+</div>
+<div class="container productGrid-masonry">
+    <div class="themevale_breadcrumbCategory">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+
+    {{#if theme_settings.product_list_display_mode '===' 'List'}}
+        <div id="grid-list-layout" class="page productGrid--maxCol1">
+    {{/if}}
+    {{#if theme_settings.product_list_display_mode '===' 'grid 2 column'}}
+        <div id="grid-list-layout" class="page productGrid--maxCol2">
+    {{/if}}
+    {{#if theme_settings.product_list_display_mode '===' 'grid 3 column'}}
+        <div id="grid-list-layout" class="page productGrid--maxCol3">
+    {{/if}}
+    {{#if theme_settings.product_list_display_mode '===' 'grid 4 column'}}
+        <div id="grid-list-layout" class="page productGrid--maxCol4">
+    {{/if}}
+    {{#if theme_settings.product_list_display_mode '===' 'grid 5 column'}}
+        <div id="grid-list-layout" class="page productGrid--maxCol5">
+    {{/if}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+        <main class="page-content" id="product-listing-container">
+
+            {{#if theme_settings.themevale_subCategory}}
+                {{> components/themevale/category/subcategories-2}}
+            {{/if}}
+            <div class="product-listing">
+                {{#if category.products}}
+                    {{> components/category/product-listing settings=../settings}}
+                {{else}}
+                    <p>{{lang 'categories.no_products'}}</p>
+                {{/if}}
+            </div>
+            {{{region name="category_below_content"}}}
+        </main>
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

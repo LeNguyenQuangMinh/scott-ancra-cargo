@@ -1,0 +1,242 @@
+// =============================================================================
+// BUTTONS (CSS)
+// =============================================================================
+
+.button {
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 0;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    padding: 11px 15px 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-family: $fontFamily-headings;
+    color: stencilColor("button--default-color");
+    border: 1px solid stencilColor("button--default-borderColor");
+    background-color: stencilColor("button--default-backgroundColor");
+    .icon, span {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+        margin: 0;
+    }
+    .icon + span,
+    span + .icon {
+        margin-left: 5px;
+    }
+    svg {
+        fill: stencilColor("button--default-color");
+    }
+    + .button {
+        margin-left: 0;
+    }
+    @include breakpoint("small") {
+        font-size: 13px;
+        padding: 13px 15px 12px 15px;
+    }
+    @include breakpoint("medium") {
+        padding: 13px 35px 12px 35px;
+        + .button {
+            margin-left: spacing("half");
+        }
+    }
+    &:hover, &:focus, &:active {
+        color: stencilColor("button--default-color");
+        border: 1px solid stencilColor("button--default-borderColor");
+        background-color: stencilColor("button--default-backgroundColor");
+        svg {
+            fill: stencilColor("button--default-color");
+        }
+    }
+    @media (min-width: 1025px) {
+        &:hover, &:focus, &:active {
+            color: stencilColor("button--default-colorHover");
+            border: 1px solid stencilColor("button--default-borderColorHover");
+            background-color: stencilColor("button--default-backgroundColorHover");
+            svg {
+                fill: stencilColor("button--default-colorHover");
+            }
+        }
+    }
+}
+
+.button--primary {
+    color: stencilColor("button--primary-color");
+    border: 1px solid stencilColor("button--primary-borderColor");
+    background-color: stencilColor("button--primary-backgroundColor");
+    &:hover, &:focus, &:active {
+        color: stencilColor("button--primary-color");
+        border: 1px solid stencilColor("button--primary-borderColor");
+        background-color: stencilColor("button--primary-backgroundColor");
+        svg {
+            fill: stencilColor("button--primary-color");
+        }
+    }
+    @media (min-width: 1025px) {
+        &:hover, &:focus, &:active {
+            color: stencilColor("button--primary-colorHover");
+            border: 1px solid stencilColor("button--primary-borderColorHover");
+            background-color: stencilColor("button--primary-backgroundColorHover");
+            svg {
+                fill: stencilColor("button--primary-colorHover");
+            }
+        }
+    }
+}
+
+.button--border {
+    color: stencilColor("button--border-color");
+    border: 1px solid stencilColor("button--border-color");
+    background-color: transparent;
+    svg {
+        fill: stencilColor("button--border-color");
+    }
+    &:hover, &:focus, &:active {
+        color: stencilColor("button--border-color");
+        border: 1px solid stencilColor("button--border-color");
+        background-color: transparent;
+        svg {
+            fill: stencilColor("button--border-color");
+        }
+    }
+    @media (min-width: 1025px) {
+        &:hover, &:focus, &:active {
+            color: #ffffff;
+            border: 1px solid stencilColor("button--border-colorHover");
+            background-color: stencilColor("button--border-colorHover");
+            svg {
+                fill: #ffffff;
+            }
+        }
+    }
+}
+
+.button--white {
+    color: stencilColor("button--white-color");
+    border: 1px solid stencilColor("button--white-borderColor");
+    background-color: stencilColor("button--white-backgroundColor");
+    &:hover, &:focus, &:active {
+        color: stencilColor("button--white-color");
+        border: 1px solid stencilColor("button--white-borderColor");
+        background-color: stencilColor("button--white-backgroundColor");
+        svg {
+            fill: stencilColor("button--white-color");
+        }
+    }
+    @media (min-width: 1025px) {
+        &:hover, &:focus, &:active {
+            color: stencilColor("button--white-colorHover");
+            border: 1px solid stencilColor("button--white-borderColorHover");
+            background-color: stencilColor("button--white-backgroundColorHover");
+            svg {
+                fill: stencilColor("button--white-colorHover");
+            }
+        }
+    }
+}
+
+.button--big {
+    min-width: 180px;
+    @include breakpoint('medium') {
+        min-width: 270px;
+    }
+}
+
+.button[disabled] {
+    cursor: not-allowed;
+}
+
+.button-group {
+    position: relative;
+}
+
+.themevale_showMoreProduct {
+    text-align: center;
+    margin-top: 20px;
+    .button {
+        width: 180px;
+    }
+    @include breakpoint('medium') {
+       .button {
+            width: 300px;
+        } 
+    }
+}
+
+.button--showmore {
+    min-width: 220px;
+    line-height: 16px;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    .icon {
+        display: none;
+    }
+    .text {
+        margin-left: 0 !important;
+    }
+    &.loadding {
+        .text {
+            font-size: 0;
+        }
+        .icon {
+            display: inline-block;
+            -webkit-animation: rotate_180 1s infinite linear;
+            -moz-animation: rotate_180 1s infinite linear;
+            -ms-animation: rotate_180 1s infinite linear;
+            -o-animation: rotate_180 1s infinite linear;
+            animation: rotate_180 1s infinite linear;
+        }
+    }
+    &.disable {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    @media (min-width: 1025px) {
+        min-width: 300px;
+    }
+}
+
+#button-showmore-category {
+    .text-hidden {
+        display: none;
+    }
+    &.disable {
+        .text {
+            display: none;
+        }
+        .text-hidden {
+            display: inline-block;
+        }
+    }
+}
+
+@-webkit-keyframes rotate_180 {
+    0% { -webkit-transform: rotate(0deg); }
+    50% { -webkit-transform: rotate(180deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotate_180 {
+    0% { -moz-transform: rotate(0deg); }
+    50% { -moz-transform: rotate(180deg); }
+    100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes rotate_180 {
+    0% { -ms-transform: rotate(0deg); }
+    50% { -ms-transform: rotate(180deg); }
+    100% { -ms-transform: rotate(360deg); }
+}
+@-o-keyframes rotate_180 {
+    0% { -o-transform: rotate(0deg); }
+    50% { -o-transform: rotate(180deg); }
+    100% { -o-transform: rotate(360deg); }
+}
+@keyframes rotate_180 {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}

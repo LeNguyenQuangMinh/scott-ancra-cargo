@@ -1,0 +1,3 @@
+{
+  "components/common/cookie": "<div class=\"cookieMessage\">\n    <div class=\"cookieMessage-container\">\n        <div class=\"cookieMessage-text\">\n            <p>{{settings.privacy_cookie}}</p>\n        </div>\n        <div class=\"group-button\">\n        \t<a class=\"privacy_policy\" href=\"#\">privacy policy</a>\n        \t<a class=\"privacy_accept\" href=\"javascript:void(0)\" data-privacy-accept><span class=\"text\">accept</span> <span class=\"icon\">&#x2714;</span></a>\n        </div>\n    </div>\n</div>\n"
+}

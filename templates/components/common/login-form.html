@@ -1,0 +1,28 @@
+<div class="login-dropdown" id="login-dropdown">
+    <div class="login-header">
+        <h2 class="login-title">{{lang 'login.new_customer.heading2' }}</h2>
+    </div>
+    <div class="login-content">
+        <form class="login-form form" action="{{settings.secure_base_url}}/login.php?action=check_login" method="post">
+            {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
+            {{inject 'enterPass' (lang 'forms.validate.common.password')}}
+            <div class="form-field">
+                <label class="form-label" for="login_email2">{{lang 'login.field_email'}}</label>
+                <input class="form-input" name="login_email" id="login_email2" type="email">
+            </div>
+            <div class="form-field">
+                <label class="form-label" for="login_pass2">{{lang 'login.field_password'}}</label>
+                <input class="form-input" id="login_pass2" type="password" name="login_pass">
+            </div>
+            <div class="form-actions">
+                <input type="submit" class="button button--border" value="{{lang 'login.button' }}">
+                <a class="forgot-password" href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a>
+            </div>
+        </form>
+    </div>
+    <div class="new-customer">
+        {{#if settings.account_creation_enabled}}
+            <a class="button" href="{{urls.auth.create_account}}">{{lang 'create_account.button' }}</a>
+        {{/if}}
+    </div>
+</div>

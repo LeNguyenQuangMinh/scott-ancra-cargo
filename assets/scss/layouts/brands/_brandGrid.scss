@@ -1,0 +1,259 @@
+// =============================================================================
+// BRAND GRID (CSS)
+// =============================================================================
+
+
+// Brand grid view
+// -----------------------------------------------------------------------------
+//
+// 1. Re-set the font-size, as we're reducing it to 0 in the .brandGrid class.
+//
+// -----------------------------------------------------------------------------
+
+.brandGrid {
+    @include u-listBullets("none");
+    @include grid-row($behavior: "nest");
+    font-size: 0; // 1
+    margin-bottom: spacing("single");
+    .brand {
+        @include grid-column(6, $float: none);
+        display: inline-block;
+        font-size: fontSize("base"); // 1
+        vertical-align: top;
+
+        @include breakpoint("small") {
+            width: grid-calc(4, $total-columns);
+        }
+
+        @include breakpoint("medium") {
+            width: grid-calc(3, $total-columns);
+        }
+
+        .card {
+            border: 1px solid #e6e6e6;
+            .card-body {
+                padding: 8px 10px;
+                background-color: #fafafa;
+            }
+        }
+
+        .card-img-container {
+            text-align: center;
+            &:before,
+            &:after {
+                content: none;
+            }
+            img {
+                top: auto;
+                left: auto;
+                transform: none;
+                position: relative;
+            }
+        }
+        .card-title {
+            text-align: center;
+        }
+    }
+}
+
+.brandSlider {
+    a {
+        display: inline-block;
+        vertical-align: top;
+        img {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    &.slick-slider {
+        margin-left: -8px;
+        margin-right: -8px;
+        .slick-slide {
+            padding: 0 8px;
+        }
+        @media (min-width: 1025px) {
+            margin-left: -15px;
+            margin-right: -15px;
+            .slick-slide {
+                padding: 0 15px;
+                > div + div {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+.brandSlider:not(.slick-slider) {
+    overflow: hidden;
+    white-space: nowrap;
+    a {
+        display: inline-block;
+        vertical-align: top;
+        width: 20%;
+    }
+}
+
+
+// Brand List A to Z view
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+
+#haloAZBrandsTable {
+    font-size: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 -15px 30px -15px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        border: 1px solid #e6e6e6;
+        border-left: none;
+        a {
+            color: stencilColor('color-textHeading');
+            display: block;
+            height: 40px;
+            font-size: 14px;
+            min-width: 40px;
+            font-weight: 600;
+            line-height: 40px; 
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        &:first-child {
+            min-width: 70px;
+            border-left: 1px solid #e6e6e6;
+            margin-left: 15px;
+        }
+        &:last-child {
+            margin-right: 15px;
+        }
+        &.disable {
+            a {
+                color: rgba(stencilColor('color-textHeading'),0.4);
+                pointer-events: none;
+            }
+        }
+        &.is-active {
+            color: stencilColor('color-textLink--hover');
+            background-color: #fafafa;
+            a {
+                color: inherit;
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        margin: 0 0 40px 0;
+        overflow: visible;
+        li {
+            width: 10%;
+            &:first-child {
+                margin-left: 0px;
+            }
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+#haloAZBrandsWrapper{
+    &.active-all {
+        column-count: 2;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        .azBrands-group {
+            -moz-page-break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            break-inside: avoid;
+            -o-column-break-inside: avoid;
+            -ms-column-break-inside: avoid;
+            column-break-inside: avoid;
+            page-break-inside: avoid;
+            display: block;
+        }
+        @include breakpoint('small') {
+            column-count: 3;
+            -moz-column-count: 3;
+            -webkit-column-count: 3;
+        }
+        @include breakpoint('medium') {
+            column-count: 4;
+            -moz-column-count: 4;
+            -webkit-column-count: 4;
+        }
+    }
+    &:not(.active-all) {
+        .azBrands-group {
+            column-count: 2;
+            -moz-column-count: 2;
+            -webkit-column-count: 2;
+            @include breakpoint('small') {
+                column-count: 3;
+                -moz-column-count: 3;
+                -webkit-column-count: 3;
+            }
+            @include breakpoint('medium') {
+                column-count: 4;
+                -moz-column-count: 4;
+                -webkit-column-count: 4;
+            }
+        }
+    }
+    + .brandList.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .azBrands-group {
+        margin-bottom: 30px;
+        display: none;
+        &.is-active {
+            display: block;
+        }
+    }
+    .azBrands-group-list {
+        margin: 0;
+        list-style: none;
+        .brand {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.azBrands-group-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    color: stencilColor('color-textHeading');
+    @include breakpoint('small') {
+        font-size: 20px;
+    }
+}
+
+.brandList {
+    margin: 0;
+    list-style: none;
+    .brand {
+        margin-bottom: 5px;
+    }
+}
+
+.brand-name {
+    .title {
+        margin: 0;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        text-transform: capitalize;
+        font-family: $fontFamily-sans;
+        color: stencilColor('color-textHeading');
+        a {
+            color: inherit;
+        }
+    }
+}

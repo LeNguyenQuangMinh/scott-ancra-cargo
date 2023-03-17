@@ -1,0 +1,98 @@
+<header class="header themevale_header-layout-5">
+    <div class="themevale_header-PC">
+        <div class="themevale_header-bottom menu-sticky">
+            <div class="items">
+                {{#and (if page_type '===' 'default') theme_settings.header-transparent-layout-2}}
+                    <div class="logo-wrapper">
+                        <div class="header-sticky-logo">
+                            <a href="{{urls.home}}">
+                                {{#if settings.store_logo.image}}
+                                    <img class="header-logo-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/logo-whitecolor.png" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                                {{else}}
+                                    <span class="header-logo-text">{{settings.store_logo.title}}</span>
+                                {{/if}}
+                            </a>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="logo-wrapper">
+                        {{#if page_type '===' 'default'}}
+                            <h1 class="header-logo">
+                                {{> components/common/store-logo}}
+                            </h1>
+                        {{else}}
+                            <div class="header-logo">
+                                {{> components/common/store-logo}}
+                            </div>
+                        {{/if}}
+                    </div>
+                {{/and}}
+                {{> components/common/navigation-menu}}
+            </div>
+            <div class="items">
+                <div class="navUser-wrapper">
+                    <div class="navUser-item navUser-item--quickSearch no-border">
+                        {{{ snippet "forms_search"}}}
+                        <form class="form" action="{{urls.search}}">
+                            <fieldset class="form-fieldset">
+                                <div class="form-field style-4">
+                                    <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
+                                    <input class="form-input" data-search-quick name="search_query" id="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_label'}}" autocomplete="off">
+                                    <button class="button-submit" type="submit" aria-label="{{lang 'search.quick_search.input_label'}}"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg></button>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div class="quickSearchResults" data-bind="html: results"></div>
+                    </div>
+                    {{#if settings.gift_certificates_enabled}}
+                    <div class="navUser-item navUser-item--gift_certificates no-border navUser-item-hidden">
+                        <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+                    </div>
+                    {{/if}}
+                    <div class="navUser-item navUser-item--account">
+                        {{#if customer}}
+                            <a class="navUser-action" href="{{urls.account.index}}">
+                                <span>{{customer.name}}</span>
+                                <svg class="icon icon-mobile" aria-hidden="true"><use xlink:href="#icon-user"/></svg>
+                            </a>
+                        {{else}}
+                            <a class="navUser-action" href="javascript:void(0)" data-login-form>
+                                <span>{{lang 'common.login'}}</span>
+                                <svg class="icon icon-mobile" aria-hidden="true"><use xlink:href="#icon-user"/></svg>
+                                <svg class="icon icon-arrow" aria-hidden="true"><use xlink:href="#icon-chevron-down"></use></svg>
+                            </a>
+                            {{#if page_type '!==' 'login'}}
+                                {{> components/common/login-form}}
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                    <div class="navUser-item navUser-item--currencySelector navUser-item-hidden">
+                        {{> components/common/currency-selector}}
+                    </div>
+                    <div class="navUser-item navUser-item--wishList navUser-item-hidden">
+                        <a class="navUser-action" href="{{urls.account.wishlists.all}}" aria-label="{{lang 'common.wishlist2'}}">
+                            <div class="navUser-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-heart-2"></use></svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="navUser-item navUser-item--cart themevale_cart no-border">
+                        <a class="navUser-action"
+                            data-cart-preview
+                            data-options="align:right"
+                            href="{{urls.cart}}">
+                            <div class="navUser-icon navUser-item-cartIcon" aria-label="{{lang 'common.cart'}}">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cart-2"></use></svg>
+                            </div>
+                            <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{#if cart.items}}{{cart.quantity}}{{else}}0{{/if}}</span>
+                        </a>
+                        <div class="dropdown-cart" id="cart-preview-dropdown" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="themevale_header-Mobile">
+        {{> components/themevale/header/header-mobile}}
+    </div>
+</header>

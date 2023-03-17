@@ -1,0 +1,65 @@
+<div class="container">
+    <nav class="navUser text-left">
+        {{> components/common/social-links}}
+    </nav>
+    <nav class="navUser text-right">
+        <div class="navUser-item navUser-item--phone">
+            <a class="navUser-action store-phone" href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a>
+        </div>
+        {{#if settings.gift_certificates_enabled}}
+        <div class="navUser-item">
+            <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+        </div>
+        {{/if}}
+        <div class="navUser-item navUser-item--account">
+            {{#if customer}}
+                <a class="navUser-action navUser-action--account" href="{{urls.account.index}}">
+                    {{lang 'common.myaccount'}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                </a>
+                <ul class="dropdown-menu" id="navPages-account-topbar">
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                    </li>
+                    {{#if settings.returns_enabled}}
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.inbox}}">{{lang 'account.mobile_nav.messages'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
+                    </li>
+                    {{#if settings.show_payment_methods}}
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.payment_methods.all}}">{{lang 'account.nav.payment_methods'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                    </li>
+                </ul>
+            {{else}}
+                <!-- <a class="navUser-action" href="{{urls.auth.login}}">{{lang 'common.myaccount'}}</a> -->
+                <a class="navUser-action" href="{{urls.auth.login}}"><span>{{lang 'common.login'}}</span></a>
+            </div>
+            <div class="navUser-item navUser-item--account">
+                <a class="navUser-action" href="{{urls.auth.create_account}}"><span>{{lang 'common.sign_up2'}}</span></a>
+            {{/if}}
+        </div>
+        <div class="navUser-item navUser-item--currencySelector">
+            {{> components/common/currency-selector}}
+        </div>
+        
+    </nav>
+</div>

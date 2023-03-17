@@ -1,0 +1,214 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+var themevaleMenu = new window.themevaleMenu();
+
+var mega_menu_style1_item = parseInt({{theme_settings.mega_menu_style1_item}}),
+    mega_menu_style2_item = parseInt({{theme_settings.mega_menu_style2_item}}),
+    mega_menu_style3_item = parseInt({{theme_settings.mega_menu_style3_item}}),
+    mega_menu_style4_item = parseInt({{theme_settings.mega_menu_style4_item}});
+    mega_menu_style5_item = parseInt({{theme_settings.mega_menu_style5_item}});
+
+var mega_menu_new_label = parseInt({{theme_settings.mega_menu_new_label}}),
+    mega_menu_sale_label = parseInt({{theme_settings.mega_menu_sale_label}}),
+    mega_menu_hot_label = parseInt({{theme_settings.mega_menu_hot_label}});
+
+function SetItemMegaMenu(){
+    if($(window).width() > 1024) {
+        $('.navPages-list-megamenu > .navPages-item').mouseover(function() {
+            var numberItem = $(this).index() + 1;
+            if (!$(this).hasClass('hasMegamenu')) {
+                LoadMegaMenu(numberItem);
+            }
+        });
+    }
+
+    $('.mobileMenu-toggle').on('click',function(event) {
+        $('.navPages-list-megamenu > .navPages-item').each(function() {
+            var numberItem = $(this).index() + 1;
+            LoadMegaMenu(numberItem);
+        });
+
+        $('.imageTop .cateArea > .navPage-subMenu-list > .navPage-subMenu-item-child').each(function() {
+            $(this).find('.imageTop-item').appendTo($(this).find('.navPage-subMenu-title'));
+        });
+    });
+}
+
+function LoadMegaMenu(numberItem){
+    if (!$('.themevale_allCategories-dropdown').length) {
+
+        /* Megamenu Settings for Home 1 - 14*/
+        if (mega_menu_style1_item == numberItem) {
+            themevaleMenu.menuItem(mega_menu_style1_item).themevaleMegaMenu({
+                style: 'style 1',
+                dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '37%',    // width of images area
+                cateAreaWidth: '63%',     // width of categories area
+                cateColumns: 3,           // columns of categories area - max 5 columns
+                // contents for images column (HTML supported)
+                images: '<div class="imgList">\
+                            <div class="imgItem imgLeft">\
+                                <a href="{{theme_settings.mega_menu_style1_link1}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style1_img1}}" alt="{{theme_settings.mega_menu_style1_img1}}"/></a>\
+                                <a href="{{theme_settings.mega_menu_style1_link2}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style1_img2}}" alt="{{theme_settings.mega_menu_style1_img2}}"/></a>\
+                            </div>\
+                            <div class="imgItem imgRight">\
+                                <a href="{{theme_settings.mega_menu_style1_link3}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style1_img3}}" alt="{{theme_settings.mega_menu_style1_img3}}"/></a>\
+                            </div>\
+                        </div>',
+                bottomMegamenu: '<div class="own-text"><span>{{theme_settings.mega_menu_style1_bottom_text}}</span></div>'
+            });
+        } else if (mega_menu_style2_item == numberItem){
+            themevaleMenu.menuItem(mega_menu_style2_item).themevaleMegaMenu({
+                style: 'style 2',
+                dropAlign: 'fullWidth',     // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',         // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageTop',       // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '0%',       // width of images area
+                cateAreaWidth: '100%',      // width of categories area
+                cateColumns: 5,             // columns of categories area - max 5 columns
+                // contents for images column (HTML supported)
+                imagesTop: [
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link1}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img1}}" alt="{{theme_settings.mega_menu_style2_img1}}"/></a>',
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link2}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img2}}" alt="{{theme_settings.mega_menu_style2_img2}}"/></a>',
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link3}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img3}}" alt="{{theme_settings.mega_menu_style2_img3}}"/></a>',
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link4}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img4}}" alt="{{theme_settings.mega_menu_style2_img4}}"/></a>',
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link5}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img5}}" alt="{{theme_settings.mega_menu_style2_img5}}"/></a>'
+                ],
+            });
+        } else if (mega_menu_style3_item == numberItem){
+            themevaleMenu.menuItem(mega_menu_style3_item).themevaleMegaMenu({
+                style: 'style 3',
+                dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageLeft',    // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '38%',    // width of images area
+                cateAreaWidth: '62%',     // width of categories area
+                cateColumns: 3,           // columns of categories area - max 5 columns
+                // contents for images column (HTML supported)
+                images: '<div class="imgList"><div class="imgItem--full"><a href="{{theme_settings.mega_menu_style3_link}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style3_img}}" alt="{{theme_settings.mega_menu_style3_img}}"/></a></div></div>'
+            });
+        } else if (mega_menu_style4_item == numberItem){
+            themevaleMenu.menuItem(mega_menu_style4_item).themevaleMegaMenu({
+                style: 'style 4',
+                dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '40%',    // width of images area
+                cateAreaWidth: '60%',     // width of categories area
+                cateColumns: 3,           // columns of categories area - max 5 columns
+                productId: '{{theme_settings.mega_menu_style4_product_ID}}',
+                // contents for images column (HTML supported)
+                images: '<div class="imgList style-2">\
+                            <div class="imgItem imgLeft">\
+                                <div class="imgHeading">{{theme_settings.mega_menu_style4_title}}</div>\
+                                <div class="featuredProduct"><div class="loadingOverlay"></div></div>\
+                            </div>\
+                            <div class="imgItem imgRight">\
+                                <a href="{{theme_settings.mega_menu_style4_link}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style4_img}}" alt="{{theme_settings.mega_menu_style4_img}}"/></a>\
+                            </div>\
+                        </div>',
+            });
+        } else if (mega_menu_style5_item == numberItem){
+            themevaleMenu.menuItem(mega_menu_style5_item).themevaleMegaMenu({
+                style: 'style 5',
+                dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '40%',    // width of images area
+                cateAreaWidth: '60%',     // width of categories area
+                cateColumns: 2,           // columns of categories area - max 5 columns
+                // contents for images column (HTML supported)
+                images: '<div class="imgList">\
+                            <div class="imgItem imgLeft"><a href="{{theme_settings.mega_menu_style5_link1}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style5_img1}}" alt="{{theme_settings.mega_menu_style5_img1}}"/></a>\
+                            </div>\
+                            <div class="imgItem imgRight"><a href="{{theme_settings.mega_menu_style5_link2}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style5_img2}}" alt="{{theme_settings.mega_menu_style5_img2}}"/></a>\
+                            </div>\
+                        </div>'
+            });
+        } else {
+            return;
+        }
+
+    } else {
+        
+        /* Megamenu Settings for Home 15*/
+        if (mega_menu_style1_item == numberItem) {
+            themevaleMenu.menuItem(mega_menu_style1_item).themevaleMegaMenu({
+                style: 'style 1',
+                dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '27%',    // width of images area
+                cateAreaWidth: '73%',     // width of categories area
+                cateColumns: 3,           // columns of categories area - max 5 columns
+                // contents for images column (HTML supported)
+                images: '<div class="imgList">\
+                            <a href="{{theme_settings.mega_menu_style1_link3}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style1_img3}}" alt="{{theme_settings.mega_menu_style1_img3}}"/></a>\
+                        </div>'
+            });
+        } else if (mega_menu_style2_item == numberItem){
+            themevaleMenu.menuItem(mega_menu_style2_item).themevaleMegaMenu({
+                style: 'style 2',
+                dropAlign: 'fullWidth',     // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',         // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageTop',       // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '0%',       // width of images area
+                cateAreaWidth: '100%',      // width of categories area
+                cateColumns: 4,             // columns of categories area - max 5 columns
+                // contents for images column (HTML supported)
+                imagesTop: [
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link1}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img1}}" alt="{{theme_settings.mega_menu_style2_img1}}"/></a>',
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link2}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img2}}" alt="{{theme_settings.mega_menu_style2_img2}}"/></a>',
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link3}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img3}}" alt="{{theme_settings.mega_menu_style2_img3}}"/></a>',
+                    '<a class="imageTop-item" href="{{theme_settings.mega_menu_style2_link4}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style2_img4}}" alt="{{theme_settings.mega_menu_style2_img4}}"/></a>'
+                ],
+            });
+        } else if (mega_menu_style3_item == numberItem){
+            themevaleMenu.menuItem(mega_menu_style3_item).themevaleMegaMenu({
+                style: 'style 3',
+                dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+                dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+                dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+                imageAreaWidth: '27%',    // width of images area
+                cateAreaWidth: '73%',     // width of categories area
+                cateColumns: 3,           // columns of categories area - max 5 columns
+                // contents for images column (HTML supported)
+                images: '<div class="imgList">\
+                            <a href="{{theme_settings.mega_menu_style3_link}}"><img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.mega_menu_style3_img}}" alt="{{theme_settings.mega_menu_style3_img}}"/></a>\
+                        </div>'
+            });
+        } else {
+            return;
+        }        
+    }
+}
+
+function MegaMenuLabel(){
+    if (mega_menu_new_label != 0 && mega_menu_new_label != '') {
+        themevaleMenu.menuItem(mega_menu_new_label).themevaleMegaMenu({
+            label: 'new',
+            disabled: true,
+        });
+    }
+    if (mega_menu_hot_label != 0 && mega_menu_hot_label != '') {
+        themevaleMenu.menuItem(mega_menu_hot_label).themevaleMegaMenu({
+            label: 'hot',
+            disabled: true,
+        });
+    }
+    if (mega_menu_sale_label != 0 && mega_menu_sale_label != '') {
+        themevaleMenu.menuItem(mega_menu_sale_label).themevaleMegaMenu({
+            label: 'sale',
+            disabled: true,
+        });
+    }
+}
+MegaMenuLabel();
+
+var setItemMegaMenu = SetItemMegaMenu();
+window.onload = setItemMegaMenu;
+
+</script>

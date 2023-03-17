@@ -1,0 +1,21 @@
+<div class="navUser-wrapper">
+    <div class="navUser-item navUser-item--search">
+        <a class="navUser-action" href="#" data-search="quickSearch" aria-label="{{lang "search.quick_search.button_search"}}" aria-expanded="false">
+            <div class="navUser-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+            </div>
+        </a>
+    </div>
+    <div class="navUser-item navUser-item--cart themevale_cart">
+        <a class="navUser-action"
+            data-cart-preview
+            data-options="align:right"
+            href="{{urls.cart}}" aria-label="{{lang 'common.cart'}}">
+            <div class="navUser-icon navUser-item-cartIcon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cart"></use></svg>
+            </div>
+            <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{#if cart.items}}{{cart.quantity}}{{else}}0{{/if}}</span>
+        </a>
+        <div class="dropdown-cart" id="cart-preview-dropdown-2" aria-hidden="true"></div>
+    </div>
+</div>

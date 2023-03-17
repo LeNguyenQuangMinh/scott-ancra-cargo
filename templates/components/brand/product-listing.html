@@ -1,0 +1,36 @@
+<div class="themevale_categoryToolbar">
+    <div class="item item-iconSidebar">
+        <div class="themevale_sidebar-mobile">
+            <span class='form-label'>sidebar:</span>
+            <svg class="icon" aria-hidden="true"><use xlink:href='#sidebar'></use></svg>
+        </div>
+    </div>
+    <div class="item item-viewas">
+        <div class="view-as-group">
+            <label class="form-label">{{lang 'common.sorter.view'}}</label>
+            <div class="view-as-btn">
+                <a href="javascript:void(0);" id="list-view" data-layout="productGrid--maxCol1" title="List View"></a>
+                <a href="javascript:void(0);" id="grid-view-2" data-layout="productGrid--maxCol2" title="Grid View 2"></a>
+                <a href="javascript:void(0);" id="grid-view-3" data-layout="productGrid--maxCol3" title="Grid View 3"></a>
+                <a href="javascript:void(0);" id="grid-view-4" data-layout="productGrid--maxCol4" title="Grid View 4"></a>
+                <a href="javascript:void(0);" id="grid-view-5" data-layout="productGrid--maxCol5" title="Grid View 5"></a>
+            </div>
+        </div>
+    </div>
+    <div class="item item-filter">
+        {{> components/products/filter sort=pagination.brand.sort products_per_page=theme_settings.brandpage_products_per_page}}
+    </div>
+</div>
+
+<form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Brand: {{brand.name}}" {{/if}} data-product-compare>
+    {{> components/products/grid block_id=../block_id products=brand.products productsnew=../products.new show_compare=brand.show_compare theme_settings=theme_settings event="list"}}
+</form>
+
+<div class="pagination-wrapper"> 
+    {{> components/common/paginator pagination.brand}}
+    {{#if brand.show_compare}}
+        <div class="compare-link">
+            <a href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}}<span class="countPill countPill--positive countPill--alt">0</span></a>
+        </div>
+    {{/if}}
+</div>

@@ -1,0 +1,205 @@
+// =============================================================================
+// MODAL (CSS)
+// =============================================================================
+
+
+.modal {
+    top: 50% !important;
+    left: 50%;
+    padding: 0;
+    right: auto;
+    bottom: auto;
+    height: auto;
+    outline: none;
+    margin: 0 auto;
+    max-width: 95%;
+    max-height: 90%;
+    overflow: hidden;
+    min-height: 240px;
+    transform: translate(-50%, -50%);
+    @media (min-width: 1025px) {
+        overflow: visible;
+        .modal-close {
+            right: -16px;
+            top: -16px;
+            transform: none;
+        }
+    }
+}
+
+.modal--large {
+    @include breakpoint("large") {
+        width: $modal-width--large;
+    }
+}
+
+.modal-header {
+    display: block;
+    border-bottom: 1px solid #e6e6e6;
+    padding-left: $reveal-modal-paddingHorizontal;
+    padding-right: remCalc($reveal-close-height) + $reveal-close-side;
+    .modal-close {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @media (min-width: 1025px) {
+        .modal-close {
+            right: -16px;
+            top: -16px;
+            transform: none;
+        }
+    }
+}
+
+.modal-header-title {
+    text-align: center;
+    font-size: $body-fontSize;
+    font-weight: 600;
+    font-family: $fontFamily-headings;
+    color: stencilColor('color-textHeading');
+    text-transform: capitalize;
+    @include breakpoint("small") {
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+}
+
+.modal-close {
+    padding: 0;
+    color: #000000;
+    font-size: 26px;
+    font-weight: 300;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    z-index: zIndex("high");
+    background-color: transparent;
+    line-height: 30px;
+    top: 5px;
+    > span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-weight: 300;
+    }
+    @include square(30px);
+    &:hover, &:focus {
+        color: #000000;
+        @include breakpoint("large") {
+            color: #ffffff;
+        }
+    }
+    @include breakpoint("large") {
+        font-size: 32px;
+        line-height: 32px;
+        @include square(32px);
+        color: #ffffff;
+        background-color: #000000;
+        &:hover, &:focus {
+            color: #ffffff;
+        }   
+    }
+}
+
+.modal-body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 35px 15px 20px 15px;
+    @include breakpoint("small") {
+        padding: 35px 30px 30px 30px;
+    }
+    @include breakpoint("medium") {
+        padding: 40px 50px 50px;
+    }
+    .modal--small & {
+        padding: 20px 15px;
+    }
+}
+#video-gallery-popup {
+    width: 600px;
+}
+
+#modal-size-chart-form {
+    width: 700px;
+    text-align: center;
+}
+
+#previewModal {
+    width: 990px;
+    @include breakpoint('medium') {
+        .modal-body {
+            padding: 30px;
+        }
+    }
+}
+
+#ask-an-expert {
+    width: 700px;
+    .modal-body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        &::-webkit-scrollbar { 
+            display: none; 
+        }
+    }
+    .form-field-radio {
+        .form-radio + .form-label {
+            margin-bottom: 8px;
+        }
+    }
+    .form-inner {
+        margin: 0 auto;
+        max-width: 500px;
+        .title-wrapper {
+            display: block;
+            text-align: center;
+            .title {
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin: 0 0 10px 0;
+            }
+            .description {
+                color: #5a5a5a;
+                margin-bottom: 30px;
+            }
+        }
+        .questions {
+            color: #232323;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #e6e6e6;
+        }
+        .form {
+            margin-bottom: 0;
+        }
+    }
+    .form-actions {
+        .button {
+            width: 100%;
+        }
+    }
+    @include breakpoint("small") {
+        .modal-body {
+            padding-top: 30px;
+            padding-bottom: 70px;
+        }
+        .form-field-radio {
+            .form-label {
+                width: auto;
+                display: inline-block;
+                margin-right: 30px;
+            }
+            .form-label-custom {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.modal-quickview,
+#previewModal.modal-quickview {
+    width: 1000px;
+}

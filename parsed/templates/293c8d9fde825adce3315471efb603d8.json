@@ -1,0 +1,4 @@
+{
+  "components/themevale/homepage/component/about-us-1": "{{> components/themevale/homepage/component/layout-banner find=\"themevale_about_us1\"}}\r\n",
+  "components/themevale/homepage/component/layout-banner": "{{!--\r\nArguments:\r\n    - find (string)\r\n--}}\r\n{{#if banners.top}}\r\n    {{#each banners.top}}\r\n        {{#if (occurrences this ../find) '>' 0}}\r\n            {{{this}}}\r\n        {{/if}}\r\n    {{/each}}\r\n{{/if}}\r\n"
+}

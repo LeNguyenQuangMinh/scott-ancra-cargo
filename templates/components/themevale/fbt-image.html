@@ -1,0 +1,5 @@
+<div class="themvale-fbt-image-item {{#if product.can_purchase}}isChecked{{/if}}" data-product-id="{{product.id}}">
+<a class="themvale-fbt-image-link" href="{{product.url}}">
+<img class="themvale-fbt-image lazyautosizes lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage product.main_image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{product.alt}}" title="{{product.alt}}" sizes="50px">
+</a>
+</div>

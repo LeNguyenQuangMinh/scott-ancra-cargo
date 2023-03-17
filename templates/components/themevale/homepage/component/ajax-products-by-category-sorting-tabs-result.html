@@ -1,0 +1,50 @@
+<div class="themevale_productsByCategorySortTabsResult">
+    <div class="productCarousel"
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "infinite": false,
+            "mobileFirst": true,
+            "slidesToShow": 2,
+            "slidesToScroll": 2,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Product&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Product&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1025,
+                    "settings": {
+                        "slidesToScroll": 3,
+                        "slidesToShow": 3,
+                        "dots": false,
+                        "arrows": true
+                    }
+                },
+                {
+                    "breakpoint": 1000,
+                    "settings": {
+                        "slidesToScroll": 3,
+                        "slidesToShow": 3
+                    }
+                },
+                {
+                    "breakpoint": 758,
+                    "settings": {
+                        "slidesToScroll": 2,
+                        "slidesToShow": 2
+                    }
+                },
+                {
+                    "breakpoint": 551,
+                    "settings": {
+                        "slidesToScroll": 3,
+                        "slidesToShow": 3
+                    }
+                }
+            ]}'>
+        {{#each (limit category.products theme_settings.themevale_productsByCategoryHomepage)}}
+        <div class="productCarousel-slide">
+            {{> components/products/card-marketing theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist}}
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{{#if layout}}
+    <section class="themevale-section {{padding_top}} {{padding_bottom}}" data-event="show more" data-number-product="{{products_show}}">
+        <div class="container">
+            <h2 class="page-heading {{custom}}"><span class="title">{{title}}</span></h2>
+            {{#if description}}
+                <p class="page-description">{{description}}</p>
+            {{/if}}
+            <ul id="{{block_id}}" class="productGrid productGrid--maxCol{{ columns }} card-variant" data-product-type="top_sellers" {{#if settings.data_tag_enabled}} data-list-name="Most Popular Products" {{/if}}>
+                {{#each products}}
+                    <li class="product">
+                        {{>components/products/card productsnew=../productsnew settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist event="list" position=(add @index 1)}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+{{else}}
+    <section class="themevale-section {{padding_top}} {{padding_bottom}}">
+        <div class="container">
+            <h2 class="page-heading {{custom}}"><span class="title">{{title}}</span></h2>
+            {{#if description}}
+                <p class="page-description">{{description}}</p>
+            {{/if}}
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/carousel productsnew=productsnew settings=settings products=products list="Most Popular Products" arrows=true dots=false}}
+            {{else}}
+                {{> components/products/carousel products=products productsnew=productsnew settings=settings arrows=true dots=false}}
+            {{/if}}
+        </div>
+    </section>
+{{/if}}

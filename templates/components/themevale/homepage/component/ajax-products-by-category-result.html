@@ -1,0 +1,41 @@
+<div class="productCarousel"
+    data-slick='{
+        "dots": true,
+        "arrows": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Product&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+        "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Product&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+        "responsive": [
+            {
+                "breakpoint": 1025,
+                "settings": {
+                    "dots": false,
+                    "arrows": true,
+                    "slidesToScroll": {{ theme_settings.homepage_tabs_products_column }},
+                    "slidesToShow": {{ theme_settings.homepage_tabs_products_column }}
+                }
+            },
+            {
+                "breakpoint": 801,
+                "settings": {
+                    "slidesToScroll": 4,
+                    "slidesToShow": 4
+                }
+            },
+            {
+                "breakpoint": 551,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 3
+                }
+            }
+        ]}'>
+    {{#each (limit category.products theme_settings.homepage_tabs_products_limit)}}
+    <div class="productCarousel-slide">
+        {{> components/products/card settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist  event="list" position=(add @index 1)}}
+    </div>
+    {{/each}}
+</div>

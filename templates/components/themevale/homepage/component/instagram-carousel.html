@@ -1,0 +1,903 @@
+{{#if instagram-carousel '==' 'instagram-carousel-1'}}
+<section id="InstagramGallery" class="themevale-section {{padding_top}} {{padding_bottom}} background-gray">
+    <div class="container">
+        {{#if theme_settings.instagram_title '!=' ''}}
+            <h2 class="page-heading {{title-border}}">
+                <span class="title">
+                   <svg class="icon" aria-hidden="true"><use xlink:href="#icon-instagram"></use></svg>
+                    {{theme_settings.instagram_title}}
+                </span>
+            </h2>
+        {{/if}}
+        {{#if theme_settings.instagram_description '!=' ''}}
+            <p class="page-description">{{theme_settings.instagram_description}}</p>
+        {{/if}}    
+        {{#if theme_settings.instagram_layout '==' 'app'}}
+            <div id="instafeed" class="themevale_instagram-carousel instagram-app">
+                {{#if theme_settings.instagram_app_code '!=' ''}}
+                    <script src='https://snapppt.com/widgets/widget_loader/{{theme_settings.instagram_app_code}}' defer class='snapppt-widget'></script>
+                {{/if}}
+            </div>
+        {{else}}
+            <div id="instafeed" class="themevale_instagram-carousel" data-slick='{
+                "arrows": false,
+                "dots": true,
+                "autoplay": false,
+                "infinite": true,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "mobileFirst": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Instagram Image&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Instagram Image&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1024,
+                        "settings": {
+                            "slidesToShow": 5,
+                            "slidesToScroll": 5,
+                            "arrows": true,
+                            "dots": false
+                        }
+                    },
+                    {
+                        "breakpoint": 767,
+                        "settings": {
+                            "slidesToShow": 4,
+                            "slidesToScroll": 4,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    },
+                    {
+                        "breakpoint": 550,
+                        "settings": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 3,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    }
+                ]}'>
+                {{#if theme_settings.instagram_image_1 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 1 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 1 in a new tab"{{/if}} 
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_1}}{{else}}{{theme_settings.instagram_link_1}}{{/if}}">
+                        <img class="lazyload 123" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_1}}" alt="Instagram Image 1"/>
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_2 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 2 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 2 in a new tab"{{/if}}
+                    href="javascript:void(0)" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_2}}{{else}}{{theme_settings.instagram_link_2}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_2}}" alt="Instagram Image 2" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_3 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 3 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 3 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_3}}{{else}}{{theme_settings.instagram_link_3}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_3}}" alt="Instagram Image 3" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_4 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 4 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 4 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_4}}{{else}}{{theme_settings.instagram_link_4}}{{/if}}" aria-label="Open Instagram Image 4 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_4}}" alt="Instagram Image 4" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_5 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 5 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 5 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_5}}{{else}}{{theme_settings.instagram_link_5}}{{/if}}" aria-label="Open Instagram Image 5 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_5}}" alt="Instagram Image 5" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_6 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 6 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 6 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_6}}{{else}}{{theme_settings.instagram_link_6}}{{/if}}" aria-label="Open Instagram Image 6 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_6}}" alt="Instagram Image 6" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_7 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 7 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 7 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_7}}{{else}}{{theme_settings.instagram_link_7}}{{/if}}" aria-label="Open Instagram Image 7 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_7}}" alt="Instagram Image 7" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_8 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 8 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 8 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_8}}{{else}}{{theme_settings.instagram_link_8}}{{/if}}" aria-label="Open Instagram Image 8 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_8}}" alt="Instagram Image 8" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_9 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 9 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 9 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_9}}{{else}}{{theme_settings.instagram_link_9}}{{/if}}" aria-label="Open Instagram Image 9 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_9}}" alt="Instagram Image 9" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_10 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 10 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 10 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_10}}{{else}}{{theme_settings.instagram_link_10}}{{/if}}" aria-label="Open Instagram Image 10 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_10}}" alt="Instagram Image 10" />
+                    </a>
+                {{/if}}
+            </div>  
+        {{/if}}   
+        {{#if theme_settings.instagram_link_url '!=' ''}}
+            <div class="button-wrapper text-center padding-top-30">
+                <a href="{{theme_settings.instagram_link_url}}" target="_blank" rel="noopener" class="button" aria-label="View Instagram Gallery in a new tab"><span>{{theme_settings.instagram_link_text}}</span></a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+{{/if}}
+
+{{#if instagram-carousel '==' 'instagram-carousel-2'}}
+<section id="InstagramGallery" class="themevale-section {{padding_top}} {{padding_bottom}} {{border-top}}">
+    <div class="container">
+        {{#if theme_settings.instagram_title '!=' ''}}
+            <h2 class="page-heading {{title-border}}">
+                <span class="title">
+                   <svg class="icon" aria-hidden="true"><use xlink:href="#icon-instagram"></use></svg>
+                    {{theme_settings.instagram_title}}
+                </span>
+            </h2>
+        {{/if}}
+        {{#if theme_settings.instagram_description '!=' ''}}
+            <p class="page-description">{{theme_settings.instagram_description}}</p>
+        {{/if}}
+        {{#if theme_settings.instagram_layout '==' 'app'}}
+            <div id="instafeed" class="themevale_instagram-carousel instagram-app">
+                {{#if theme_settings.instagram_app_code '!=' ''}}
+                    <script src='https://snapppt.com/widgets/widget_loader/{{theme_settings.instagram_app_code}}' defer class='snapppt-widget'></script>
+                {{/if}}
+            </div>
+        {{else}}
+            <div id="instafeed" class="themevale_instagram-carousel" data-slick='{
+                "arrows": false,
+                "dots": true,
+                "autoplay": false,
+                "infinite": false,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "mobileFirst": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Instagram Image&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Instagram Image&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1024,
+                        "settings": {
+                            "slidesToShow": 5,
+                            "slidesToScroll": 5,
+                            "arrows": true,
+                            "dots": false
+                        }
+                    },
+                    {
+                        "breakpoint": 767,
+                        "settings": {
+                            "slidesToShow": 4,
+                            "slidesToScroll": 4,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    },
+                    {
+                        "breakpoint": 550,
+                        "settings": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 3,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    }
+                ]}'>
+                {{#if theme_settings.instagram_image_1 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images"{{else}} target="_blank" rel="noopener"{{/if}} 
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_1}}{{else}}{{theme_settings.instagram_link_1}}{{/if}}" aria-label="Open Instagram Image 1 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_1}}" alt="Instagram Image 1" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_2 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 2 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 2 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_2}}{{else}}{{theme_settings.instagram_link_2}}{{/if}}" aria-label="Open Instagram Image 2 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_2}}" alt="Instagram Image 2" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_3 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 3 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 3 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_3}}{{else}}{{theme_settings.instagram_link_3}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_3}}" alt="Instagram Image 3" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_4 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 4 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 4 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_4}}{{else}}{{theme_settings.instagram_link_4}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_4}}" alt="Instagram Image 4" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_5 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 5 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 5 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_5}}{{else}}{{theme_settings.instagram_link_5}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_5}}" alt="Instagram Image 5" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_6 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 6 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 6 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_6}}{{else}}{{theme_settings.instagram_link_6}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_6}}" alt="Instagram Image 6" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_7 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 7 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 7 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_7}}{{else}}{{theme_settings.instagram_link_7}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_7}}" alt="Instagram Image 7" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_8 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 8 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 8 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_8}}{{else}}{{theme_settings.instagram_link_8}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_8}}" alt="Instagram Image 8" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_9 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 9 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 9 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_9}}{{else}}{{theme_settings.instagram_link_9}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_9}}" alt="Instagram Image 9" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_10 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 10 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 10 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_10}}{{else}}{{theme_settings.instagram_link_10}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_10}}" alt="Instagram Image 10" />
+                    </a>
+                {{/if}}
+            </div>  
+        {{/if}}   
+        {{#if theme_settings.instagram_link_url '!=' ''}}
+            <div class="button-wrapper text-center padding-top-30">
+                <a href="{{theme_settings.instagram_link_url}}" target="_blank" rel="noopener" class="button" aria-label="View Instagram Gallery in a new tab"><span>{{theme_settings.instagram_link_text}}</span></a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+{{/if}}
+
+{{#if instagram-carousel '==' 'instagram-carousel-3'}}
+<section id="InstagramGallery2" class="themevale-section {{padding_top}} {{padding_bottom}} {{border-top}}">
+    <div class="container">
+        {{#if theme_settings.instagram_title '!=' ''}}
+            <h2 class="page-heading {{title-border}}">
+                <span class="title">
+                   <svg class="icon" aria-hidden="true"><use xlink:href="#icon-instagram"></use></svg>
+                    {{theme_settings.instagram_title}}
+                </span>
+            </h2>
+        {{/if}}
+        {{#if theme_settings.instagram_description '!=' ''}}
+            <p class="page-description">{{theme_settings.instagram_description}}</p>
+        {{/if}}
+        {{#if theme_settings.instagram_layout '==' 'app'}}
+            <div id="instafeed" class="themevale_instagram-carousel instagram-app">
+                {{#if theme_settings.instagram_app_code '!=' ''}}
+                    <script src='https://snapppt.com/widgets/widget_loader/{{theme_settings.instagram_app_code}}' defer class='snapppt-widget'></script>
+                {{/if}}
+            </div>
+        {{else}}
+            <div id="instafeed" class="themevale_instagram-carousel" data-slick='{
+                "arrows": false,
+                "dots": true,
+                "autoplay": false,
+                "infinite": false,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "mobileFirst": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Instagram Image&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Instagram Image&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1280,
+                        "settings": {
+                            "slidesToShow": 6,
+                            "slidesToScroll": 6,
+                            "arrows": true,
+                            "dots": false
+                        }
+                    },
+                    {
+                        "breakpoint": 1024,
+                        "settings": {
+                            "slidesToShow": 5,
+                            "slidesToScroll": 5,
+                            "arrows": true,
+                            "dots": false
+                        }
+                    },
+                    {
+                        "breakpoint": 767,
+                        "settings": {
+                            "slidesToShow": 4,
+                            "slidesToScroll":4,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    },
+                    {
+                        "breakpoint": 550,
+                        "settings": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 3,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    }
+                ]}'>
+                {{#if theme_settings.instagram_image_1 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images"{{else}} target="_blank" rel="noopener"{{/if}} 
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_1}}{{else}}{{theme_settings.instagram_link_1}}{{/if}}" aria-label="Open Instagram Image 1 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_1}}" alt="Instagram Image 1" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_2 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 2 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 2 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_2}}{{else}}{{theme_settings.instagram_link_2}}{{/if}}" aria-label="Open Instagram Image 2 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_2}}" alt="Instagram Image 2" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_3 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 3 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 3 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_3}}{{else}}{{theme_settings.instagram_link_3}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_3}}" alt="Instagram Image 3" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_4 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 4 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 4 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_4}}{{else}}{{theme_settings.instagram_link_4}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_4}}" alt="Instagram Image 4" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_5 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 5 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 5 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_5}}{{else}}{{theme_settings.instagram_link_5}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_5}}" alt="Instagram Image 5" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_6 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 6 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 6 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_6}}{{else}}{{theme_settings.instagram_link_6}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_6}}" alt="Instagram Image 6" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_7 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 7 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 7 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_7}}{{else}}{{theme_settings.instagram_link_7}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_7}}" alt="Instagram Image 7" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_8 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 8 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 8 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_8}}{{else}}{{theme_settings.instagram_link_8}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_8}}" alt="Instagram Image 8" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_9 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 9 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 9 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_9}}{{else}}{{theme_settings.instagram_link_9}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_9}}" alt="Instagram Image 9" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_10 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 10 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 10 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_10}}{{else}}{{theme_settings.instagram_link_10}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_10}}" alt="Instagram Image 10" />
+                    </a>
+                {{/if}}
+            </div>  
+        {{/if}}   
+        {{#if theme_settings.instagram_link_url '!=' ''}}
+            <div class="button-wrapper text-center padding-top-30">
+                <a href="{{theme_settings.instagram_link_url}}" target="_blank" rel="noopener" class="button button--big" aria-label="View Instagram Gallery in a new tab"><span>{{theme_settings.instagram_link_text}}</span></a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+{{/if}}
+
+{{#if instagram-carousel '==' 'instagram-carousel-4'}}
+<section id="InstagramGallery3" class="{{padding_top}} {{padding_bottom}} {{border-top}}" >
+    <div class="container">
+        {{#if theme_settings.instagram_title '!=' ''}}
+            <h2 class="page-heading {{title-border}}">
+                <span class="title">
+                   <svg class="icon" aria-hidden="true"><use xlink:href="#icon-instagram"></use></svg>
+                    {{theme_settings.instagram_title}}
+                </span>
+            </h2>
+        {{/if}}
+        {{#if theme_settings.instagram_description '!=' ''}}
+            <p class="page-description">{{theme_settings.instagram_description}}</p>
+        {{/if}}
+    </div>
+
+    {{#if theme_settings.instagram_layout '==' 'app'}}
+        <div id="instafeed" class="themevale_instagram-carousel instagram-app">
+            {{#if theme_settings.instagram_app_code '!=' ''}}
+                <script src='https://snapppt.com/widgets/widget_loader/{{theme_settings.instagram_app_code}}' defer class='snapppt-widget'></script>
+            {{/if}}
+        </div>
+    {{else}}
+        <div id="instafeed" class="themevale_instagram-carousel style-2" data-slick='{
+            "arrows": false,
+            "dots": false,
+            "autoplay": true,
+            "autoplaySpeed": 5000,
+            "infinite": true,
+            "slidesToShow": 2,
+            "slidesToScroll": 2,
+            "mobileFirst": true,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Instagram Image&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Instagram Image&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "slidesToShow": 5,
+                        "slidesToScroll": 5,
+                        "centerMode": true,
+                        "infinite": true,
+                        "centerPadding": "220px"
+                    }
+                },
+                {
+                    "breakpoint": 767,
+                    "settings": {
+                        "slidesToShow": 4,
+                        "slidesToScroll": 4
+                    }
+                },
+                {
+                    "breakpoint": 550,
+                    "settings": {
+                        "slidesToShow": 3,
+                        "slidesToScroll": 3
+                    }
+                }
+            ]}'>
+            {{#if theme_settings.instagram_image_1 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images"{{else}} target="_blank" rel="noopener"{{/if}} 
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_1}}{{else}}{{theme_settings.instagram_link_1}}{{/if}}" aria-label="Open Instagram Image 1 in a new tab">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_1}}" alt="Instagram Image 1" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_2 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 2 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 2 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_2}}{{else}}{{theme_settings.instagram_link_2}}{{/if}}" aria-label="Open Instagram Image 2 in a new tab">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_2}}" alt="Instagram Image 2" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_3 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 3 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 3 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_3}}{{else}}{{theme_settings.instagram_link_3}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_3}}" alt="Instagram Image 3" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_4 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 4 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 4 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_4}}{{else}}{{theme_settings.instagram_link_4}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_4}}" alt="Instagram Image 4" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_5 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 5 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 5 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_5}}{{else}}{{theme_settings.instagram_link_5}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_5}}" alt="Instagram Image 5" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_6 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 6 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 6 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_6}}{{else}}{{theme_settings.instagram_link_6}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_6}}" alt="Instagram Image 6" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_7 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 7 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 7 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_7}}{{else}}{{theme_settings.instagram_link_7}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_7}}" alt="Instagram Image 7" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_8 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 8 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 8 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_8}}{{else}}{{theme_settings.instagram_link_8}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_8}}" alt="Instagram Image 8" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_9 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 9 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 9 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_9}}{{else}}{{theme_settings.instagram_link_9}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_9}}" alt="Instagram Image 9" />
+                </a>
+            {{/if}}
+
+            {{#if theme_settings.instagram_image_10 '!=' ''}}
+                <a class="instagram-link"
+                {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 10 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 10 in a new tab"{{/if}}
+                href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_10}}{{else}}{{theme_settings.instagram_link_10}}{{/if}}">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_10}}" alt="Instagram Image 10" />
+                </a>
+            {{/if}}
+        </div>  
+    {{/if}}   
+    {{#if theme_settings.instagram_link_url '!=' ''}}
+        <div class="button-wrapper text-center padding-top-30">
+            <a href="{{theme_settings.instagram_link_url}}" target="_blank" rel="noopener" class="button" aria-label="View Instagram Gallery in a new tab"><span>{{theme_settings.instagram_link_text}}</span></a>
+        </div>
+    {{/if}}
+
+</section>
+{{/if}}
+
+{{#if instagram-carousel '==' 'instagram-carousel-5'}}
+<section id="InstagramGallery4" class="themevale-section {{padding_top}} {{padding_bottom}}  background-gray">
+    <div class="container">
+        {{#if theme_settings.instagram_title '!=' ''}}
+            <h2 class="page-heading {{title-border}}">
+                <span class="title">
+                   <svg class="icon" aria-hidden="true"><use xlink:href="#icon-instagram"></use></svg>
+                    {{theme_settings.instagram_title}}
+                </span>
+            </h2>
+        {{/if}}
+        {{#if theme_settings.instagram_description '!=' ''}}
+            <p class="page-description">{{theme_settings.instagram_description}}</p>
+        {{/if}}
+        {{#if theme_settings.instagram_layout '==' 'app'}}
+            <div id="instafeed" class="themevale_instagram-carousel instagram-app">
+                {{#if theme_settings.instagram_app_code '!=' ''}}
+                    <script src='https://snapppt.com/widgets/widget_loader/{{theme_settings.instagram_app_code}}' defer class='snapppt-widget'></script>
+                {{/if}}
+            </div>
+        {{else}}
+            <div id="instafeed" class="themevale_instagram-carousel style-3" data-slick='{
+                "arrows": false,
+                "dots": true,
+                "autoplay": false,
+                "infinite": false,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "mobileFirst": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Instagram Image&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Instagram Image&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1024,
+                        "settings": "unslick"
+                    },
+                    {
+                        "breakpoint": 767,
+                        "settings": {
+                            "slidesToShow": 4,
+                            "slidesToScroll": 4,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    },
+                    {
+                        "breakpoint": 550,
+                        "settings": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 3,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    }
+                ]}'>
+                {{#if theme_settings.instagram_image_1 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images"{{else}} target="_blank" rel="noopener"{{/if}} 
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_1}}{{else}}{{theme_settings.instagram_link_1}}{{/if}}" aria-label="Open Instagram Image 1 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_1}}" alt="Instagram Image 1" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_2 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 2 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 2 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_2}}{{else}}{{theme_settings.instagram_link_2}}{{/if}}" aria-label="Open Instagram Image 2 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_2}}" alt="Instagram Image 2" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_3 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 3 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 3 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_3}}{{else}}{{theme_settings.instagram_link_3}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_3}}" alt="Instagram Image 3" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_4 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 4 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 4 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_4}}{{else}}{{theme_settings.instagram_link_4}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_4}}" alt="Instagram Image 4" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_5 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 5 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 5 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_5}}{{else}}{{theme_settings.instagram_link_5}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_5}}" alt="Instagram Image 5" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_6 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 6 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 6 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_6}}{{else}}{{theme_settings.instagram_link_6}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_6}}" alt="Instagram Image 6" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_7 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 7 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 7 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_7}}{{else}}{{theme_settings.instagram_link_7}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_7}}" alt="Instagram Image 7" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_8 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 8 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 8 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_8}}{{else}}{{theme_settings.instagram_link_8}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_8}}" alt="Instagram Image 8" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_9 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 9 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 9 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_9}}{{else}}{{theme_settings.instagram_link_9}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_9}}" alt="Instagram Image 9" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_10 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 10 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 10 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_10}}{{else}}{{theme_settings.instagram_link_10}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_10}}" alt="Instagram Image 10" />
+                    </a>
+                {{/if}}
+            </div>  
+        {{/if}}   
+        {{#if theme_settings.instagram_link_url '!=' ''}}
+            <div class="button-wrapper text-center padding-top-30">
+                <a href="{{theme_settings.instagram_link_url}}" target="_blank" rel="noopener" class="button button--border" aria-label="View Instagram Gallery in a new tab"><span>{{theme_settings.instagram_link_text}}</span></a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+{{/if}}
+
+{{#if instagram-carousel '==' 'instagram-carousel-6'}}
+<section id="InstagramGallery" class="themevale-section {{padding_top}} {{padding_bottom}} {{border-top}}">
+    <div class="container">
+        {{#if theme_settings.instagram_title '!=' ''}}
+            <h2 class="page-heading {{title-border}}">
+                <span class="title">
+                   <svg class="icon" aria-hidden="true"><use xlink:href="#icon-instagram"></use></svg>
+                    {{theme_settings.instagram_title}}
+                </span>
+            </h2>
+        {{/if}}
+        {{#if theme_settings.instagram_description '!=' ''}}
+            <p class="page-description">{{theme_settings.instagram_description}}</p>
+        {{/if}}
+        {{#if theme_settings.instagram_layout '==' 'app'}}
+            <div id="instafeed" class="themevale_instagram-carousel instagram-app">
+                {{#if theme_settings.instagram_app_code '!=' ''}}
+                    <script src='https://snapppt.com/widgets/widget_loader/{{theme_settings.instagram_app_code}}' defer class='snapppt-widget'></script>
+                {{/if}}
+            </div>
+        {{else}}
+            <div id="instafeed" class="themevale_instagram-carousel" data-slick='{
+                "arrows": false,
+                "dots": true,
+                "autoplay": false,
+                "infinite": false,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "mobileFirst": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Instagram Image&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Instagram Image&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1024,
+                        "settings": {
+                            "slidesToShow": 5,
+                            "slidesToScroll": 5,
+                            "arrows": true,
+                            "dots": false
+                        }
+                    },
+                    {
+                        "breakpoint": 767,
+                        "settings": {
+                            "slidesToShow": 4,
+                            "slidesToScroll": 4,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    },
+                    {
+                        "breakpoint": 550,
+                        "settings": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 3,
+                            "arrows": false,
+                            "dots": true
+                        }
+                    }
+                ]}'>
+                {{#if theme_settings.instagram_image_1 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images"{{else}} target="_blank" rel="noopener"{{/if}} 
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_1}}{{else}}{{theme_settings.instagram_link_1}}{{/if}}" aria-label="Open Instagram Image 1 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_1}}" alt="Instagram Image 1" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_2 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 2 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 2 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_2}}{{else}}{{theme_settings.instagram_link_2}}{{/if}}" aria-label="Open Instagram Image 2 in a new tab">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_2}}" alt="Instagram Image 2" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_3 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 3 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 3 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_3}}{{else}}{{theme_settings.instagram_link_3}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_3}}" alt="Instagram Image 3" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_4 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 4 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 4 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_4}}{{else}}{{theme_settings.instagram_link_4}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_4}}" alt="Instagram Image 4" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_5 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 5 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 5 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_5}}{{else}}{{theme_settings.instagram_link_5}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_5}}" alt="Instagram Image 5" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_6 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 6 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 6 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_6}}{{else}}{{theme_settings.instagram_link_6}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_6}}" alt="Instagram Image 6" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_7 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 7 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 7 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_7}}{{else}}{{theme_settings.instagram_link_7}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_7}}" alt="Instagram Image 7" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_8 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 8 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 8 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_8}}{{else}}{{theme_settings.instagram_link_8}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_8}}" alt="Instagram Image 8" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_9 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 9 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 9 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_9}}{{else}}{{theme_settings.instagram_link_9}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_9}}" alt="Instagram Image 9" />
+                    </a>
+                {{/if}}
+
+                {{#if theme_settings.instagram_image_10 '!=' ''}}
+                    <a class="instagram-link"
+                    {{#if theme_settings.instagram_type '==' 'fancybox'}} data-fancybox="images" aria-label="Open Instagram Image 10 in a popup"{{else}} target="_blank" rel="noopener" aria-label="Open Instagram Image 10 in a new tab"{{/if}}
+                    href="javascript:void(0);" data-href="{{#if theme_settings.instagram_type '==' 'fancybox'}}/product_images/uploaded_images/{{theme_settings.instagram_image_10}}{{else}}{{theme_settings.instagram_link_10}}{{/if}}">
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.instagram_image_10}}" alt="Instagram Image 10" />
+                    </a>
+                {{/if}}
+            </div>  
+        {{/if}}   
+        {{#if theme_settings.instagram_link_url '!=' ''}}
+            <div class="button-wrapper text-center padding-top-30">
+                <a href="{{theme_settings.instagram_link_url}}" target="_blank" rel="noopener"  class="button button--border button--big" aria-label="View Instagram Gallery in a new tab"><span id="new-window-warning">{{theme_settings.instagram_link_text}}</span></a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+{{/if}}

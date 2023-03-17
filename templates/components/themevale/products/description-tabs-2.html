@@ -1,0 +1,83 @@
+<ul class="tabs style-4" data-tab role="tablist">
+    <li class="tab is-active">
+        <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+    </li>
+    {{#if product.warranty}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
+        </li>
+    {{/if}}
+    {{#all settings.show_product_reviews}}
+        <li class="tab">
+            <a class="tab-title productView-reviewTabLink" href="#product-reviews">Custom Review</a>
+        </li>
+    {{/all}}
+    <li class="tab">
+        <a class="tab-title" href="#tab-shipping-returns">Shipping &amp; Returns</a>
+    </li>
+    <li class="tab">
+        <a class="tab-title" href="#tab-custom-product">Custom Product Tab</a>
+    </li>
+</ul>
+<div class="tabs-contents">
+    <div class="tab-content productDescription is-active" id="tab-description" data-accordion-item="">
+        <div class="toggle-title">
+            <a class="toggleLink" href="#tab-description-content" data-collapsible>
+                <span class="title">{{lang 'products.description'}}</span>
+                <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+            </a>
+        </div>
+        <div class="toggle-content is-open" id="tab-description-content" aria-hidden="false"{{#if schema}} itemprop="description"{{/if}}>
+            {{{product.description}}}
+            {{{snippet 'product_description'}}}
+        </div>
+    </div>
+    {{#if product.warranty}}
+    <div class="tab-content productWarranty" id="tab-warranty" data-accordion-item="">
+        <div class="toggle-title">
+            <a class="toggleLink" href="#tab-warranty-content" data-collapsible>
+                <span class="title">{{lang 'products.warranty'}}</span>
+                <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+            </a>
+        </div>
+        <div class="toggle-content" id="tab-warranty-content" aria-hidden="true">
+            {{{product.warranty}}}
+        </div>
+    </div>
+    {{/if}}
+    {{#if settings.show_product_reviews}}
+    <div class="tab-content productReviews" id="product-reviews" data-product-reviews>
+        <div class="toggle-title">
+            <a class="toggleLink" href="#productReviews-content" data-collapsible>
+                <span class="title">{{lang 'products.reviews.header' total=product.reviews.total}}</span>
+                <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+            </a>
+        </div>
+        <div class="toggle-content" id="productReviews-content">
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        </div>
+    </div>
+    {{/if}}
+    <div class="tab-content productShippingReturn" id="tab-shipping-returns" data-accordion-item="">
+        <div class="toggle-title">
+            <a class="toggleLink" href="#tab-shipping-returns-content" data-collapsible>
+                <span class="title">Shipping &amp; Returns</span>
+                <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+            </a>
+        </div>
+        <div class="toggle-content" id="tab-shipping-returns-content" aria-hidden="true">
+            {{> components/themevale/tabs/tab-shipping}}
+        </div>
+    </div>
+    <div class="tab-content productCustomTab" id="tab-custom-product" data-accordion-item="">
+        <div class="toggle-title">
+            <a class="toggleLink" href="#tab-custom-product-content" data-collapsible>
+                <span class="title">Custom Product Tab</span>  
+                <span class="icon"><svg><use xlink:href="#icon-chevron-down"></use></svg></span>
+            </a>
+        </div>
+        <div class="toggle-content" id="tab-custom-product-content" aria-hidden="true">
+            {{> components/themevale/tabs/tab-custom}}
+        </div>
+    </div>
+</div>

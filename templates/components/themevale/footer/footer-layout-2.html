@@ -1,0 +1,164 @@
+<footer class="footer footer-layout-2 {{#if theme_settings.footer-dark-layout}}themevale-footer-dark{{/if}}">
+    <div class="themevale_footer-top">
+        <div class="container">
+            <div class="wrapper">
+                <div class="item">
+                    <div class="footer-social">
+                        {{> components/common/social-links}}
+                    </div>
+                </div>
+                <div class="item">
+                    {{#if settings.show_newsletter_box}}
+                        <div class="subscription-form-2">
+                            <h5 class="footer-info-heading text-capitalize">{{lang 'newsletter.subscribe_2'}}</h5>
+                            <form class="form" action="{{urls.subscribe.action}}" method="post">
+                                <fieldset class="form-fieldset">
+                                    <input type="hidden" name="action" value="subscribe">
+                                    <input type="hidden" name="nl_first_name" value="bc">
+                                    <input type="hidden" name="check" value="1">
+                                    <div class="form-field">
+                                        <label class="form-label is-srOnly" for="nl_email">{{lang 'common.email_address'}}</label>
+                                        <div class="form-prefixPostfix wrap">
+                                            <input class="form-input" id="nl_email" name="nl_email" type="email" value="{{customer.email}}" placeholder="{{lang 'newsletter.email_placeholder'}}">
+                                            <input class="button form-prefixPostfix-button--postfix" type="submit" value="{{lang 'newsletter.subscribe_submit_2'}}">
+                                        </div>
+                                        {{#if settings.show_newsletter_summary }}
+                                            <div class="footer-newsletter-summary">{{settings.newsletter_summary}}</div>
+                                        {{/if}}
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="item text-center padding-top-30">
+                <span class="description">By entering your email address, you agree to receive Ella offers, promotions, other commercial messages. You can view our Privacy Policy here and you may unsubscribe at any time.</span>
+            </div>
+        </div>
+    </div>
+    <div class="themevale_footer-middle">
+        <div class="container">
+            <section class="footer-info themevale_footer-info col-5">
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading text-capitalize">
+                        <span>Shop</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Shop Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <ul class="footer-info-list">
+                        {{#each categories}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a href="{{urls.brands}}">Top Brands</a>
+                        </li>
+                        <li>
+                            <a href="#">Sale &amp; Special Offers</a>
+                        </li>
+                        <li>
+                            <a href="/lookbook/">lookbook</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-brands">
+                    <h5 class="footer-info-heading text-capitalize">
+                        <span>Top Brands</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Top Brands Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <ul class="footer-info-list">
+                        {{#each shop_by_brand}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a class="view-all" href="{{urls.brands}}">
+                                view all
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading text-capitalize">
+                        <span>Infomation</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Infomation Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <ul class="footer-info-list">
+                        {{#each pages}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-services">
+                    <h5 class="footer-info-heading text-capitalize">
+                        <span>Customer Service</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Customer Service Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <ul class="footer-info-list">
+                        <li><a href="#">Search Terms</a></li>
+                        <li><a href="#">Advanced Search</a></li>
+                        <li><a href="#">Orders and Returns</a></li>
+                        <li><a href="/contact-us/">Contact Us</a></li>
+                        <li><a href="/faqs/">Theme FAQs</a></li>
+                        <li><a href="#">Consultant</a></li>
+                        <li><a href="/contact-us/">Store Locations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-location">
+                    <h5 class="footer-info-heading text-capitalize">
+                        <span>Store Location</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Store Infomation Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <div class="footer-info-list">
+                        <div class="store-address">{{nl2br settings.address}}</div>
+                        <br>
+                        <div class="store-phone">Call us at: {{settings.phone_number}}</div>
+                        <div class="store-email">Email: <a href="mailto:email@domain.com">email@domain.com</a></div>
+                        <div class="group-button-download">
+                            <a href="#"><img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/appstore.png" alt="appstore"></a>
+                            <a href="#"><img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/googleplay.png" alt="googleplay"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="themevale_footer-bottom">
+        <div class="container">
+            <div class="wrapper">
+                <div class="item">
+                    {{#if theme_settings.show_copyright_footer}}
+                        <div class="footer-copyright">
+                            <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+                        </div>
+                    {{/if}}
+
+                    {{#if theme_settings.show_powered_by}}
+                        <div class="footer-copyright">
+                            <p class="powered-by">Bigcommerce Themes &amp; Templates by <a href="themevale.com" rel="nofollow">ThemeVale.com</a></p>
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="item">
+                    {{> components/common/payment-icons}}
+                    {{#if theme_settings.geotrust_ssl_common_name}}
+                        <div class="footer-geotrust-ssl-seal">
+                            {{> components/common/geotrust-ssl-seal}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

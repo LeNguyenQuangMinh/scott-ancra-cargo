@@ -1,0 +1,343 @@
+// =============================================================================
+// SEARCH
+// =============================================================================
+
+.search-suggestion {
+    margin-bottom: spacing("single") + spacing("third");
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.suggestion-title {
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.advancedSearch-form {
+    margin-bottom: spacing("double");
+
+    .form-row {
+        margin-bottom: -(spacing("single"));
+    }
+}
+
+.quickSearchResults {
+    width: 100%;
+    margin-top: 0px;
+    max-height: 320px;
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    @include breakpoint('small') {
+        max-height: 250px;
+    }
+    @media (min-width: 768px) {
+        max-height: 370px;
+    }
+    .modal-close {
+        display: none;
+    }
+    .productList {
+        padding: 0;
+        margin: 0;
+        .product {
+            margin: 0;
+            width: 100%;
+            padding: 15px;
+            display: block;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #eaeaea;
+            &:hover {
+                background-color: #fafafa;
+            }
+            &:last-child {
+                padding-bottom: 15px;
+            }
+            + .product {
+                margin-top: 0;
+            }
+        }
+    }
+    .card {
+        margin: 0;
+        width: 100%;
+        display: table;
+        text-align: left;
+        .card-figure,
+        .card-body {
+            text-align: left;
+            display: table-cell;
+            vertical-align: top;
+        }
+        .card-img-container:before {
+            content: none;
+        }
+        .card-figure {
+            width: 70px;
+            padding-bottom: 0;
+            background-color: transparent;
+        }
+        .card-body {
+            padding-top: 0;
+            padding-left: 15px;
+            .card-brand {
+                display: none;
+            }
+            .card-title {
+                margin-bottom: 10px;
+            }
+            .price-wrapper {
+                margin-bottom: 12px;
+            }
+            @include breakpoint("small") {
+                .card-brand {
+                    display: block;
+                }
+            }
+        }
+    }
+    .quickSearch-wrapper {
+        padding: 15px;
+    }
+}
+
+.advancedSearch-separator {
+    display: none;
+}
+
+.advancedSearch-title {
+    margin: 0 0 spacing("single");
+    text-transform: inherit;
+}
+
+.search-price-range {
+    label {
+        display: inline;
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        input {
+            display: block;
+            padding-left: spacing("single");
+
+            @include breakpoint("small") {
+                display: inline;
+                width: 6rem;
+            }
+        }
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        span {
+            @include breakpoint("small") {
+                display: inline;
+                padding-left: spacing("single");
+                padding-right: spacing("single");
+            }
+        }
+    }
+}
+
+.category-suggestion-list {
+    list-style: none;
+    margin: 0 -8px;
+    @include breakpoint('small') {
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+    @media (min-width: 1025px) {
+        margin: 0 -15px;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+.category-suggestion {
+    padding: 0 8px;
+    font-size: 12px;
+    break-inside: avoid-column;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 10px;
+    @media (min-width: 1025px) {
+        padding: 0 15px;
+        margin-bottom: 15px;
+    }
+}
+
+.search-refine {
+    margin-left: spacing("single");
+}
+
+.quickSearchMessage {
+    font-size: fontSize("smaller");
+    margin: 0;
+    text-align: center;
+}
+
+#search-results-content {
+    ul {
+        strong a {
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.themevale_searchSticky {
+    top: 50px;
+    left: 50%;
+    width: 100%;
+    z-index: 99;
+    display: none;
+    position: fixed;
+    max-width: 770px;
+    transform: translateX(-50%);
+    .form,
+    .form-field {
+        margin-bottom: 0;
+        position: relative;
+    }
+    .form-input {
+        border: none;
+        padding: 5px 50px 5px 15px;
+        background-color: #fafafa;
+    }
+    button[type=submit] {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 5;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        text-align: center;
+        position: absolute;
+        background-color: transparent;
+        .icon {
+            width: 50px;
+            height: 100%;
+            padding: 0 15px;
+            line-height: 50px;
+        }
+    }
+    &.is-open {
+        display: block;
+    }
+}
+
+.themevale_quickSearch {
+    overflow: hidden;
+    .header {
+        .navUser-item--quickSearch .quickSearchResults {
+            display: none;
+        }
+    }
+}
+
+
+.themevale_search-custom {
+    display: block;
+    margin: 0 auto;
+    .form, .form-fieldset, .form-field {
+        margin: 0;
+    }
+    .form-fieldset {
+        margin: 0;
+        width: 100%;
+        position: relative;
+    }
+    .form-field {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: stretch;
+        border-radius: 3px;
+        color: stencilColor('navUser-search-textColor');
+        background-color: stencilColor('navUser-search-backgroundColor');
+        border: 1px solid stencilColor('navUser-search-borderColor');
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.075);
+    }
+    #search_category {
+        width: 70px;
+        min-width: 70px;
+        font-weight: 500;
+        overflow: hidden;
+        position: relative;
+        background: stencilColor('navUser-search-backgroundcategoryColor');
+        border-radius: 3px 0 0 3px;
+        transition: all 0.3s ease;
+        .select_category {
+            z-index: 2;
+            height: 100%;
+            line-height: 16px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 15px 15px 15px 17px;
+            background-color: transparent;
+            &::-ms-expand {
+                display: none;
+            }
+        }
+        .icon {
+            top: 50%;
+            right: 17px;
+            @include square(10);
+            position: absolute;
+            fill: stencilColor('navUser-search-textColor');
+            stroke: stencilColor('navUser-search-textColor');
+            transform: translateY(-50%);
+        }
+    }
+    .form-input {
+        min-height: auto;
+        border: none;
+        border-radius: 0;
+        &::-webkit-input-placeholder {
+            color: stencilColor('navUser-search-textColor');
+        }
+        &::-moz-placeholder {
+            color: stencilColor('navUser-search-textColor');
+        }
+        &:-ms-input-placeholder {
+            color: stencilColor('navUser-search-textColor');
+        }
+        &:-moz-placeholder {
+            color: stencilColor('navUser-search-textColor');
+        }
+    }
+    button[type="submit"] {
+        padding: 8px 12px;
+        .icon {
+            fill: stencilColor('navUser-search-iconColor');
+            stroke: stencilColor('navUser-search-iconColor');
+            @include square(20);
+        }
+    }
+    @media (min-width: 768px) {
+        width: 485px;
+        button[type="submit"] {
+            padding: 10px;
+            .icon {
+                @include square(26);
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        .form-fieldset {
+        }
+        #search_category {
+        }
+        .form-input {
+        }
+        button[type="submit"] {
+        }
+    }
+}

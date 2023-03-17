@@ -1,0 +1,403 @@
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#if carousel}}
+        {{> components/carousel carousel=carousel layout="layout-1" arrows=theme_settings.homepage_show_carousel_arrows dots=theme_settings.homepage_show_carousel_dots}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+<div class="main full">
+
+    <section class="home-banner">
+        <div class="home-banner-wrap">
+            <img src="../../../../assets/img/home-banner.jpg" alt="home-banner" class="banner-img">
+
+            <div class="text-carousel">
+                <div class="container">
+                    <div class="text-carousel-wrap">
+                        <h4 class="text-carousel--title">Lorem Ipsum Dolor</h4>
+                        <p class="text-carousel--content">Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>
+                        <a href="#" class="text-carousel--btn btn-primary">
+                            <span class="carousel-btn--text btn-text">Learn More</span>
+                            <span class="text-carousel--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="home-text">
+        <div class="container">
+            <div class="home-text-wrap">
+                <h2 class="home-text--title">Kinedyne – The Cargo Control People ™</h2>
+                <p class="home-text--content">Kinedyne is the leading cargo securement and cargo control company with operations in the United States, Canada, and Mexico. Over the past 50 years, Kinedyne has engineered several innovative products evolving cargo control to help make our roads safe. In addition to manufacturing, we employ a team of specialized engineers who design, engineer, and advance our solutions for the cargo securement industry. We manufacture several flatbed cargo securement solutions, including ratchet straps, winch straps, and winches, to name a few. Additionally, we also specialize in solutions for enclosed semi-trailers to include logistic beams, logistic tracks, and logistic straps. In addition to our traditional flatbed and enclosed trailer cargo securement solutions, we also manufacture chain products like tire chains, transport chains, and build custom trailer curtainside solutions. We also have a dedicated team of military and government representatives specializing in our military cargo securement solutions, including cargo nets, and tow straps, and NSN cargo control products.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featuredCategory">
+        <div class="container">
+            <div class="featuredCategory-wrap">
+                <h3 class="featuredCategory-title">Featured Category</h3>
+                <div class="featuredCategory-block">
+                    <div class="featuredCategory-block-item">
+                        <div class="block-item-text">
+                            <p class="block-item-text--title">Flatbed Trailer Products</p>
+                            <span class="block-item-text--content">
+                                Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+                            </span>
+                        </div>
+                        <a href="#" class="block-item-btn btn-primary">
+                            <span class="block-item-btn--text btn-text">Shop Now</span>
+                            <span class="block-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="featuredCategory-block-item">
+                        <div class="block-item-text">
+                            <p class="block-item-text--title">Flatbed Trailer Products</p>
+                            <span class="block-item-text--content">
+                                Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+                            </span>
+                        </div>
+                        <a href="#" class="block-item-btn btn-primary">
+                            <span class="block-item-btn--text btn-text">Shop Now</span>
+                            <span class="block-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="featuredCategory-block-item">
+                        <div class="block-item-text">
+                            <p class="block-item-text--title">Flatbed Trailer Products</p>
+                            <span class="block-item-text--content">
+                                Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+                            </span>
+                        </div>
+                        <a href="#" class="block-item-btn btn-primary">
+                            <span class="block-item-btn--text btn-text">Shop Now</span>
+                            <span class="block-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="featuredCategory-block-item">
+                        <div class="block-item-text">
+                            <p class="block-item-text--title">Flatbed Trailer Products</p>
+                            <span class="block-item-text--content">
+                                Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+                            </span>
+                        </div>
+                        <a href="#" class="block-item-btn btn-primary">
+                            <span class="block-item-btn--text btn-text">Shop Now</span>
+                            <span class="block-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="halo-shopByCategory">
+        <div class="container">
+            <div class="shopByCategory-wrap">
+                <h4 class="shopByCategory-title">Shop By Category</h4>
+                <div class="shopByCategory-block row">
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-01.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category02.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-03.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-04.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-05.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-06.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="shopByCategory-block row">
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-07.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-08.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-09.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-10.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-11.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shopByCategory-item">
+                        <div class="shopByCategory-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-category-12.jpg" alt="img-category">
+                        </div>
+                        <p class="shopByCategory-item--name">Winch Straps</p>
+                        <a href="#" class="shopByCategory-item-btn btn-primary">
+                            <span class="shopByCategory-item-btn--text btn-text">Shop Now</span>
+                            <span class="shopByCategory-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="block-text-video">
+        <div class="container">
+            <div class="block-text-video--wrap">
+                <div class="block-text">
+                    <h4 class="block-text-title">Kinedyne Cargo Securement Education Program</h4>
+                    <p class="block-text-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque egestas diam in. Nibh praesent tristique magna sit amet purus gravida. Proin nibh nisl condimentum id venenatis a condimentum. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing. Viverra suspendisse potenti nullam ac tortor. Arcu ac tortor dignissim convallis aenean et tortor. Mauris a diam maecenas sed enim ut. At in tellus integer feugiat scelerisque morbi.</p>
+                    <a href="#" class="block-text-btn btn-primary">
+                        <span class="block-text-btn--text btn-text">Learn More</span>
+                        <span class="block-text-btn--icon btn-icon">
+                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                        </span>
+                    </a>
+                </div>
+                <div class="block-video">
+                    <iframe width="741" height="414" src="https://www.youtube.com/embed/zi_OOGSyz3g" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block-cargo">
+        <div class="container">
+            <h4 class="block-cargo-title">Cargo News & Event</h4>
+            <div class="block-cargo-wrap">
+                <div class="block-cargo-left">
+                    <div class="cargo-left-item">
+                        <div class="cargoLeft-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-cargo-01.jpg" alt="img-item">
+                        </div>
+                        <div class="cargoLeft-item-wrap">
+                            <p class="cargoLeft-item-title">How to Thread a Strap through Ratchet and Cam Buckles</p>
+                            <p class="cargoLeft-item-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            <a href="#" class="cargoLeft-item-btn btn-primary">
+                                <span class="cargoLeft-item-btn--text btn-text">Read More</span>
+                                <span class="cargoLeft-item-btn--icon btn-icon">
+                                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cargo-left-item">
+                        <div class="cargoLeft-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-cargo-02.jpg" alt="img-item">
+                        </div>
+                        <div class="cargoLeft-item-wrap">
+                            <p class="cargoLeft-item-title">How to Thread a Strap through Ratchet and Cam Buckles</p>
+                            <p class="cargoLeft-item-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            <a href="#" class="cargoLeft-item-btn btn-primary">
+                                <span class="cargoLeft-item-btn--text btn-text">Read More</span>
+                                <span class="cargoLeft-item-btn--icon btn-icon">
+                                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-cargo-right">
+                    <div class="cargoRight-item">
+                        <div class="cargoRight-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-cargo-03.jpg" alt="img-item">
+                        </div>
+                        <a href="#" class="cargoRight-item-btn btn-primary">
+                            <span class="cargoRight-item-btn--text btn-text">Shop Our Catalog</span>
+                            <span class="cargoRight-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="cargoRight-item">
+                        <div class="cargoRight-item-img">
+                            <img src="https://cdn11.bigcommerce.com/s-whibb798fn/images/stencil/original/image-manager/img-cargo-04.jpg" alt="img-item">
+                        </div>
+                        <a href="#" class="cargoRight-item-btn btn-primary">
+                            <span class="cargoRight-item-btn--text btn-text">Shop Our Catalog</span>
+                            <span class="cargoRight-item-btn--icon btn-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featuredAssociation">
+        <div class="container">
+            <div class="featuredAssociation-wrap">
+                <h4 class="featuredAssociation-title">Featured Association</h4>
+                <div class="featuredAssociation-block">
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_01.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_02.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_03.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_04.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_05.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_06.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_07.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_08.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_09.jpg" alt="Featured Association image">
+                    </div>
+                    <div class="featuredAssociation-item">
+                        <img src="../../../../assets/img/img-custom/img_featured_10.jpg" alt="Featured Association image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{{/partial}}
+{{> layout/base}}

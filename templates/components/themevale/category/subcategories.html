@@ -1,0 +1,18 @@
+{{#if category.subcategories}}
+    <div class="themevale_subCategories">
+        <h2 class="subCategories-heading">{{lang 'categories.sub-categories'}}</h2>
+        <div class="themevale_column themevale_column--col4">
+            {{#each category.subcategories}}
+                <div class="item">
+                    <div class="sub-category">
+                        <div class="image"><a href="{{url}}"><img src="{{getImage image '80x80' (cdn 'img/CategoryDefault.jpg')}}" alt="{{name}}"></a></div>
+                        <div class="content">
+                            <a class="title" href="{{url}}">{{name}}</a>
+                            <div class="product-count">{{product_count}} {{#if product_count '>=' 2}}items{{else}} item {{/if}} </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

@@ -1,0 +1,54 @@
+{{#partial "page"}}
+<div class="themevale_map">
+    {{#if theme_settings.themevale_map}}
+        {{> components/themevale/contact-us-map}}
+    {{/if}}
+</div>
+<div class="container">
+    <div class="themevale_breadcrumb">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        <h1 class="page-heading">{{page.title}}</h1>
+    </div>
+    <main class="page">
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+        <div class="page-content themevale_contact-us">
+            <div class="themevale_form">
+                <div id="contact-us-page">
+                    {{#if forms.contact.success}}
+                        <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+                    {{else}}
+                        <p>{{{page.content}}}</p>
+                        {{> components/page/contact-us-form}}
+                    {{/if}}
+                </div>
+            </div>
+            <div class="themevale_location">
+                <h3 class="title">Please do get in touch!</h3>
+                <div class="content">
+                    <div class="description">We'd love to hear from you - please use the form to send us your message or ideas. Or simply pop in for a cup of fresh tea and a cookie:</div>
+                    <br>
+                    <div class="store-address">{{nl2br settings.address}}</div>
+                    <br>
+                    <div class="store-email">Email: <a href="mailto:email@domain.com">email@domain.com</a></div>
+                    <div class="store-phone">Toll-free: {{settings.phone_number}}</div>
+                </div>
+                <div class="content">
+                    <p class="sub-title">Opening Hours:</p>
+                    <div class="item1">Monday to Saturday: 9am - 10pm</div>
+                    <div class="item2">Sundays: 10am - 6pm</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+{{/partial}}
+
+{{> layout/base}}

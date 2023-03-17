@@ -1,0 +1,25 @@
+<article class="blog recent-post-2 text-center">
+    <div class="blog-post-figure">
+        {{#if post.thumbnail}}
+            <img src="{{getImage post.thumbnail 'recent_post_size'}}" alt="{{post.thumbnail.alt}}" title="{{post.thumbnail.alt}}">
+        {{/if}}
+    </div>
+    <div class="blog-post-header">
+        <div class="blog-header">
+            <p class="blog-date">{{#if post.author}}{{lang 'blog.posted_by' name=post.author}} on {{/if}}{{post.date_published}}</p>
+            <h2 class="blog-title">
+                <a href="{{post.url}}">{{post.title}}</a>
+            </h2>
+        </div>
+    </div>
+    <div class="blog-post-body">
+        <div class="blog-post">
+            {{{post.summary}}}
+            {{#if post.show_read_more}}
+                &hellip;
+                <br>
+                <a class="link">read more</a>
+            {{/if}}
+        </div>
+    </div>
+</article>

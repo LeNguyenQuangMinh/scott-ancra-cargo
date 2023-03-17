@@ -1,0 +1,56 @@
+<script type="text/javascript">
+  var arrNew = [0{{#each productsnew}},{{id}}{{/each}}];
+</script>
+<section class="themevale-section {{padding_top}} {{padding_bottom}}">
+    <div class="container">
+        {{#each categories}}
+            {{#if id '==' ../category_id}}
+                <div class="themevale_productsByCategorySortTabs">
+                    <span class="newTextAjax">New</span>
+                    <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-custom banner=../../banner }}
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../category_id}}
+                        <div class="themevale_productsByCategorySortTabs">
+                            <span class="newTextAjax">New</span>
+                            <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                            {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-custom banner=../../../../banner }}
+                        </div>
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../../../../category_id}}
+                                <div class="themevale_productsByCategorySortTabs">
+                                    <span class="newTextAjax">New</span>
+                                    <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                                    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-custom banner=../../../../../../banner }}
+                                </div>
+                            {{else}}
+                                {{#each children}}
+                                    {{#if id '==' ../../../../../../../category_id}}
+                                        <div class="themevale_productsByCategorySortTabs">
+                                            <span class="newTextAjax">New</span>
+                                            <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                                            {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-custom banner=../../../../../../../../banner }}
+                                        </div>
+                                    {{else}}
+                                        {{#each children}}
+                                            {{#if id '==' ../../../../../../../../../category_id}}
+                                                <div class="themevale_productsByCategorySortTabs">
+                                                    <span class="newTextAjax">New</span>
+                                                    <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                                                    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-custom banner=../../../../../../../../../../banner }}
+                                                </div>
+                                            {{/if}}
+                                        {{/each}}
+                                    {{/if}}
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    </div>
+</section>

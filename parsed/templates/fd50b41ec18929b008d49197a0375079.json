@@ -1,0 +1,3 @@
+{
+  "components/common/breadcrumbs": "<ul class=\"breadcrumbs\" itemscope itemtype=\"http://schema.org/BreadcrumbList\">\n    {{#each breadcrumbs}}\n        <li class=\"breadcrumb {{#if @last}}is-active{{/if}}\" itemprop=\"itemListElement\" itemscope itemtype=\"http://schema.org/ListItem\">\n            {{#if url}}\n                <a href=\"{{url}}\" class=\"breadcrumb-label\" itemprop=\"item\"><span itemprop=\"name\">{{name}}</span></a>\n            {{else}}\n                <meta itemprop=\"item\" content=\"{{url}}\">\n                <span class=\"breadcrumb-label\" itemprop=\"name\">{{name}}</span>\n            {{/if}}\n            <meta itemprop=\"position\" content=\"{{@index}}\" />\n        </li>\n    {{/each}}\n</ul>\n"
+}

@@ -1,0 +1,23 @@
+<div class="themevale_productsByCategory-products" data-event="show more" data-number-product="10">
+    <div class="container">
+        <ul class="productGrid style-2 productGrid--maxCol5">
+            {{#each category.products}}
+                <li class="product">
+                    {{> components/products/card-marketing settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist event="list" position=(add @index 1)}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+	var elems = $(".themevale_productsByCategory-products .productGrid .product");
+    if (elems.length) {
+        var j, x, i;
+        for (i = elems.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = $( elems[i] ).html();
+            $( elems[i] ).html( $( elems[j] ).html() );
+            $( elems[j] ).html( x );
+        }
+    }
+</script>

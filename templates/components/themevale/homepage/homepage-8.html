@@ -1,0 +1,44 @@
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#if carousel}}
+        {{> components/carousel carousel=carousel layout="layout-8" arrows=theme_settings.homepage_show_carousel_arrows dots=theme_settings.homepage_show_carousel_dots}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+<div class="main full">
+
+    {{> components/themevale/homepage/component/image-collections image-collections="image-collections-11" padding_top="padding-top-30" padding_bottom="padding-bottom-70"}}
+    {{{region name="home_below_block_1"}}}
+
+    {{#if products.new}}
+        {{> components/products/product-layout padding_top="padding-top-0" padding_bottom="padding-bottom-70" products=products.new productsnew=products.new title=theme_settings.homepage_products_new_title layout=theme_settings.homepage_products_new_layout_grid columns=theme_settings.homepage_products_new_column products_show=theme_settings.homepage_products_new_show products_limit=theme_settings.homepage_products_new_limit description=theme_settings.homepage_products_new_description block_id="home8-new-products"}}
+    {{/if}}
+    {{{region name="home_below_block_2"}}}
+
+    {{> components/themevale/homepage/component/image-collections image-collections="image-collections-12" padding_top="padding-top-0" padding_bottom="padding-bottom-70"}}
+    {{{region name="home_below_block_3"}}}
+
+    {{#if blog.recent_posts}}
+        {{> components/themevale/homepage/component/latest-post latest-post="latest-post-1" padding_top="padding-top-0" padding_bottom="padding-bottom-70" blog=blog.recent_posts title=theme_settings.homepage_blog_title description=theme_settings.homepage_blog_description columns=theme_settings.homepage_blog_column blog_show=theme_settings.homepage_blog_limit}}
+    {{/if}}
+    {{{region name="home_below_block_4"}}}
+
+    {{#if theme_settings.enable_instagram}}
+        {{> components/themevale/homepage/component/instagram-carousel instagram-carousel="instagram-carousel-2" padding_top="padding-top-0" padding_bottom="padding-bottom-70"}}
+    {{/if}}    
+    {{{region name="home_below_block_5"}}}
+
+    {{> components/themevale/homepage/component/brands-carousel brands-carousel="brands-carousel-1" padding_top="padding-top-30" padding_bottom="padding-bottom-30" border-top="border-top"}}
+    {{{region name="home_below_block_6"}}}
+
+</div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,208 @@
+// =============================================================================
+// NAV (CSS)
+// =============================================================================
+
+
+// Citadel inline messages
+// -----------------------------------------------------------------------------
+//
+// 1. Remove the margin-left we add to default lists.
+//
+// -----------------------------------------------------------------------------
+
+.navList,
+.navBar {
+    margin-left: 0; // 1
+}
+
+.navList-action,
+.navBar-action {
+    text-decoration: none;
+}
+
+.navList-action.is-active {
+    font-weight: $navList-action-fontWeight--active;
+}
+
+
+// NavList action checkbox
+// -----------------------------------------------------------------------------
+//
+// Purpose: Display a checkbox next to an actionable link, without actually using
+// a checkbox element.
+//
+// 1. Position checkbox so it is vertically centered
+//
+// -----------------------------------------------------------------------------
+
+.navList-action--checkbox {
+    @include checkRadioBase();
+    @include checkBox-base();
+
+    &:before,
+    &:after {
+        top: 50%; // 1
+    }
+
+    &:before {
+        margin-top: -$checkRadio-outerSize / 2;
+        border-radius: 0;
+    }
+
+    &:after {
+        margin-top: -$checkRadio-outerSize / 2 + remCalc(1);
+    }
+
+    &:focus {
+        @include checkRadioBase--focus();
+    }
+
+    &.is-disabled {
+        @include checkRadioBase--disabled();
+    }
+
+    &.is-checked,
+    &.is-selected {
+        @include checkRadioBase--checked();
+    }
+}
+
+
+// NavList action close
+// -----------------------------------------------------------------------------
+//
+.navList-action-close {
+    background: $navList-action-close-background;
+    border-radius: $navList-action-close-borderRadius;
+    display: inline-block;
+    float: right;
+    line-height: 0;
+    opacity: 0;
+    padding: $navList-action-close-padding;
+    transition: $navList-action-close-transition;
+    visibility: hidden;
+
+    .icon {
+        @include square($navList-action-close-iconSize);
+        fill: stencilColor("color-textLink");
+    }
+
+    .navList-action.is-selected:hover & {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+// Page Subnavigation
+// -----------------------------------------------------------------------------
+
+.navBar--sub {
+    display: block;
+    min-width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    /*margin-left: -15px;
+    margin-right: -15px;*/
+    /*.navBar-section .navBar-item {
+        &:first-child {
+            margin-left: 15px;
+        }
+        &:last-child {
+            margin-right: 15px;
+        }
+    }*/
+    @include breakpoint("medium") {
+        margin-bottom: 30px;
+    }
+    @include breakpoint("large") {
+        margin-bottom: 40px;
+    }
+    @media (min-width: 1025px) {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        .navBar-section .navBar-item {
+            &:first-child {
+                margin-left: 0px;
+            }
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+.navBar-section {
+    float: none;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0 !important;
+    font-size: 0;
+    .navBar-item {
+        width: 220px;
+        padding: 0;
+        margin-right: 16px;
+        display: inline-block;
+        float: none;
+        > a,
+        .navBar-action {
+            color: #848484;
+            padding: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            border-radius: 0px;
+            border: 1px solid #e6e6e6;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            .toggleLink-text {
+                font-size: inherit;
+                color: inherit;
+                font-weight: inherit;
+            }
+        }
+        .navBar-action-color--active {
+            color: stencilColor('color-textHeading');
+            background-color: #ffffff;
+        }
+        &.is-active {
+            .navBar-action {
+                color: stencilColor('color-textHeading');
+                background-color: #ffffff;
+            }
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-flow: row nowrap;
+        overflow-x: visible;
+        white-space: normal;
+        border: 1px solid #e6e6e6;
+        background-color: #fafafa;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+        .navBar-item {
+            width: 50%;
+            padding: 0;
+            margin: 0;
+            border-right: 1px solid #e6e6e6;
+            > a,
+            .navBar-action {
+                border: none;
+            }
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        
+    }
+}

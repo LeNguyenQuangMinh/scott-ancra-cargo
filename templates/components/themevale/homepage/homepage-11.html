@@ -1,0 +1,52 @@
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#if carousel}}
+        {{> components/carousel carousel=carousel layout="layout-5" arrows=theme_settings.homepage_show_carousel_arrows dots=theme_settings.homepage_show_carousel_dots}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+<div class="main full">
+    
+    {{> components/themevale/homepage/component/image-collections image-collections="image-collections-17" padding_top="padding-top-70" padding_bottom="padding-bottom-70"}}
+    {{{region name="home_below_block_1"}}}
+
+    {{> components/themevale/homepage/component/image-collections image-collections="image-collections-18" padding_top="padding-top-0" padding_bottom="padding-bottom-70"}}
+    {{{region name="home_below_block_2"}}}
+
+    {{> components/themevale/homepage/component/banner-parallax banner-parallax="banner-parallax-7"}}
+    {{{region name="home_below_block_3"}}}
+
+    {{#if products.new}}
+        {{> components/products/product-layout padding_top="padding-top-50" padding_bottom="padding-bottom-50" products=products.new productsnew=products.new title=theme_settings.homepage_products_new_title layout=theme_settings.homepage_products_new_layout_grid columns=theme_settings.homepage_products_new_column products_show=theme_settings.homepage_products_new_show products_limit=theme_settings.homepage_products_new_limit custom="style-3" description=theme_settings.homepage_products_new_description block_id="home11-new-products"}}
+    {{/if}}
+    {{{region name="home_below_block_4"}}}
+
+    {{#if products.top_sellers}}
+        {{> components/products/product-layout-2 padding_top="padding-top-0" padding_bottom="padding-bottom-70" products=products.top_sellers productsnew=products.new title=theme_settings.homepage_products_top_sellers_title layout=theme_settings.homepage_products_top_sellers_layout_grid columns=theme_settings.homepage_products_top_sellers_column products_show=theme_settings.homepage_products_top_sellers_show products_limit=theme_settings.homepage_products_top_sellers_limit custom="style-3" description=theme_settings.homepage_products_top_sellers_description block_id="home11-top-sellers"}}
+    {{/if}}
+    {{{region name="home_below_block_5"}}}
+
+    {{> components/themevale/homepage/component/image-collections image-collections="image-collections-19" padding_top="padding-top-0" padding_bottom="padding-bottom-0"}}
+    {{{region name="home_below_block_6"}}}
+
+    {{#if blog.recent_posts}}
+        {{> components/themevale/homepage/component/latest-post latest-post="latest-post-3" padding_top="padding-top-0" padding_bottom="padding-bottom-0" blog=blog.recent_posts columns=theme_settings.homepage_blog_column blog_show=theme_settings.homepage_blog_limit}}
+    {{/if}}
+    {{{region name="home_below_block_7"}}}
+
+    {{#if theme_settings.enable_instagram}}
+        {{> components/themevale/homepage/component/instagram-carousel instagram-carousel="instagram-carousel-4" padding_top="padding-top-70" padding_bottom="padding-bottom-0" title-border="style-3"}}
+    {{/if}}    
+    {{{region name="home_below_block_8"}}}
+
+</div>
+{{/partial}}
+{{> layout/base}}

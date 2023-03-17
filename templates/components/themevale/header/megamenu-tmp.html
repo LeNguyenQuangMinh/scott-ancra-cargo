@@ -1,0 +1,40 @@
+<article class="card">
+    <figure class="card-figure">
+        <a class="product_img_link" href="{{product.url}}">
+            <div class="card-img-container">
+                <img class="card-image" src="{{getImage product.main_image 'gallery_size'}}" alt="{{product.title}}" title="{{product.title}}">
+            </div>
+        </a>
+    </figure>
+    <div class="card-body">
+        <div class="card-detail">
+            {{#if product.brand}}
+                <p class="card-brand" data-test-info-type="brandName">{{product.brand.name}}</p>
+            {{/if}}
+            <h4 class="card-title">
+                <a href="{{product.url}}">{{product.title}}</a>
+            </h4>
+            {{#if settings.show_product_rating}}
+                <p class="card-rating" data-test-info-type="productRating">
+                    <span class="rating--small">
+                        {{> components/products/ratings rating=product.rating}}
+                    </span>
+                </p>
+            {{/if}}
+            <div class="card-price-wrapper">
+                <div class="card-price" data-test-info-type="price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=product.price}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+            </div>
+            <figcaption class="card-figcaption">
+                <a href="{{product.url}}" class="link">
+                    <span class="text">{{lang 'products.shop_now'}}</span>
+                </a>
+            </figcaption>
+        </div>
+    </div>
+</article>

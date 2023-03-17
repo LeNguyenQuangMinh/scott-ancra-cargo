@@ -1,0 +1,786 @@
+// =============================================================================
+// USER NAVIGATION (CSS)
+// =============================================================================
+//
+// 1. Corrects the spacing added by .navUser-or
+// 2. Can't use top: 50% because its container `.header` changes its height to
+//    100% when mobile menu is expanded
+// 3. Make the triangle for store credit dropdown centered
+// 4. Needs to be 100% so its dropdown can take full width in mobile viewport
+// 5. Needs to be lower than logo zIndex, otherwise, logo is not clickable
+// 6. Make the triangle for currency dropdown right aligned
+// 7. Corrects mini cart positioned outside viewport. Since this resets right
+//    position, nudge dropdown away from the side of viewport in mobile viewport.
+// 8. This corrects mini cart dropdown arrow alignment in mobile viewport by
+//    setting the previous styles to medium breakpoint and adjusts for nudge in (7).
+//
+// -----------------------------------------------------------------------------
+
+.navUser {
+    @include nav($style: "navBar", $wrapper: "nav");
+    top: auto;
+    right: auto;
+    transform: none;
+    position: relative;
+    z-index: zIndex("low");
+}
+
+.navUser-action {
+    padding: 0;
+    font-weight: 400;
+    font-size: $body-fontSize;
+    text-transform: capitalize;
+    font-family: $fontFamily-sans;
+    color: stencilColor('header-textColor');
+    svg {
+        fill: stencilColor('header-textColor');
+        stroke: stencilColor('header-textColor');
+    }
+    &:hover {
+        color: stencilColor('header-textColor--hover');
+        svg {
+            fill: stencilColor('header-textColor--hover');
+            stroke: stencilColor('header-textColor--hover');
+        }
+    }
+    .navUser-item-cartIcon {
+        svg {
+            stroke: transparent;
+        }
+    }
+    .icon {
+        @include square(7px);
+        margin: 0 0 0 spacing("eighth");
+        &.big {
+            opacity: 0.3;
+            @include square(14px);
+            margin: 0 7px 0 0;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            + .text {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+    .navUser-icon, .navUser-text {
+        font-size: $body-fontSize;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .navUser-icon + .navUser-text {
+        margin-left: 4px;
+    }
+    .navUser-test + .navUser-icon {
+        margin-left: 8px;
+    }
+    &.custom {
+        margin-bottom: 0;
+        .navUser-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 5px 0 0;
+            .icon {
+                margin: 0;
+                @include square(30px);
+            }
+        }
+        .navUser-text-wrapper {
+            line-height: 18px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            text-transform: capitalize;
+            &.text-left {
+                text-align: left;
+            }
+            .countPill {
+                margin-left: 0;
+                margin-bottom: 0;
+                width: 30px;
+                height: 18px;
+                line-height: 18px;
+                border-radius: 10px;
+                display: block;
+            }
+            .navUser-item-cartLabel {
+                display: block;
+                font-weight: 500;
+            }
+            .navUser-item-wishListLabel {
+                max-width: 30px;
+                font-weight: 500;
+            }
+            .navUser-action-accountLabel,
+            .navUser-action-logoutLabel,
+            .navUser-action-loginLabel,
+            .navUser-action-orLabel,
+            .navUser-action-registerLabel {
+                display: inline-block;
+                font-weight: 500;
+            }
+            .navUser-action-orLabel {
+                text-transform: lowercase;
+                font-weight: 500;
+            }
+            .navUser-action--account {
+                display: block;
+                font-weight: 500;
+            }
+            .navUser-action-registerLabel,
+            .navUser-action-loginLabel,
+            .navUser-action--account,
+            .navUser-item-cartLabel,
+            .navUser-item-wishListLabel {
+                position: relative;
+                &:before {
+                    content: "";
+                    bottom: 0;
+                    left: 0;
+                    height: 1px;
+                    width: 0px;
+                    position: absolute;
+                    background-color: stencilColor('header-textColor');
+                    transition: all 0.3s ease;
+                }
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navUser-action--currencySelector {
+    .image-flag,
+    .text-flag,
+    > .icon {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .image-flag {
+        img {
+            position: relative;
+        }
+    }
+    .text-flag {
+        font-weight: 600;
+    }
+    .image-flag + .text-flag {
+        margin-left: 3px;
+    }
+}
+
+.navUser-action--storeCredit + .dropdown-menu {
+    max-width: remCalc(300px);
+    padding: spacing("single");
+    &:before {
+        // scss-lint:disable ImportantRule
+        left: remCalc(140px) !important; // 3
+    }
+
+    &:after {
+        // scss-lint:disable ImportantRule
+        left: remCalc(142px) !important; // 3
+    }
+}
+
+.navUser-item {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    + .navUser-item {
+        margin-left: 20px;
+    }
+    > .own-text {
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: 600;
+        color: stencilColor('navUser-own-text-Color');
+        letter-spacing: 0.05rem;
+        text-transform: uppercase;
+    }
+}
+
+.navUser-item--cart {
+    display: inline-block;
+    position: relative;
+    .icon {
+        margin: 0;
+        width: 20px;
+        height: 20px;
+        vertical-align: top;
+    }
+    .navUser-action {
+        font-size: 0;
+        svg {
+            stroke: transparent !important;
+        }
+        &:hover,
+        &.is-open {
+            svg {
+                stroke: transparent;
+            }
+        }
+    }
+    .countPill {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .dropdown-cart {
+        top: calc(100% + 10px);
+        left: 0;
+        padding: 0;
+        z-index: 20;
+        display: none;
+        outline: none;
+        line-height: 20px;
+        text-align: left;
+        position: absolute;
+        border-radius: 0px;
+        width: remCalc(485px);
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        .previewCartAction-checkoutMultiple {
+            text-align: right;
+        }
+        &.is-loading .loadingOverlay {
+            padding: 25px;
+            position: absolute;
+        }  
+    }
+    &.is-open {
+        .dropdown-cart {
+            display: block;
+        }
+    }
+    .is-sticky & {
+        .dropdown-cart {
+            top: 100%;
+        }
+    }
+}
+
+.navUser-item--wishList {
+    .icon {
+        margin: 0;
+        width: 17px;
+        height: 20px;
+        vertical-align: top;
+    }
+    .navUser-action {
+        font-size: 0;
+    }
+}
+
+.navUser-item--quickSearch {
+    z-index: 21;
+    position: relative;
+    .form, .form-field {
+        margin-bottom: 0;
+    }
+    .form-field {
+        width: 160px;
+        display: flex;
+        align-items: center;
+        color: stencilColor('navUser-search-textColor');
+        background-color: stencilColor('navUser-search-backgroundColor');
+        border-bottom: 1px solid stencilColor('navUser-search-borderColor');
+        .form-input {
+            height: 29px;
+            border: none;
+            min-height: 0;
+            border-radius: 0;
+            padding: 0 0 0 10px;
+            line-height: 29px;
+            background-color: transparent;
+            &::-webkit-input-placeholder {
+                color: stencilColor('navUser-search-textColor');
+            }
+            &::-moz-placeholder {
+                color: stencilColor('navUser-search-textColor');
+            }
+            &:-ms-input-placeholder {
+                color: stencilColor('navUser-search-textColor');
+            }
+            &:-moz-placeholder {
+                color: stencilColor('navUser-search-textColor');
+            }
+        }
+        .button-submit {
+            width: 35px;
+            height: 29px;
+            min-width: 35px;
+            padding: 0 10px;
+            line-height: 29px;
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: stencilColor('navUser-search-textColor');
+                stroke: stencilColor('navUser-search-textColor');
+            }
+        }
+        &.style-2 {
+            width: 190px;
+            background-color: transparent;
+            border: none;
+            .form-input {
+                height: 24px;
+                line-height: 24px;
+                padding-left: 0;
+                border-bottom: 1px solid stencilColor('navUser-search-borderColor');
+            }
+        }
+        &.style-3 {
+            width: 180px;
+            background-color: transparent;
+            border: 1px solid stencilColor('navUser-search-borderColor');
+            .form-input {
+                height: 34px;
+                line-height: 32px;
+                width: calc(100% - 35px);
+            }
+            .button-submit {
+                height: 34px;
+                line-height: 32px;
+            }
+        }
+        &.style-4 {
+            width: 180px;
+            background-color: transparent;
+            border-bottom: none;
+            &:before {
+                content: "";
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                bottom: -2px;
+                background-color: stencilColor('navUser-search-borderColor');
+            }
+            .form-input {
+                height: 22px;
+                line-height: 22px;
+                padding-left: 0;
+                width: calc(100% - 35px);
+            }
+            .button-submit {
+                padding: 0 0 0 16px;
+                height: 22px;
+                line-height: 22px;
+            }
+        }
+    }
+    .quickSearchResults {
+        top: auto;
+        right: 0;
+        z-index: 99;
+        width: 400px;
+        min-width: 320px;
+        position: absolute;
+        background-color: transparent;
+        &.hasResults {
+            background-color: #ffffff;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.navUser-item--account,
+.navUser-item--currencySelector {
+    position: relative;
+}
+
+#navPages-account-topbar,
+#currencySelection {
+    right: 0;
+    left: auto;
+    width: 130px;
+    border: none;
+    box-shadow: none;
+    padding-top: 5px;
+    outline: none;
+    border-radius: 0px;
+    position: absolute;
+    background-color: transparent;
+    .dropdown-menu-item {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #e5e5e5;
+        background-color: #fafafa;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: #ffffff;
+        }
+        a {
+            padding: 8px;
+            img {
+                margin-right: 5px;
+            }
+            strong {
+                font-weight: 600;
+            }
+        }
+        + .dropdown-menu-item {
+            border-top: none;
+        }
+    }
+}
+
+.navUser-item--account {
+    .dropdown-menu {
+        width: 180px;
+    }
+    .navUser-action {
+        display: inline-block;
+        strong {
+            font-weight: 600;
+        }
+        + .navUser-action {
+            margin-left: 5px;
+        }
+    }
+}
+
+.navUser-item--account2 {
+    .navUser-action.custom {
+        .navUser-text-wrapper {
+            max-width: 105px;
+            .navUser-action--account {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.navUser-list-text {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+        + li {
+            &:before {
+                margin: 0 8px 0 6px;
+                content: "|";
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+
+.navUser-item--mail {
+    .navUser-action {
+        text-transform: none;
+    }
+}
+// Quick search
+// -----------------------------------------------------------------------------
+//
+// 1. Overriding the inline styles from Foundation as this is a unique dropdown.
+//
+// -----------------------------------------------------------------------------
+
+.navUser-action--quickSearch {
+
+    &.is-open {
+        position: relative;
+
+        // scss-lint:disable NestingDepth
+        &:before {
+            @include css-triangle(
+                $triangle-direction: "bottom",
+                $triangle-size: 10px,
+                $triangle-color: color("greys", "lightest")
+            );
+            bottom: 0;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+// Counter Pill
+// -----------------------------------------------------------------------------
+//
+// 1. Hardcoded intentionally for precise pixels.
+//
+// -----------------------------------------------------------------------------
+
+.countPill {
+    display: none;
+    height: 20px;
+    width: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    margin-left: 8px;
+    border-radius: 50%;
+    color: stencilColor("navUser-indicator-Color");
+    background-color: stencilColor("navUser-indicator-backgroundColor");
+}
+
+.countPill--positive {
+    display: inline-block;
+}
+
+.countPill--alt {
+    background-color: color("greys", "lighter");
+    color: color("greys", "darker");
+}
+
+
+/*=========================================
+=            www.themevale.com            =
+=========================================*/
+
+    #accountMobile {
+        ul {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                display: block;
+            }
+        }
+        .navPages-mobile {
+            padding: 0 20px;
+            overflow-x: auto;
+            padding-bottom: 30px;
+            height: calc(100vh - 70px);
+        }
+        .navPage-subMenu-title {
+            color: stencilColor('color-textHeading');
+            text-transform: uppercase;
+            line-height: 1;
+            font-size: 13px;
+            font-weight: 600;
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 17px;
+            margin-bottom: 20px;
+            .icon, .text {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .icon {
+                margin-right: 5px;
+            }
+        }
+        .navPages-action {
+            margin: 0;
+            font-size: 12px;
+            line-height: 24px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            text-transform: capitalize;
+            background-color: transparent;
+            justify-content: space-between;
+        }
+        .login-form .form-actions {
+            margin-top: 0;
+            text-align: center;
+            .forgot-password,
+            .button {
+                margin-left: 0;
+                display: block;
+                width: 100%;
+            }
+            .forgot-password {
+                margin-top: 15px;
+                &:before {
+                    content: none;
+                }
+            }
+        }
+        .new-customer {
+            padding: 0;
+            background-color: transparent;
+            .button {
+                margin-top: 0;
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    #cartMobile {
+        overflow-x: auto;
+        padding: 0 20px 30px 20px;
+        height: calc(100vh - 70px);
+        .navPage-subMenu-title {
+            color: stencilColor('color-textHeading');
+            text-transform: uppercase;
+            line-height: 1;
+            font-size: 13px;
+            font-weight: 600;
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 17px;
+            margin-bottom: 20px;
+            .icon, .text {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .icon {
+                margin-right: 5px;
+            }
+        }
+        .dropdown-cart {
+            display: block;
+            position: relative;
+            .loadingOverlay {
+                display: block;
+                padding: 25px;
+            }
+        }
+        .previewCartTable {
+            display: block;
+        }
+        .previewCartHeader {
+            display: none;
+        }
+        .previewCartList {
+            height: auto;
+            max-height: 246px;
+            padding-bottom: 15px;
+            .previewCartItem {
+                display: block;
+                font-size: 0;
+                + .previewCartItem {
+                    margin-top: 15px;
+                    padding-top: 15px;
+                }
+            }
+            .previewCartItem-block {
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 12px;
+            }
+            .previewCartItem-image {
+                width: 60px;
+                max-height: 55px;
+            }
+            .previewCartItem-content {
+                vertical-align: top;
+                padding: 0 0 10px 15px;
+                width: calc(100% - 60px);
+            }
+            .previewCartItem-price {
+                margin-left: 75px;
+                margin-right: 0;
+            }
+            .previewCartItem-price,            
+            .previewCartItem-total {
+                width: auto;
+            }
+            .previewCartItem-quantity {
+                width: 100%;
+                .cart-item-label {
+                    display: none;
+                }
+            }
+ 
+            .previewCartItem-total {
+                display: none;
+            }
+        }
+        .preview-cart-total, 
+        .preview-cart-grand-total {
+            padding: 0;
+        }
+        .previewCartAction {
+            padding: 0;
+            .previewCartAction-checkout,
+            .previewCartAction-viewCart {
+                display: block;
+                width: 100%;
+            }
+            .previewCartAction-viewCart {
+                margin-bottom: 15px;
+            }
+        }
+        .previewCartAction-checkoutMultiple {
+            margin: 15px 0 0 0;
+        }
+        .previewCartItem-pricewrapper {
+            margin-top: 10px;
+            .previewCartItem-price {
+                margin-left: 0;
+            }
+            .previewCartItem-quantity {
+
+            }
+        }
+        .mCSB_scrollTools {
+            width: 3px;
+            @media (min-width: 1025px) {
+                width: 5px;
+            }
+        }
+        @media (min-width: 768px) {
+            .previewCartList {
+                max-height: calc(100vh - 400px);
+            }
+        }
+        @media (min-width: 1025px) {
+            .previewCartList {
+                /*height: calc(100vh - 450px);*/
+                max-height: calc(100vh - 450px);
+            }
+        }
+    }
+
+    #CurrencyMobile {
+        overflow-x: auto;
+        padding: 0 20px 30px 20px;
+        height: calc(100vh - 70px);
+        .navPage-subMenu-title {
+            color: stencilColor('color-textHeading');
+            text-transform: uppercase;
+            line-height: 1;
+            font-size: 13px;
+            font-weight: 600;
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 17px;
+            margin-bottom: 20px;
+            .icon, .text {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .icon {
+                margin-right: 5px;
+            }
+        }
+        #currencySelection-3 {
+            padding: 0;
+            display: block;
+            position: relative;
+            .item {
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 45px;
+                margin-bottom: 10px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a img {
+                    margin-right: 5px;
+                }
+                strong {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+/*=====  End of www.themevale.com  ======*/

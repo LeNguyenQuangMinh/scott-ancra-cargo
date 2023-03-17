@@ -1,0 +1,182 @@
+<div class="themevale_categoryToolbar">
+    <div class="item item-iconSidebar">
+        <div class="themevale_sidebar-mobile">
+            <span class='form-label'>sidebar:</span>
+            <svg class="icon" aria-hidden="true"><use xlink:href='#sidebar'></use></svg>
+        </div>
+    </div>
+    <div class="item item-viewas">
+        <div class="view-as-group">
+            <label class="form-label">{{lang 'common.sorter.view'}}</label>
+            <div class="view-as-btn">
+                <a href="javascript:void(0);" id="list-view" data-layout="productGrid--maxCol1" title="List View"></a>
+                <a href="javascript:void(0);" id="grid-view-2" data-layout="productGrid--maxCol2" title="Grid View 2"></a>
+                <a href="javascript:void(0);" id="grid-view-3" data-layout="productGrid--maxCol3" title="Grid View 3"></a>
+                <a href="javascript:void(0);" id="grid-view-4" data-layout="productGrid--maxCol4" title="Grid View 4"></a>
+                <a href="javascript:void(0);" id="grid-view-5" data-layout="productGrid--maxCol5" title="Grid View 5"></a>
+            </div>
+        </div>
+    </div>
+    <div class="item item-filter">
+        {{> components/products/filter sort=pagination.category.sort products_per_page=theme_settings.categorypage_products_per_page}}
+    </div>
+</div>
+<form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
+    {{#if settings.data_tag_enabled}}
+        {{> components/products/grid products=category.products productsnew=../products.new show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+    {{else}}
+        {{> components/products/grid products=category.products productsnew=../products.new show_compare=category.show_compare theme_settings=theme_settings}}
+    {{/if}}
+</form>
+<div class="pagination-wrapper">
+    {{#if theme_settings.themevale_pagination}}
+        {{> components/common/paginator pagination.category}}
+    {{else}}
+        <div class="u-hiddenVisually"> 
+            {{> components/common/paginator pagination.category}}
+        </div>
+        <a id="button-showmore-category" class="button button--border button--showmore" href="javascript:void(0)">
+            <svg class="icon" aria-label="Loading"><use xlink:href="#icon-refresh"></use></svg>
+            <span class="text">show more</span>
+            <span class="text text-hidden">No more product</span>
+        </a>
+    {{/if}}
+</div>
+
+<div class="category-textBlock">
+    <h4 class="textBlock-title">Kinedyne Ratchet Straps 101: A Guide to Ratchet Straps</h4>
+    <p class="textBlock-content">Ratchet Straps 101 is part of the Kinedyne Education Series of introductory videos created by Kinedyne LLC. This series of videos is designed to teach the basics of
+        cargo securement products: what they are, what they are used for, and how to choose the right tools for the job and more.</p>
+        
+    <h4 class="textBlock-title">Ratchet Strap Webbing</h4>
+    <p class="textBlock-content">Our industrial strength Ratchet Straps are as strong as the trucking industry needs them to be. Then, we make them even stronger. The true strength of our Ratchet
+        Straps comes from our heavy-duty and extra durable webbing. If you need security for your tie down job, then these straps have both you and your load covered.
+        They are engineered with a thick and flexible polyester webbing that has a tight weave – the tighter the weave, the better the durability.
+    </p>
+    <p class="textBlock-content">Compared to Ratchet Straps made from other materials, the Straps are less susceptible to damage from being left out in the sun for too long due to the polyester
+        webbing’s natural resistance to harmful ultraviolet rays. Not only that, but mold, mildew, and rot are much less likely to wear down the Straps. Though still
+        vulnerable to the elements, the webbing has a greater wear resistance. Unlike stretchy nylon or inflexible polypropylene, the high-quality polyester naturally offers
+        minimum stretch, keeping our Ratchet Straps as sturdy and firm as the day they are made, making them the ideal tie down to use.
+    </p>
+    <p class="textBlock-content">When you buy a 2” x 30’ Ratchet Strap, it’s going to stay 2 inches and 30 feet for a considerable amount of time despite the number of times you use it to tighten
+        down your load. Did we mention the abrasion resistance yet? We know how much Straps can rub against your vehicle or your cargo as you’re traveling, especially on
+        those bumpy roads, so our high-quality heavy-duty K-FORCE and Rhino MAX webbing resist any friction-causing damage that can be done to your Ratchet Straps
+        or to your invaluable load.
+    </p>
+    
+    <h4 class="textBlock-title">Ratchet Strap Tensioning Device</h4>
+    <p class="textBlock-content">
+        Our webbing may be the heart of our Ratchet Straps, but it’s a real team effort at work here. The polyester webbing is only as strong as the tensioning device that
+        tightens and holds it all together, and what’s a Ratchet Strap without its Ratchet?
+    </p>
+    <p class="textBlock-content">
+        All of our Kinedyne Ratchet Straps are equipped with a standard, long, and/or wide handle Ratchet that has been designed with user-adaptability in mind. These
+        gold dichromate heat-treated carbon steel Ratchets are molded to fit the comfort of your hand for your ease and convenience. Some of them are even wide enough
+        to accommodate your gloved hand. Coated in a zinc plated finish, our high-quality Ratchets are corrosion resistant, so they’re going to fasten your load down tighter
+        and longer.
+    </p>
+    <p class="textBlock-content">
+        You can easily feed our flexible, strong 2”, 3”, or 4” polyester webbing through the Ratchet’s mandrel then fasten the two end fittings to the anchor points for an
+        indirect tie down over your cargo. No matter which end fittings you use – Flat Hook, Wire Hook, Chain Anchor – you’ll find that they’ll be able to quickly slide into and
+        grasp the tie down point. Whether it’s 27’ or 30’, our Straps give you the all the control you need to handle your heavy-duty load.
+    </p>
+    <p class="textBlock-content">
+        Once the Straps are directly where you need them to be, you can then pump our heat-treated carbon steel Ratchet to effortlessly tighten the Straps down over the
+        cargo with an extremely viselike grip. After the Straps have been properly tensioned to your liking, you can then lock the Ratchet in place, keeping your load
+        contained and secured throughout your transit. No more stopping every few miles to check to make sure that your Straps haven’t come undone because our
+        Ratchet Straps keep your load tight for longer.
+    </p>
+
+    <h4 class="textBlock-title">Ratchet Strap End Fittings</h4>
+    <p class="textBlock-content">
+        As mentioned before, it’s a flawless synergy that makes our Ratchet Straps stand out among the rest, and that includes our reliable high-quality end fittings. All our
+        end fittings are made of a heat-treated carbon steel that reinforces their durability while also enhancing their strength. They are designed to easily slip into and stay
+        connected to their designated anchor points for tight and reliable tensioning.
+    </p>
+    <p class="textBlock-content">
+        Flat Hooks are one of the most commonly used end fittings due to their design. Our Flat Hooks are genuinely flat and can be fastened to nearly any flatbed side rail,
+        right where you want them. They can be used on nearly any heavy-duty personal and commercial projects. Our heavy-duty 4” Ratchet Straps are equipped with a
+        Flat Hook with an Abrasion Clip to help protect the webbing from wearing down along the hook
+    </p>
+    <p class="textBlock-content">
+        If you’re looking for a slenderer end fitting to squeeze into those narrower anchor points, then our slim, durable Wire Hooks end fittings are the best option. Coated
+        in a zinc plated finish to help prevent corrosion, these hooks are narrow enough to squeeze into those certain attachment points that are harder to reach with other
+        types of end fittings. Versatile and strong, Wire Hooks are ideal for nearly any tie down job.
+    </p>
+    <p class="textBlock-content">
+        Need something tougher? Well, all of our end fittings are made for the toughest jobs, but if you want the extra added oomph, then our Grade 43 Chain Anchors will
+        provide you with that extra security you’re looking for. Our Chain Anchors come equipped with either a 5/16-inch or a 3/8-inch grab hook to fasten to your vehicle’s
+        attachment point for a secure tie down. The chains can take on more abuse from sharp corners and rough cargo than straps can
+    </p>
+
+    <h4 class="textBlock-title">Ratchet Strap Sizes</h4>
+    <p class="textBlock-content">
+        We have Ratchet Straps available in an assortment of different sizes, all suitable for different tie down applications. Manufactured in either 27 feet or 30 feet, we have
+        Ratchet Straps in 2”, 3”, and 4” sizes, each more capable than the last. It’s a good idea to arm a fleet with a variety of these Ratchet Straps so that there’ a tie down
+        method ready for nearly any kind of cargo securement job.
+    </p>
+    <p class="textBlock-content">
+        Our 2-inch Ratchet Straps are commonly used for the everyday tie down job. These are best used for cargo that gets regularly shipped that require a quick tie down.
+        We also have our K-FORCE and Rhino MAX brands available in this size for the loads that need extra strength and/or extra durability. The 3-inch Ratchet Straps are
+        for when you need a little extra tensile strength to take on the job. For the heavy-duty jobs, you’ll want our 4-inch sized Ratchet Straps. If the job requires even more
+        heavy-duty strength, we have a 4” K-FORCE Ratchet Strap with Flat Hooks ready and waiting.
+
+    </p>
+
+    <h4 class="textBlock-title">Ratchet Strap Working Load Limits, Certifications, & Associations</h4>
+    <p class="textBlock-content">
+        Remember that Ratchet Straps must be chosen according to their safe working load limit as our Straps are labeled with different working load limits. For example,
+        our 2" x 27’ Flat Hook Ratchet Strap can handle 3,335 Lbs. / 1,513 Kgs. while our 3" x 27’ Flat Hook Ratchet Strap can handle 5,400 Lbs. / 2,450 Kgs. The Web Sling & Tie
+        Down Association and DOT require the working load limit to not exceed 1/3 of the rated capacity. The weight of the cargo must not exceed the combined working
+        load limit of the Straps being used.
+    </p>
+    <p class="textBlock-content">
+        The working load limit is provided for each of our Ratchet Straps. This is intended to help you make decisions when selecting your ideal cargo control system. Be
+        aware that equipment overload can result in cargo control system failure. When considering your working load limit, remember:
+    </p>
+    <p class="textBlock-content">
+        <strong>All ratings are for products in new condition.</strong> Always inspect all products prior to each use to ensure that your system is working at capacity. Age, wear, or damage
+        to any tie down product can greatly reduce its strength.
+    </p>
+    <p class="textBlock-content">
+        <strong>Load direction other than straight can result in a significant reduction in the working load limit.</strong> All rating are based on a straight tensile pull unless otherwise
+        specified.
+    </p>
+    <p class="textBlock-content">
+        <strong>Your cargo control system is only as strong as its weakest link.</strong> Cargo control products must be attached to securing points of equal or greater strength to
+        maintain their established working load limit. The ratings for our products are based on using Kinedyne track, beams, webbing, and hardware as a system.
+    </p>
+    <p class="textBlock-content">
+        At Kinedyne, we prioritize safety, so we’ve extensively tested the working load limit of every one of our Ratchet Straps. Each strap has been labeled and stenciled
+        with the Kinedyne name and the working load limit to meet and exceed several industry requirements and standards, including:
+    </p>
+
+    <p class="textBlock-content">North American Cargo Securement (NACS) standards</p>
+    <p class="textBlock-content">Web Sling & Tie Down Association (WSTDA) standards</p>
+    <p class="textBlock-content">Department of Transportation (DOT) regulations</p>
+    <p class="textBlock-content">California Highway Patrol (CHP) standards</p>
+    <p class="textBlock-content">Commercial Vehicle Safety Alliance (CVSA) guidelines</p>
+
+    <h4 class="textBlock-title">K-Force Ratchet Straps</h4>
+    <p class="textBlock-content">As a show of our commitment to bringing you the ideal solutions to your cargo control, we took the strong and we made it even stronger. Our K-FORCE Ratchet
+        Straps are engineered to manage heavier loads and employ more polyester material in the body of the Strap in order to give it the strength and durability to
+        challenge the increasing demands of the cargo control industry. And when we say strong, we mean strong. The 2" K-FORCE Ratchet Straps have an increased
+        working load limit of 4,000 Lbs. / 1,814 Kgs., a 20 percent increase compared to the current industry standard of 3,335 Lbs. / 1,513 Kgs., while the 4" K-FORCE Ratchet
+        Straps have an increased working load limit of 6,670 Lbs. / 3,025 Kgs.
+    </p>
+    <p class="textBlock-content">You can only find this kind of strength from Kinedyne. These K-FORCE Ratchet Straps are designed to help you manage your loads easily, despite how heavy-duty
+        the cargo may be. Engineered with state-of-the-art weaving technology, our Ratchet Straps are built for industrial strength with a focus on durability. With a tightly
+        weaved polyester thread, the K-FORCE Straps are designed to take on more challenging tie down jobs that could otherwise cause some damage to any standard
+        Strap. Suitable for the demands of the cargo control industry, any serious operator will want to have our K-FORCE on their side.
+    </p>
+
+    <h4 class="textBlock-title">Rhino MAX Ratchet Straps</h4>
+    <p class="textBlock-content">Due to Kinedyne’s mission to bring you the highest quality standard in the cargo securement industry, we exceeded our award-winning abrasion-resistant Rhino
+        Web line with the stronger and more resilient Rhino MAX brand. With a working load limit of 4,000 Lbs. / 1,814 Kgs., the Rhino MAX Ratchet Straps are 20 percent
+        stronger than the current industry standard of 3,335 Lbs. / 1,513. Thanks to our unparalleled engineering and manufacturing, there is no equal in this combination of
+        strength and durability compared to our Rhino MAX.</p>
+    <p class="textBlock-content">The rhino doesn’t bend to any challenge, and neither does our Rhino MAX Ratchet Straps. Built for rigid toughness, cargo such as bricks, timber, concrete, etc. will
+        find it very difficult to mar the surface of this webbing due to our award-winning anti-abrasion chemical coating that we use for all of our Rhino MAX Ratchet Straps.
+        This is the kind of Strap you want to have on hand whenever you’re faced with a severe-duty tie down job. Equipped with either Flat Hooks, Chain Anchors, or Wire
+        Hooks, these Ratchet Straps are strong enough to take on the heavy-duty jobs while resilient enough to easily handle the tougher cargo.</p>
+</div>

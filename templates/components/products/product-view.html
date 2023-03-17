@@ -1,0 +1,299 @@
+<div class="productView themevale_productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
+    {{#each product.reviews.messages}}
+        {{#if error}}
+            {{> components/common/alert-error error}}
+        {{/if}}
+        {{#if success}}
+            {{> components/common/alert-success success}}
+        {{/if}}
+    {{/each}}
+    
+    <div class="themevale_productView-left">
+        <div class="themevale_productView-images zoom-image" data-image-gallery>
+            {{#if product.main_image}}
+                <meta itemprop="name" content="{{product.main_image.data}}" />
+            {{/if}}
+            <div class="themevale_badges">
+                {{#each products.new}}
+                    {{#if this.id '==' ../product.id}}
+                        <div class="new-badge themevale_badge">
+                            <span class="text">New</span></div>
+                    {{/if}}
+                {{/each}}
+                {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}
+                    <div class="sale-badge themevale_badge">
+                        <span class="text">Sale</span>
+                    </div>
+                {{/or}}
+                {{#each product.custom_fields}}
+                    {{#if name '===' 'custom label'}}
+                    <div class="custom-badge themevale_badge">
+                        <span class="text">{{{value}}}</span>
+                    </div>
+                    {{/if}}
+                {{/each}}
+                {{#if product.out_of_stock_message}}
+                    <div class="soldOut-badge themevale_badge">
+                        <span class="text">sold out</span>
+                    </div>
+                {{/if}}
+            </div>
+            <div class="productView-nav-wrapper">
+               {{#if product.images.length}}
+                    <div class="productView-nav" data-slick='{
+                        "fade": true,
+                        "arrows": false,
+                        "dots": false,
+                        "infinite": true,
+                        "slidesToShow": 1,
+                        "slidesToScroll": 1,
+                        "asNavFor": ".themevale_productView-images .productView-for"
+                    }'>
+                        {{#each product.images}}
+                            <figure class="productView-image" data-fancybox="images" data-href="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}" 
+                                data-image-gallery-main
+                                data-zoom-image="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}"
+                                data-mfp-src="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                                <div class="productView-img-container">
+                                    <a href="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                                        <img class="productView-image--default"
+                                            data-sizes="auto" src="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}"
+                                            alt="{{this.alt}}" title="{{this.alt}}" data-main-image>
+                                    </a>
+                                </div>
+                            </figure>
+                        {{/each}}
+                    </div>
+               {{else}}
+                    <div class="productView-nav noImage">
+                        <figure class="productView-image is-error">
+                            <div class="productView-img-container">
+                                <img class="productView-image--default lazyload"
+                                 data-sizes="auto"
+                                 src="{{cdn 'img/loading.svg'}}"
+                                 data-src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+                                 alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                            </div>
+                        </figure>
+                    </div>
+                {{/if}}
+                {{#if product.videos.list.length}}
+                    <div class="label-videos">
+                        <a class="video-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup" aria-label="Show Product Video Popup">
+                            <img class="icon" src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/btn-play.png" alt="Video Icon"></span>
+                        </a>
+                        {{>components/themevale/modals/video-gallery product.videos}}
+                    </div>
+                {{/if}}
+                {{#if theme_settings.enable_compare_color}}
+                    <div class="compare-color">
+                        <a class="compareColor-link" href="javascript:void(0);" data-reveal-id="compare-color-popup">
+                            {{lang 'common.compare_color'}}
+                        </a>
+                        {{> components/products/compare-color}}
+                    </div>
+                {{/if}}
+            </div>
+            {{#if product.images.length}}
+                <div class="productView-for" data-slick='{
+                    "arrows": true,
+                    "dots": false,
+                    "infinite": true,
+                    "focusOnSelect": true,
+                    "slidesToShow": 5,
+                    "slidesToScroll": 1,
+                    "asNavFor": ".themevale_productView-images .productView-nav",
+                    "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Product Image&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                    "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Product Image&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                    "responsive": [
+                        {
+                            "breakpoint": 1025,
+                            "settings": {
+                                "slidesToShow": 4,
+                                "slidesToScroll": 1
+                            }
+                        },
+                        {
+                            "breakpoint": 415,
+                            "settings": {
+                                "slidesToShow": 4,
+                                "slidesToScroll": 1
+                            }
+                        },
+                        {
+                            "breakpoint": 321,
+                            "settings": {
+                                "slidesToShow": 3,
+                                "slidesToScroll": 1
+                            }
+                        }
+                    ]
+                }'>
+                    {{#each product.images}}
+                        <div class="productView-thumbnail">
+                            <a
+                                class="productView-thumbnail-link"
+                                href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                                data-image-gallery-item
+                                data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                                data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}">
+                                <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productthumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                            </a>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}    
+        </div>
+    </div>
+    <div class="themevale_productView-right">
+        <div class="productView-details">
+            <div class="productView-product">
+                {{#if product.brand}}
+                    <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
+                        <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
+                    </h2>
+                {{/if}}
+                <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+                <div class="productView-code-wrap">
+                    <div class="productView-code">
+                        {{#if product.sku}}
+                            <dt class="productView-info-name">Product Code:</dt>
+                            <dd class="productView-info-value VariationProductSKU" data-product-sku itemprop="sku">{{product.sku}}</dd>
+                        {{/if}}
+                    </div>
+                    <div class="productView-code">
+                        {{#if product.upc}}
+                            <dt class="productView-info-name">UPC Code:</dt>
+                            <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                        {{/if}}
+                    </div>
+                </div>
+                <p class="productView-shortDescription">Kinedyne’s 2” x 30’ Chain Anchor Ratchet Strap is engineered to be able to withstand harsh conditions while
+                    keeping your load secure and contained. With a working load limit of 3,335 Lbs. / 1,513 Kgs., the Chain Anchor
+                    Ratchet Strap is equipped with a heat-treated carbon steel standard handle ratchet for ease and comfort.
+                </p>
+                <div class="prodcutView-form">
+                    <p class="prodcutView-form--title">Have Questions?</p>
+                    <h4 class="prodcutView-form--heading">Fill out the form below</h4>
+                    <form class="form" id="contact_form">
+                        <fieldset class="form-fieldset">
+                            <div class="form-field">
+                                <input required="true" type="text" class="form-input" name="customer_name" placeholder="Full Name" value="{{customer.name}}">
+                            </div>
+                            <div class="form-field">
+                                <input required="true" type="text" class="form-input" name="customer_email" placeholder="Email" value="{{customer.email}}">
+                            </div>
+                            <div class="form-field">
+                                <input required="true" type="text" class="form-input" name="customer_phone" placeholder="Phone" value="{{customer.phone}}">
+                            </div>                        
+                            <div class="form-field">
+                                <input required="true" type="text" class="form-input" name="customer_location" placeholder="Location" value="{{customer.phone}}">
+                            </div>                        
+                            <div class="form-field">
+                                <textarea name="message" class="form-input" id="comment-area" placeholder="Message" required="true"></textarea>
+                            </div>                        
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-primary" id="ask-an-expert-button">
+                                    <span class="cargoRight-item-btn--text btn-text">Submit</span>
+                                    <span class="cargoRight-item-btn--icon btn-icon">
+                                        <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+    <article class="productView-description">
+        {{#if theme_settings.show_product_details_tabs}}
+            {{> components/products/description-tabs}}
+        {{else}}
+            {{> components/products/description  settings=../settings}}
+        {{/if}}
+    </article>
+</div>
+
+<div id="previewModal" class="modal modal--large" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#ask-an-expert-button").click(function() {
+            var ask_proceed = true;
+            //simple validation at client's end
+            //loop through each field and we simply change border color to red for invalid fields
+            $("#contact_form input[required=true], #contact_form textarea[required=true]").each(function() {
+                if (!$.trim($(this).val())) { //if this field is empty
+                    $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                    ask_proceed = false; //set do not proceed flag
+                } else {
+                    $(this).parent('.form-field').removeClass('form-field--error').addClass('form-field--success');
+                }
+                //check invalid email
+                var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                if ($(this).attr("name") == "customer_email" && !email_reg.test($.trim($(this).val()))) {
+                    $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                    ask_proceed = false; //set do not proceed flag
+                }
+            });
+
+            if (ask_proceed) //everything looks good! proceed...
+            {
+                //get input field values data to be sent to server
+                ask_post_data = {
+                    'api': 'i_send_mail',
+                    'subject':   '{{theme_settings.themevale_ask_an_expert_subject}}',
+                    'from_name': '{{theme_settings.themevale_ask_an_expert_name}}',
+                    'email':     '{{theme_settings.themevale_ask_an_expert_email}}',
+                    'email_from': $('#contact_form input[name=customer_email]').val(),
+                    'message': '<h2>ASK AN EXPERT</h2><table>\
+                            <tr><td><strong>Your Name</strong></td><td>' + $('#contact_form input[name=customer_name]').val() + '</td></tr>\
+                            <tr><td><strong>Email Address</strong></td><td>' + $('#contact_form input[name=customer_email]').val() + '</td></tr>\
+                            <tr><td><strong>Phone Number</strong></td><td>' + $('#contact_form input[name=customer_phone]').val() + '</td></tr>\
+                            <tr><td><strong>Location</strong></td><td>' + $('#contact_form input[name=customer_location]').val() + '</td></tr>\
+                            <tr><td><strong>What can i help you with today ?</strong></td><td>' + $('#contact_form textarea[name=message]').val() + '</td></tr>\
+                        </table>'
+                };
+
+                //Ajax post data to server
+                $.post('https://themevale.net/tools/sendmail/ask-an-expert/', ask_post_data, function(response) {
+                    if (response.type == 'error') { //load json data from server and output message
+                        output = '<div class="error">' + response.text + '</div>';
+                    } else {
+                        output = '<div class="alert alert-success">Thank you. We\'ve received your feedback and will respond shortly.</div>';
+                        //reset values in all input fields
+                        $("#contact_form  input[required=true], #contact_form textarea[required=true]").val('');
+                        $(".form-inner").hide(); //hide form after success
+                    }
+                    $("#contact_results").hide().html(output).show();
+                }, 'json');
+            }
+        });
+
+        //reset previously set border colors and hide all message on .keyup()
+        $("#contact_form input[required=true], #contact_form textarea[required=true]").keyup(function() {
+            if (!$.trim($(this).val())) { //if this field is empty
+                $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                ask_proceed = false; //set do not proceed flag
+            } else {
+                $(this).parent('.form-field').removeClass('form-field--error').addClass('form-field--success');
+            }
+            //check invalid email
+            var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            if ($(this).attr("name") == "customer_email" && !email_reg.test($.trim($(this).val()))) {
+                $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                ask_proceed = false; //set do not proceed flag
+            }
+            $("#contact_results").hide();
+        });
+    });
+</script>

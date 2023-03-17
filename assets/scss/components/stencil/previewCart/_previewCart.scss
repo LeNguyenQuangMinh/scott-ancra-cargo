@@ -1,0 +1,585 @@
+// =============================================================================
+// PREVIEW CART (CSS)
+// =============================================================================
+//
+// 1. Override server-generated inline-css
+//
+// -----------------------------------------------------------------------------
+
+.previewCart {
+    width: 100%;
+    vertical-align: top;
+    display: inline-block;
+    .productView {
+        padding: 0;
+        font-size: 0;
+        display: block;
+        margin: 0 0 30px 0;
+    }
+    .previewCartCheckout {
+        padding: 0;
+        margin: 0 auto;
+        display: block;
+        font-size: 12px;
+        max-width: 400px;
+        text-align: center;
+        background-color: transparent;
+    }
+    .productView-image {
+        width: 30%;
+        padding: 0;
+        min-height: auto;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .productView-details {
+        width: 70%;
+        margin-bottom: 0;
+        padding-top: 20px;
+        padding-left: 15px;
+        font-size: $body-fontSize;
+        display: inline-block;
+        vertical-align: top;
+        .productView-brand {
+            font-size: 12px;
+            line-height: 1;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: stencilColor('color-textHeading');
+        }
+        .productView-title {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: stencilColor('color-textHeading');
+        }
+        .productView-price {
+            font-size: 14px;
+            line-height: 1;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            color: stencilColor('color-textHeading');
+        }
+        .productView-info {
+            margin-bottom: 0px;
+            .productView-info-name {
+                min-width: 65px;
+                font-weight: 500;
+                color: stencilColor('color-textHeading'); 
+            }
+            .productView-info-value {
+                text-transform: capitalize;
+            }
+            + .productView-info {
+                margin-top: 10px;
+            }
+        }
+    }
+    @include breakpoint('small') {
+        .productView-image {
+            width: 210px;
+        }
+        .productView-details {
+            width: calc(100% - 210px);
+        }
+    }
+    @media (min-width: 768px) {
+        .productView {
+            margin: 0;
+            width: 60%;
+            float: left;
+            padding: 0 30px 0 0;
+        }
+        .previewCartCheckout {
+            width: 40%;
+            margin: 0;
+            float: right;
+            max-width: none;
+        }
+    }
+    @include breakpoint('medium') {
+        .productView {
+            width: 67%;
+            padding: 0 50px 0 0;
+        }
+        .previewCartCheckout {
+            width: 33%;
+        }
+        .productView-details {
+            padding-left: 20px;
+        }
+    }
+}
+
+.previewCartCheckout {
+    text-align: center;
+    .button {
+        width: 100%;
+        + .button {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+    .proceed--button {
+        margin-bottom: 0;
+        @include breakpoint('medium') {
+            padding: 19px 15px 18px 15px;
+        }
+    }
+    p[data-cart-quantity] {
+        margin-bottom: 14px;
+    }
+    .previewCartAction-checkoutMultiple {
+        margin: 15px 0 12px 0;
+    }
+    @media (min-width: 1025px) {
+        .button {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+}
+
+.previewCartCheckout-additionalCheckoutButtons {
+    p {
+        display: block;
+        margin: 5px 0;
+        float: none !important;
+    }
+}
+
+.previewCartCheckout-subtotal {
+    margin: 15px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid #e0dfdf;
+    border-bottom: 1px solid #e0dfdf;
+    .previewCartCheckout-price {
+        display: block;
+        font-size: 24px;
+        margin-top: 10px;
+        line-height: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: stencilColor('color-textHeading');
+    }
+}
+
+.suggestiveCart {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #e6e6e6;
+    > h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+    }
+    .productGrid {
+        @media (min-width: 1025px) {
+            .product {
+                width: 20%;
+            }
+        }
+    }
+}
+
+// BEGIN EDIT DROPDOWN CART
+.previewCartItem-optionWrapper {
+    .previewCartItem-option {
+        display: inline-block;
+    }
+
+    .previewCartItem-edit {
+        display: inline-block;
+        margin-left: 8px;
+        margin-bottom: -4px;
+        vertical-align: middle;
+        color: stencilColor('color-textLink');
+
+        .previewCart2 & {
+            margin-bottom: 0;
+            margin-top: -2px;
+        }
+        svg {
+            fill: stencilColor('color-textLink');
+            display: inline-block;
+            width: 16px;
+            height: 14px;
+            vertical-align: top;
+        }
+    }
+}
+
+.previewCart2 {
+    .previewCartItem-option {
+        margin-top: 5px;
+        margin-bottom: 4px;
+    }
+}
+
+.previewCartItem-content {
+    .qty-group {
+        margin-top: 10px;
+        .previewCartItem-quantity {
+            display: inline-block;
+        }
+        .form-increment {
+            display: inline-block;
+            .form-input--incrementTotal {
+                width: 36px;
+            }
+        }
+        .cart-remove-button {
+            display: inline-block;
+            .cart-remove {
+                position: relative;
+                margin-left: 8px;
+                float: none;
+                display: inline-block;
+                vertical-align: middle !important;
+                margin-bottom: -4px;
+                text-align: left;
+                width: auto;
+                svg {
+                    width: 22px;
+                    height: 22px;
+                }
+                .text {
+                    display: none;
+                    font-size: 12px;
+                    margin-left: 2px;
+                }
+            }
+        }
+    }
+}
+
+.product-edit-detail{
+    display: block;
+    padding: 30px 20px 20px 20px;
+    @include breakpoint("medium") {
+        padding: 30px;
+    }
+    .product-edit{
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        width: 100%;
+        font-size: 0;
+    }
+
+    .product-edit-image {
+        width: 80px;
+        display: inline-block;
+        .cart-item-image {
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+        }
+    }
+    .product-edit-content{
+        display: inline-block;
+        width: calc(100% - 80px);
+        padding-left: 25px;
+    }
+
+    .product-edit-content{
+        padding-left: 20px;
+    }
+
+    .product-edit-brand{
+        display: block;
+        line-height: 1;
+        margin: 0 0 10px 0;
+        text-transform: capitalize;
+        color: stencilColor('card-brand-color');
+        font-size: 12px;
+    }
+
+    .product-edit-title{
+        display: block;
+        line-height: 1.625;
+        font-size: $fontSize-root;
+        font-weight: 500;
+        margin: 0;
+        text-transform: capitalize;
+        color: stencilColor('card-title-color');
+    }
+
+    .product-edit-variant{
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: .02em;
+        color: $color-textSecondary;
+        text-transform: uppercase;
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
+        margin: 0;
+
+        span{
+            + span{
+                &:before{
+                    content: '/';
+                    margin: 0 4px 0 0;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1025px){
+        padding: 30px;
+    }
+}
+
+.product-edit-info{
+    overflow-y: auto;
+    max-height: 50vh;
+    @media (max-width: 360px) {
+        max-height: 40vh;
+    }
+    .product-edit-info-inner {
+        
+    }
+    .product-edit-change{
+        width: 100%;
+    }
+
+    table{
+        margin: 0;
+        width: 100%;
+    }
+
+    thead{
+        display: none;
+        th{
+            border: 0;
+            font-weight: 500;
+            font-size: $fontSize-root;
+            padding: 10px 7px;
+            color: $color-textBase;
+            background-color: #f5f5f5;
+            &:first-child{
+                padding-left: 30px;
+            }
+        }
+    }
+
+    tbody{
+        tr{
+            border-bottom: 1px solid #ebebeb;
+        }
+
+        td{
+            border: 0;
+            padding: 15px 7px;
+            font-weight: 400;
+            width: 140px;
+            &:nth-child(2) {
+               width: 182px;     
+            }
+            &:first-child{
+                padding-left: 20px;
+                width: 206px;
+                @include breakpoint("medium") {
+                    padding-left: 30px;
+                }
+            }
+            &:last-child {
+                padding-right: 20px;
+                width: 90px;
+                @include breakpoint("medium") {
+                   padding-right: 30px;
+                }
+            }
+            &[data-cart-edit-item-price] {
+                min-width: 90px;
+            }
+            .form-field {
+                margin-bottom: 0;
+                min-width: 140px;
+                &[data-product-attribute="date"] {
+                    width: 255px;
+                }
+                &[data-product-attribute="input-file"] {
+                    text-align: left;
+                    .form-fileDescription {
+                        display: none;
+                    }
+                    label {
+                        display: block;
+                        input {
+                            margin-left: 8px;
+                        }
+                    }
+                }
+                &[data-product-attribute="input-checkbox"] {
+                   width: 165px;
+                }
+                &[data-product-attribute="textarea"] {
+                    width: 200px;
+                    .form-input {
+                        min-height: 65px;
+                        max-height: 65px;
+                    }
+                }
+            }
+        }
+    }
+
+    .form{
+        margin: 0;
+    }
+
+    .form-increment{
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 120px;
+        .form-input--incrementTotal{
+            width: 46px;
+            padding: 0 36px;
+            height: 34px;
+            padding: 0 10px;
+            font-size: $fontSize-root;
+            font-weight: 400;
+        }
+    }
+
+    .cart-edit-price{
+        .price{
+            display: block;
+            min-width: 80px;
+            color: stencilColor('card-price-color');
+        }
+    }
+
+    .cart-edit-remove{
+        a {
+            font-size: 40px;
+            margin: 0;
+            position: relative;
+            top: 7px;
+            line-height: 20px;
+            width: 20px;
+            height: 20px;
+            color: $color-textBase;
+            font-weight: 200;
+            display: inline-block;
+        }
+    }
+
+    .product-edit-change{
+        &:nth-child(1){
+            thead{
+                display: table-header-group;
+            }
+
+            .cart-edit-remove{
+                a{
+                    opacity: 0;
+                    visibility: hidden;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}
+
+.product-edit-action{
+    .product-add-more{
+        margin: 20px 0 0 0;
+        padding: 0 20px 20px 20px;
+        @include breakpoint("medium") {
+            padding: 0 30px 20px 30px;
+        }
+        .product-addmore-button{
+            line-height: 1;
+            position: relative;
+            margin: 0 0 0 15px;
+            color: $color-textBase;
+            font-weight: 500;
+            &:before{
+                content: "";
+                position: absolute;
+                top: 8px;
+                width: 9px;
+                height: 1px;
+                right: calc(100% + 6px);
+                display: block;
+                background-color: $color-textBase;
+            }
+
+            &:after{
+                content: "";
+                top: 50%;
+                width: 1px;
+                height: 9px;
+                right: calc(100% + 10px);
+                display: block;
+                position: absolute;
+                background-color: $color-textBase;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .product-edit-button{
+        .button{
+            width: 100%;
+            &:before{
+                content: '';
+                display: none;
+                width: 20px;
+                height: 20px;
+                border: 2px solid stencilColor('button--primary-color');
+                border-radius: 100%;
+                border-top: 2px solid transparent;
+                -webkit-animation: load-animate infinite linear 1s;
+                animation: load-animate infinite linear 1s;
+            }
+
+            &.loading{
+                pointer-events: none;
+                font-size: 0;
+                padding-top: 9px;
+                padding-bottom: 9px;
+                transition: none;
+                @include breakpoint("medium") {
+                    padding-top: 12px;
+                    padding-bottom: 11px;
+                }
+                &:before{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+            &:focus, &:hover, &:active {
+                color: stencilColor("button--default-color");
+                border: 1px solid stencilColor("button--default-borderColor");
+                background-color: darken(stencilColor("button--default-backgroundColor"),5%);
+            }
+
+            &[disabled]{
+                pointer-events: none;
+            }
+
+            &.button--hidden{
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.modal--editOptions {
+    .modal-content {
+        border: none;
+    }
+}

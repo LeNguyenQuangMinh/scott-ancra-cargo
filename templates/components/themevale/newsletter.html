@@ -1,0 +1,79 @@
+<div id="themevale_newsletter" class="hide">
+    <div class="popup-overlay"></div>
+    <div class="newsletterPopup">
+        <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button" data-close-newsletter-popup>
+            <span aria-hidden="true">&#215;</span>
+        </a>
+        {{#if theme_settings.newsletterPopup-img}}
+            <div class="newsletter-image">
+                <img src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.newsletterPopup-img}}" alt="{{theme_settings.newsletterPopup-img}}">
+            </div>
+        {{/if}}
+        <div class="newsletter-content{{#if theme_settings.newsletterPopup-img '==' false}} noImage{{/if}}">
+            {{#if theme_settings.newsletterPopup-title}}
+                <h2 class="newsletter-heading">{{theme_settings.newsletterPopup-title}}</h2>
+            {{/if}}
+            {{#or theme_settings.newsletterPopup-desc-1 theme_settings.newsletterPopup-desc-2}}
+                <p class="newsletter-sub-heading">{{theme_settings.newsletterPopup-desc-1}} <br> {{theme_settings.newsletterPopup-desc-2}}</p>
+            {{/or}}
+            <div id="popupSubcribeForm">
+                <form class="form" action="{{urls.subscribe.action}}" method="post" id="popupSubcribeFormSubmit">
+                    <fieldset class="form-fieldset">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="nl_first_name" value="bc">
+                        <input type="hidden" name="check" value="1">
+                        <div class="form-field">
+                            <div class="form-wrap">
+                                <input class="form-input" id="nl_email2" name="nl_email" type="email" placeholder="{{lang 'newsletter.email_placeholder'}}">
+                                <input class="button button--border" type="submit" value="{{lang 'newsletter.subscribe_submit_2'}}">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="newsletter-icons">
+                {{#or social_media theme_settings.social_icon_google_plus_link theme_settings.social_icon_snapchat_link}}
+                    <ul class="socialLinks style-2 socialLinks--alt">
+                        {{#if social_media}}
+                            {{#each social_media}}
+                                <li class="socialLinks-item">
+                                    {{#if display_name '===' 'google+'}}
+                                        <a class="icon icon--google" href="{{url}}" target="_blank" rel="noopener">
+                                            <svg><use xlink:href="#icon-google" /></svg>
+                                        </a>
+                                    {{else}}
+                                        <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                                            <svg><use xlink:href="#icon-{{display_name}}" /></svg>
+                                        </a>
+                                    {{/if}}
+                                </li>
+                            {{/each}}
+                        {{/if}}
+                        {{#if theme_settings.social_icon_google_plus_link '!=' ''}}
+                            <li class="socialLinks-item google-plus">
+                                <a class="icon icon--google-plus" href="{{theme_settings.social_icon_google_plus_link}}" target="_blank" rel="noopener" aria-label="Open Google Plus Social Media in a new tab">
+                                    <svg aria-hidden="true"><use xlink:href="#icon-google-plus" /></svg>
+                                </a>
+                            </li>
+                        {{/if}}
+
+                        {{#if theme_settings.social_icon_snapchat_link '!=' ''}}
+                            <li class="socialLinks-item snapchat">
+                                <a class="icon icon--snapchat" href="{{theme_settings.social_icon_snapchat_link}}" target="_blank" rel="noopener" aria-label="Open Snapchat Social Media in a new tab">
+                                    <svg aria-hidden="true"><use xlink:href="#icon-snapchat-ghost" /></svg>
+                                </a>
+                            </li>
+                        {{/if}}
+                    </ul>
+                {{/or}}
+            </div>
+            <div class="newsletter-show-again">
+                <form>
+                    <input id="do-not-show-again" class="do-not-show-again" type="checkbox" name="don't show again" value="1"> 
+                    <label for="do-not-show-again">No, thanks</label>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>

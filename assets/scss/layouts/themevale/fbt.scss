@@ -1,0 +1,282 @@
+/*Frequently Bought Together*/
+
+#halo-fbt {
+    margin-top: 30px;
+    padding-top: 30px;
+    color: stencilColor('color-textBase');
+    .page-heading {
+        font-size: 14px;
+        text-align: left;
+    }
+    .themvale-fbt-image {
+        max-width: 100%;
+        display: inline-block;
+        @media (min-width: 1025px) {
+            max-width: 84px;
+        }
+    }
+    @include breakpoint('medium') {
+        margin-top: 50px;
+        padding-top: 30px;
+    }
+}
+
+#halo-fbt,
+#fbt,
+.themvale-fbt-image-item,
+.pgo,
+.pog {
+    position: relative;
+}
+
+#fbt,
+.freqBought .form-field__sizeChart,
+.freqBought-item .price-section.price-section--saving {
+    display: none;
+}
+
+.productView-info-name {
+    &.fbt,
+    &.fbt-product {
+        display: none;
+    }
+}
+
+.productView-info-value {
+    &.fbt,
+    &.fbt-product {
+        display: none;
+    }
+}
+
+#fbt {
+    padding: 1.5rem 0;
+    clear: both;
+}
+
+.themvale-fbt-image-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .slick-list {
+        margin: 0 -10px;
+        .slick-slide {
+            padding: 0 10px;
+            text-align: center;
+        }
+    }
+    .slick-arrow + .slick-list {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    @media (min-width: 1025px){
+        max-width: 70%;
+    }
+}
+
+.themvale-fbt-image-link {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.themvale-fbt-image-item {
+    &.fbt__total .themvale-fbt-image-link,
+    &.isChecked .themvale-fbt-image-link {
+        opacity: 1;
+    }
+    &.fbt__total {
+        display: block;
+        text-align: left;
+        font-size: 12px;
+        &:after {
+            content: none;
+        }
+        @media (min-width: 1025px){
+            position: absolute;
+            top: 100px;
+            right: 0;
+            text-align: center;
+        }
+    }
+    .slick-slide + .slick-slide & {
+        position: relative;
+        &:before {
+            content: '+';
+            position: absolute;
+            display: inline-block;
+            vertical-align: middle;
+            z-index: 10;
+            font-size: 16px;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.themevale-text-price {
+    > span {
+        display: inline-block;
+        vertical-align: bottom;
+        line-height: 22px;
+        &:first-child {
+            line-height: 19px;
+        }
+    }
+}
+
+.themvale-fbt-total-price {
+    color: stencilColor('color-textHeading');
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-left: 5px;
+}
+
+.themvale-fbt-total-button {
+    min-width: 180px;
+}
+
+.themvale-fbt-detail-name {
+    font-size: 12px;
+    font-weight: 500;
+    > strong {
+        font-weight: 400;
+    }
+}
+
+.themvale-fbt-product-item {
+    margin-bottom: 15px;
+    line-height: 25px;
+    .price-section,
+    .price--discounted,
+    .price--rrp,
+    .price--withoutTax {
+        display: inline-block;
+        font-weight: 600;
+        color: stencilColor('color-textHeading');
+    }
+    .form-label {
+        color: #d6d6d6;
+        &:before {
+            border-radius: 0;
+        }
+        .price-section span{
+           color: #d6d6d6; 
+        }
+    }
+    .themvale-fbt-detail-price {
+        .price-section span{
+           color: #d6d6d6; 
+        }
+    }
+    &.isChecked {
+        .form-label {
+            color: stencilColor('color-textHeading');
+            .price-section span{
+               color: stencilColor('color-textHeading'); 
+            }
+        }
+        .themvale-fbt-detail-price {
+            .price-section span{
+               color: stencilColor('color-textHeading'); 
+            }
+        }
+    }
+}
+
+.themvale-fbt-product-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.themvale-fbt-text {
+    margin: 30px 0 20px;
+    font-weight: 400;
+    font-size: 13px;
+    color: stencilColor('color-textHeading');
+}
+
+.themvale-fbt-toggle-options {
+    color: #232323;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    margin: 0 0 0 5px;
+    background-color: #ffffff;
+    border: 1px solid #232323;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 15px;
+    padding: 8px 15px 7px 15px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.themvale-fbt-detail-field,
+.themvale-fbt-image-link {
+    display: inline-block;
+}
+
+.themvale-fbt-detail-price {
+    display: inline-block;
+    font-size: 1rem;
+    padding-right: 3px;
+}
+.themvale-fbt-detail-label {
+    width: auto !important;
+    padding-right: 5px;
+}
+
+.themvale-fbt-detail-options {
+    display: none;
+    padding: 15px 0 0 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: transparent;
+    border-top: 1px dotted #cbcbcb;
+    border-bottom: 1px dotted #cbcbcb;
+    .form-field {
+        margin-bottom: 1rem;
+        padding-left: 1px;
+        .form-label {
+            color: stencilColor('color-textHeading');
+            font-weight: 600;
+            font-size: 12px;
+            position: relative;
+            > small {
+                color: #db5839;
+                font-size: 12px;
+                font-weight: 400;
+                float: none;
+                margin-top: 1px;
+                font-style: unset;
+                margin-left: 0;
+                text-transform: capitalize;
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+.hasOptions--selected {
+    .themvale-fbt-detail-options {
+        background-color: transparent;
+    }
+    .themvale-fbt-toggle-options {
+        background-color: stencilColor('color-textHeading');
+        border-color: stencilColor('color-textHeading');
+        color: #ffffff;
+        &:hover {
+            background-color: stencilColor('color-textHeading');
+            border-color: stencilColor('color-textHeading');
+            color: #ffffff;
+        }
+    }
+}

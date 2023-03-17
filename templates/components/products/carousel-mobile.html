@@ -1,0 +1,42 @@
+<section class="productCarousel productCarousel-mobile" data-list-name="{{list}}"
+    data-slick='{
+        "dots": {{dots}},
+        "arrows": {{arrows}},
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Product&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+        "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Product&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+        "responsive": [
+            {
+                "breakpoint": 1100,
+                "settings": {
+                    "rows": 4,
+                    "dots": true,
+                    "arrows": false,
+                    "slidesToScroll": 1,
+                    "slidesToShow": 1
+                }
+            },
+            {
+                "breakpoint": 801,
+                "settings": {
+                    "slidesToScroll": 4,
+                    "slidesToShow": 4
+                }
+            },
+            {
+                "breakpoint": 551,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 3
+                }
+            }
+        ]}'>
+    {{#each products}}
+    <div class="productCarousel-slide">
+        {{> components/products/card settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist  event="list" position=(add @index 1)}}
+    </div>
+    {{/each}}
+</section>

@@ -1,0 +1,21 @@
+<nav>
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+    {{else}}
+        <!-- All categories -->
+        {{> components/themevale/sidebar/side-all-categories}}
+        <!-- price range -->
+        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+        <!-- Shop by Brands -->
+        {{> components/themevale/sidebar/side-shop-by-brands}}
+        <!-- slider product -->
+        {{#if products.featured}}
+            {{> components/themevale/sidebar/featured-products products=products.featured productsnew=products.new block_id="sidebar-products"}}
+        {{/if}}
+    {{/if}}
+
+    <!-- advertisement image -->
+    {{> components/themevale/sidebar/advertisement-image}}
+    <!-- advertisement text -->
+    {{> components/themevale/sidebar/advertisement-content}}
+</nav>

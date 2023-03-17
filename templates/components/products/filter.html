@@ -1,0 +1,42 @@
+<form class="actionBar" method="get" data-sort-by data-show-products>
+    <fieldset class="form-fieldset actionBar-section">
+        <div class="form-field">
+            <label class="form-label" for="limit">{{lang 'common.sorter.show'}}</label>
+            <select class="form-select" name="limit" id="limit">
+                <option value="9" {{#if '9' '==' products_per_page }}selected{{/if}}>9 {{lang 'common.sorter.items_per_page'}}</option>
+                <option value="12" {{#if '12' '==' products_per_page }}selected{{/if}}>12 {{lang 'common.sorter.items_per_page'}}</option>
+                <option value="15" {{#if '15' '==' products_per_page }}selected{{/if}}>15 {{lang 'common.sorter.items_per_page'}}</option>
+                <option value="20" {{#if '20' '==' products_per_page }}selected{{/if}}>20 {{lang 'common.sorter.items_per_page'}}</option>
+                <option value="24" {{#if '24' '==' products_per_page }}selected{{/if}}>24 {{lang 'common.sorter.items_per_page'}}</option>
+                <option value="30" {{#if '30' '==' products_per_page }}selected{{/if}}>30 {{lang 'common.sorter.items_per_page'}}</option>
+            </select>
+        </div>
+    </fieldset>
+    <script>
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        (function(){
+            try {
+                var c = getUrlVars()["limit"];
+                if(c == undefined) c = {{theme_settings.categorypage_products_per_page}};
+                if(c != undefined){
+                    var limit = document.querySelectorAll('select#limit option');
+                    Array.prototype.forEach.call(limit, function(element) {
+                        if(element.value == c){
+                            element.selected = true;
+                        }
+                    });
+                }
+            } catch(e) {}
+        }());
+    </script>
+</form>
+<form class="actionBar" method="get" data-sort-by>
+    {{> components/category/sort-box sort=sort}}
+</form>
+

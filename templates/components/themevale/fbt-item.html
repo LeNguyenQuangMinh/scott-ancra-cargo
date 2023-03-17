@@ -1,0 +1,18 @@
+<div class="themvale-fbt-product-item {{#if product.can_purchase}}isChecked{{/if}}" data-product-id="{{product.id}}">
+<form method="post" action="/cart.php" enctype="multipart/form-data">
+<input type="hidden" name="action" value="add">
+<input type="hidden" name="product_id" value="{{product.id}}">
+<input type="hidden" name="qty[]" value="1">
+<div class="themvale-fbt-detail-field">
+<input class="themvale-fbt-detail-checkbox form-checkbox" type="checkbox" id="fbt_product{{product.id}}" {{#if product.can_purchase}}checked=""{{else}}disabled=""{{/if}}>
+<label class="themvale-fbt-detail-label form-label" for="fbt_product{{product.id}}">
+	<span class="themvale-fbt-detail-name">{{product.title}}</span>
+</label>
+<div class="themvale-fbt-detail-price"
+	{{#if product.price.with_tax}} data-price-value="{{product.price.with_tax.value}}" {{/if}} 
+	{{#if product.price.without_tax}} data-price-value="{{product.price.without_tax.value}}" {{/if}}> 
+	{{> components/products/price price=product.price schema_org=schema}}
+</div>
+</div>
+</form>
+</div>

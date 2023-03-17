@@ -1,0 +1,56 @@
+{{#if category.subcategories}}
+    <div class="themevale_subCategories">
+        <h2 class="sidebarBlock-heading">{{lang 'categories.sub-categories'}}</h2>
+        <div class="themevale_subCategories_carousel" data-slick='{
+        "dots": false,
+        "arrows": true,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Category&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+        "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Category&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+        "responsive": [
+            {
+                "breakpoint": 1281,
+                "settings": {
+                    "slidesToScroll": 5,
+                    "slidesToShow": 5
+                }
+            },
+            {
+                "breakpoint": 992,
+                "settings": {
+                    "slidesToScroll": 4,
+                    "slidesToShow": 4
+                }
+            },
+            {
+                "breakpoint": 551,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 3
+                }
+            },
+            {
+                "breakpoint": 381,
+                "settings": {
+                    "slidesToScroll": 2,
+                    "slidesToShow": 2
+                }
+            }
+        ]}'>
+            {{#each category.subcategories}}
+                <div class="item">
+                    <div class="sub-category">
+                        <div class="image"><a href="{{url}}"><img src="{{getImage image '80x80' (cdn 'img/CategoryDefault.jpg')}}" alt="{{name}}"></a></div>
+                        <div class="content">
+                            <a class="title" href="{{url}}">{{name}}</a>
+                            <div class="product-count">{{product_count}} {{#if product_count '>=' 2}}items{{else}} item {{/if}} </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

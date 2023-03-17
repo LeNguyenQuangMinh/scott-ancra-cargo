@@ -1,0 +1,41 @@
+{{#if reviews.total}}
+    <h6>{{lang 'products.reviews.header' total=product.reviews.total}}</h6>
+    <ul class="productReviews-list" id="productReviews-list">
+        {{#each reviews.list}}
+        <li class="productReview">
+            <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                <header>
+                    <h5 itemprop="name" class="productReview-title">{{ title }}</h5>
+                    <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                        {{> components/products/ratings rating=rating}}
+                        <span class="productReview-ratingNumber" itemprop="ratingValue">{{ rating }}</span>
+                    </span>
+                    {{#if name}}
+                        <meta itemprop="author" content="{{name}}">
+                        <p class="productReview-author">
+                            {{lang 'products.reviews.post_on_by' date=date name=name }}
+                        </p>
+                    {{else}}
+                        <p class="productReview-author">
+                            {{lang 'products.reviews.post_on_by' date=date name=(lang 'products.reviews.anonymous_poster')}}
+                        </p>
+                    {{/if}}
+                </header>
+                <p itemprop="reviewBody" class="productReview-body">{{nl2br text}}</p>
+            </article>
+        </li>
+        {{/each}}
+    </ul>
+    {{> components/common/paginator pagination.reviews}}
+    <div class="btn-createReview">
+        <a class="button button--border" href="#" data-reveal-id="modal-review-form">{{lang 'products.reviews.write_a_review'}}</a>
+    </div>
+{{else}}
+    <div class="alert alert-warning">
+        This product hasn't received any reviews yet. Be the first to review this product!
+    </div>
+    <div class="btn-createReview">
+        <a class="button button--border" href="#" data-reveal-id="modal-review-form">{{lang 'products.reviews.write_a_review'}}</a>
+    </div>
+{{/if}}
+{{{snippet 'reviews'}}}

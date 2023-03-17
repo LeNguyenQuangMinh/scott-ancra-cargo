@@ -1,0 +1,146 @@
+<div id="fytm-block" class="footer-info-list">
+    <h3 class="fytm-title">Find Your <span>Territory Manager </span></h3>
+    <form id="fytm-form">
+        <input type="text" id="fytmZip" placeholder="Enter Zip Code">
+        <button type="submit" class="btn btn-primary" id="fytmSubmit">
+            <span class="locator-btn--text btn-text">Find Us</span>
+            <span class="locator-btn--icon btn-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
+            </span>
+        </button>
+        <!-- <input type="submit" id="fytmSubmit" placeholder="Search"> -->
+    </form>
+     <div id="fytmResult" style="display: none;" data-email data-customer-zip="{{customer.shipping_address.zip}}">
+        <div class="fytmResult-photo">
+            <img src="//" alt="manager-picture">
+        </div>
+        <div class="fytmResult-contact">
+            <span class="fytmResult-name"></span>
+            <a href="javascript:void(0)" class="fytmResult-phone"></a>
+            <a class="fytmResult-btnRequest" href="javascript:void(0)" data-reveal-id="fytm-Request">Send a message / Request</a>
+        </div>
+    </div>
+    <div class="fytmResult-loading" style="display: none">
+        <img src="{{cdn 'img/ajax-loader.gif'}}" />
+    </div>
+    <div class="fytmResult-notFount" style="display: none">
+        <p>Territory Manager Not Found</p>
+    </div>
+</div>
+
+<div id="fytm-Request" class="modal" data-reveal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-header-title">Request More Info</h2>
+            <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+                <span aria-hidden="true">&#215;</span>
+            </a>
+        </div>
+        <div class="modal-body">
+            <div id="fytm_contactResults"></div>
+            <div class="form-inner">
+                <form class="form" id="fytm-formRequest">
+                    <fieldset class="form-fieldset">
+                        <div class="form-field">
+                            <label class="form-label" for="fytmForm_name">Name:</label>
+                            <input required="true" type="text" class="form-input" id="fytmForm_name" name="fytmForm_name" placeholder="" value="">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label" for="fytmForm_email">Email:</label>
+                            <input required="true" type="text" class="form-input" id="fytmForm_email" name="fytmForm_email" placeholder="" value="">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label" for="fytmForm_phone">Phone:</label>
+                            <input required="true" type="text" class="form-input" id="fytmForm_phone" name="fytmForm_phone" placeholder="" value="">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label" for="fytmForm_PostalCode">Postal Code:</label>
+                            <input required="true" type="text" class="form-input" id="fytmForm_PostalCode" name="fytmForm_PostalCode" placeholder="" value="">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label" for="fytmForm_comment">Message:</label>
+                            <textarea name="fytmForm_comment" cols="30" rows="2" class="form-input" id="fytmForm_comment" required="true"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="button button--primary" id="fytmForm_submit">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#fytmForm_submit").click(function() {
+            var ask_proceed = true;
+            //simple validation at client's end
+            //loop through each field and we simply change border color to red for invalid fields
+            $("#fytm-formRequest input[required=true], #fytm-formRequest textarea[required=true]").each(function() {
+                if (!$.trim($(this).val())) { //if this field is empty
+                    $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                    ask_proceed = false; //set do not proceed flag
+                } else {
+                    $(this).parent('.form-field').removeClass('form-field--error').addClass('form-field--success');
+                }
+                //check invalid email
+                var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                if ($(this).attr("name") == "fytmForm_email" && !email_reg.test($.trim($(this).val()))) {
+                    $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                    ask_proceed = false; //set do not proceed flag
+                }
+            });
+
+            if (ask_proceed) //everything looks good! proceed...
+            {
+                //get input field values data to be sent to server
+                ask_post_data = {
+                    'api': 'i_send_mail',
+                    'subject':   'Request More Info',
+                    'from_name': $('#fytm-formRequest input[name=fytmForm_email]').val(),
+                    'email':     $('#fytmResult').data('email'),
+                    'email_from': $('#fytm-formRequest input[name=fytmForm_email]').val(),
+                    'message': '<h2>Request More Info</h2><table>\
+                            <tr><td><strong>Name:</strong></td><td>' + $('#fytm-formRequest input[name=fytmForm_name]').val() + '</td></tr>\
+                            <tr><td><strong>Email:</strong></td><td>' + $('#fytm-formRequest input[name=fytmForm_email]').val() + '</td></tr>\
+                            <tr><td><strong>Phone:</strong></td><td>' + $('#fytm-formRequest input[name=fytmForm_phone]').val() + '</td></tr>\
+                            <tr><td><strong>Postal Code:</strong></td><td>' + $('#fytm-formRequest input[name=fytmForm_PostalCode]').val() + '</td></tr>\
+                            <tr><td><strong>Message:</strong></td><td>' + $('#fytm-formRequest textarea[name=fytmForm_comment]').val() + '</td></tr>\
+                        </table>'
+                };
+
+                //Ajax post data to server
+                $.post('https://themevale.net/tools/sendmail/quotecart/sendmail.php', ask_post_data, function(response) {
+                    if (response.type == 'error') { //load json data from server and output message
+                        output = '<div class="error">' + response.text + '</div>';
+                    } else {
+                        output = '<div class="alert alert-success">Thank you. We\'ve received your feedback and will respond shortly.</div>';
+                        //reset values in all input fields
+                        $("#fytm-formRequest  input[required=true], #fytm-formRequest textarea[required=true]").val('');
+                        $(".form-inner").hide(); //hide form after success
+                    }
+                    $("#fytm_contactResults").hide().html(output).show();
+                }, 'json');
+            }
+        });
+
+        //reset previously set border colors and hide all message on .keyup()
+        $("#fytm-formRequest input[required=true], #fytm-formRequest textarea[required=true]").keyup(function() {
+            if (!$.trim($(this).val())) { //if this field is empty
+                $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                ask_proceed = false; //set do not proceed flag
+            } else {
+                $(this).parent('.form-field').removeClass('form-field--error').addClass('form-field--success');
+            }
+            //check invalid email
+            var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            if ($(this).attr("name") == "fytmForm_email" && !email_reg.test($.trim($(this).val()))) {
+                $(this).parent('.form-field').removeClass('form-field--success').addClass('form-field--error');
+                ask_proceed = false; //set do not proceed flag
+            }
+            $("#fytm_contactResults").hide();
+        });
+    });
+</script>

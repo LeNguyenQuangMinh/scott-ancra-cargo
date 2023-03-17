@@ -1,0 +1,28 @@
+<article class="card {{#if alternate}}card--alternate{{/if}}" data-product-id="{{id}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
+    <figure class="card-figure">
+        <a href="{{url}}" class="product_img_link" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
+            <div class="card-img-container {{#if images.length '>=' 2}}card-img-hover{{/if}}">
+                <img class="card-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                {{#if images.length '>=' 2}}
+                    {{#each images}}
+                        {{#if @index '==' 1}}
+                            <span class="product-additional" data-product-id="">
+                                <img class="replace-2x img-responsive lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                            </span>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </a>
+    </figure>
+    <div class="card-body">
+        <h4 class="card-title" style="-webkit-box-orient: vertical">
+            <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
+        </h4>
+        {{#each custom_fields}}
+            {{#if name '==' '__part'}}
+                <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+            {{/if}}
+        {{/each}}
+    </div>
+</article>

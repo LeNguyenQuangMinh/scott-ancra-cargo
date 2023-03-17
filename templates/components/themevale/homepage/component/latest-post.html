@@ -1,0 +1,59 @@
+{{#if latest-post '==' 'latest-post-1'}}
+<section class="themevale-section {{padding_top}} {{padding_bottom}}">
+    <div class="container">
+        {{#if theme_settings.homepage_blog_title}}
+            <h2 class="page-heading {{title-border}}"><span class="title">{{title}}</span></h2>
+        {{/if}}
+        {{#if theme_settings.homepage_blog_description}}
+            <p class="page-description">{{description}}</p>
+        {{/if}}
+        <ul class="themevale_column themevale_column--col{{ columns }} themevale_customColumn">
+            {{#each blog}}
+                <li class="item">
+                    {{> components/blog/recent_post post=this settings=../settings}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
+{{/if}}
+
+{{#if latest-post '==' 'latest-post-2'}}
+<section class="themevale-section {{padding_top}} {{padding_bottom}}">
+    <div class="container">
+        {{#if theme_settings.homepage_blog_title}}
+            <h2 class="page-heading {{title-border}}"><span class="title">{{title}}</span></h2>
+        {{/if}}
+        {{#if theme_settings.homepage_blog_description}}
+            <p class="page-description">{{description}}</p>
+        {{/if}}
+        <ul class="themevale_column themevale_column--col{{ columns }} recent-post-style-2 themevale_customColumn">
+            {{#each blog}}
+                <li class="item">
+                    {{> components/blog/recent_post post=this settings=../settings}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
+{{/if}}
+
+{{#if latest-post '==' 'latest-post-3'}}
+<section class="themevale-section {{padding_top}} {{padding_bottom}}">
+    <div class="container">
+        {{#if theme_settings.homepage_blog_title}}
+            <h2 class="page-heading {{title-border}}"><span class="title">{{theme_settings.homepage_blog_title}}</span></h2>
+        {{/if}}
+        {{#if theme_settings.homepage_blog_description}}
+            <p class="page-description">{{theme_settings.homepage_blog_description}}</p>
+        {{/if}}
+        <ul class="themevale_column themevale_column--col{{ columns }} no-padding themevale_column-latestpost themevale_customColumn">
+            {{#each blog}}
+                <li class="item">
+                    {{> components/blog/recent_post-2 post=this settings=../settings}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
+{{/if}}

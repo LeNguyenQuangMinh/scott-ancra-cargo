@@ -1,0 +1,22 @@
+<div class="themevale_categoryToolbar">
+    <div class="item item-iconSidebar">
+        <div class="themevale_sidebar-mobile">
+            <span class='form-label'>sidebar:</span>
+            <svg class="icon"><use xlink:href='#sidebar'></use></svg>
+        </div>
+    </div>
+    <div class="item item-filter">
+        <form class="actionBar" method="get" data-sort-by>
+            <fieldset class="form-fieldset actionBar-section">
+                <div class="form-field">
+                    <label class="form-label" for="sort">{{lang 'common.sorter.sort_by'}}</label>
+                    <select class="form-select form-select--small" name="sort" id="sort">
+                        <option value="relevance" {{#if sort '==' 'relevance'}}selected{{/if}}>{{lang 'common.sorter.relevance'}}</option>
+                        <option value="alphaasc" {{#if sort '==' 'alphaasc'}}selected{{/if}}>{{lang 'common.sorter.alpha_asc'}}</option>
+                        <option value="alphadesc" {{#if sort '==' 'alphadesc'}}selected{{/if}}>{{lang 'common.sorter.alpha_desc'}}</option>
+                    </select>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,184 @@
+// =============================================================================
+// TYPE (CSS)
+// =============================================================================
+
+// Stencil type component additions
+// -----------------------------------------------------------------------------
+
+html * {
+    outline: none !important;
+}
+
+
+
+body {
+    padding: 0;
+    line-height: 20px;
+    position: relative;
+    overflow-x: hidden;
+    font-size: $body-fontSize;
+    color: stencilColor('color-textBase');
+    font-weight: 400;
+    -wenkit-font-smoothing: subpixel-antialiased;
+    &.themevale_open-Sidebar,
+    &.themevale_open-Account,
+    &.themevale_open-Cart,
+    &.themevale_quickSearch,
+    &.has-activeNavPages,
+    &.has-newsletter {
+        overflow: hidden;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: 0;
+    margin-top: $heading-marginTop;
+    font-weight: $header-font-weight;
+    font-family: $fontFamily-headings;
+    color: stencilColor('color-textHeading');
+}
+
+h5,
+h6 {
+    line-height: 20px;
+    text-transform: $heading-textTransform;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+        text-decoration: none;
+        -webkit-tap-highlight-color:transparent;
+        -moz-tap-highlight-color:transparent;
+        -o-tap-highlight-color:transparent;
+        tap-highlight-color:transparent;
+    }
+}
+
+cite {
+    line-height: $blockquote-cite-lineHeight;
+    margin: $blockquote-cite-margin;
+}
+
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+h6 {
+    font-size: $h6-font-size;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5 {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.definitionList {
+    @include clearfix;
+}
+
+.definitionList-key {
+    color: stencilColor("color-textSecondary");
+    float: left;
+    font-weight: fontWeight("normal");
+    margin: 0 spacing("quarter") 0 0;
+}
+
+.definitionList-value {
+    margin: 0;
+}
+
+.themevale_background {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    z-index: 21;
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    transition: opacity .5s ease;
+    background-color: rgba(255,255,255,.3);
+    .themevale_open-Cart &,
+    .themevale_quickSearch &,
+    .themevale_open-Sidebar &,
+    .themevale_open-Account &,
+    .themevale_open-Currency &,
+    .has-activeNavPages & {
+        pointer-events: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+    .themevale_open-Cart &,
+    .themevale_open-Sidebar &,
+    .themevale_open-Account &,
+    .themevale_open-Currency & {
+        z-index: 100;
+    }
+    .has-activeNavPages & {
+        z-index: 999;
+    }
+    .page--headerVertical & {
+        @media (min-width: 1281px) {
+            left: -340px;
+        }
+    }
+    @media (min-width: 1025px) {
+        .has-activeNavPages & {
+            z-index: 19;
+        }
+    }
+}
+
+.themevale_open-verticalMenu {
+    .themevale_header-layout-2.custom {
+        z-index: 23;
+    }
+    .themevale_header-layout-2.custom .themevale_header-bottom:before,
+    .body:before {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 1;
+        content: "";
+        z-index: 22;
+        visibility: visible;
+        position: absolute;
+        transition: opacity .5s ease;
+        background-color: rgba(0,0,0,.5);
+    }
+}

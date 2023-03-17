@@ -1,0 +1,208 @@
+// =============================================================================
+// Service
+// =============================================================================
+
+
+//-----------------------------------------------------------------------------
+
+.themevale_service {
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    overflow: auto;
+    font-size: 0;
+    > .item {
+        display: inline-block;
+        vertical-align: middle;
+        min-width: 270px;
+    }
+    @include breakpoint("medium") {
+        display: flex;
+        align-items: center;
+        overflow: visible;
+        justify-content: space-between;
+        > .item {
+            min-width: 0;
+            width: 33.3333333%;
+        }
+        &.col-4 {
+            > .item {
+                min-width: 0;
+                width: 25%;
+            }
+        }
+    }
+    &.padding-col {
+        margin: 0;
+        > .item {
+            padding: 0;
+            margin-right: 16px;
+        }
+        @media (min-width: 1025px) {
+            margin: 0 -15px;
+            > .item {
+                min-width: 0;
+                padding: 0 15px;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.service-wrapper {
+    height: 50px;
+    display: block;
+    text-align: center;
+    line-height: 48px;
+    font-size: $body-fontSize;
+    border: 1px solid stencilColor('customer-service-border');
+    background-color: stencilColor('customer-service-backgound');
+    .icon {
+        @include square(20);
+        display: inline-block;
+        svg {
+            fill: stencilColor('customer-service-color');
+        }
+        + .text {
+            margin-left: 15px;
+        }
+    }
+    .text {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: stencilColor('customer-service-color');
+    }
+}
+
+.themevale_service_slider {
+    margin-top: -1px;
+    margin-bottom: -1px;
+    .item {
+        .service-wrapper {
+            line-height: 22px;
+            position: relative;
+            text-align: center;
+            padding: 20px 10px 30px 10px;
+            height: auto;
+            border-left: none;
+            border-right: none;
+        }
+        .icon {
+            @include square(40);
+        }
+        .title {
+            font-size: 13px;
+            font-weight: 600;
+            margin: 15px 0;
+            line-height: 24px;
+            text-transform: uppercase;
+            color: #stencilColor('customer-service-color');
+        }
+        .text {
+            text-transform: none;
+            font-size: 12px;
+            line-height: 22px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media (min-width: 360px) {
+        .item {
+            .service-wrapper {
+                padding: 30px 20px 40px;
+            }
+        }
+    }
+    @include breakpoint("small") {
+        .item {
+            .icon {
+                @include square(50);
+            }
+        }
+        .slick-active + .slick-active {
+            .service-wrapper:before {
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 1px;
+                height: 100%;
+                content: "";
+                display: block;
+                position: absolute;
+                background-color: stencilColor('customer-service-border');
+            }
+        }
+    }
+    @media (min-width: 993px) {
+        font-size: 0;
+        display: block;
+        .item {
+            width: 25%;
+            vertical-align: top;
+            display: inline-block;
+            .service-wrapper {
+                font-size: $body-fontSize;
+                border-right: none;
+                border-left: 1px solid stencilColor('customer-service-border');
+            }
+            &:last-child {
+                .service-wrapper {
+                    border-right: 1px solid stencilColor('customer-service-border');
+                }
+            }
+            + .item {
+                .service-wrapper:before {
+                    content: none !important;
+                }
+            }
+        }
+    }
+}
+
+.custom_section_services_mobile {
+    margin-top: 30px;
+    border-top: 1px solid #ebebeb;
+    @include breakpoint('medium') {
+        margin-top: 0;
+        border-top: none;
+    }
+}
+
+.custom_section_services_border {
+    .themevale_service {
+        margin-bottom: 0;
+    }
+    .slick-slide + .slick-slide,
+    .item + .item {
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: calc(100% - 20px);
+            background-color: stencilColor('customer-service-border');
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .service-wrapper {
+        border: 1px solid stencilColor('customer-service-backgound');
+        background-color: stencilColor('customer-service-backgound');
+    }
+    @media (max-width: 1024px) {
+        .service-wrapper {
+            height: 40px;
+            line-height: 38px;
+        }
+    }
+    @media (max-width: 551px) {
+        .service-wrapper {
+            height: 36px;
+            line-height: 34px;
+        }
+    }
+}

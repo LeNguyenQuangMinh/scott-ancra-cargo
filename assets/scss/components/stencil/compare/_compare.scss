@@ -1,0 +1,199 @@
+// =============================================================================
+// COMPARE (CSS)
+// =============================================================================
+
+
+// Compare table layout
+// -----------------------------------------------------------------------------
+//
+// 1. Foundation Magellan plugin.
+//
+// -----------------------------------------------------------------------------
+
+.compareTable {
+    border-top: container("border");
+    table-layout: fixed;
+    width: 100%;
+}
+
+.compareTable-row {
+    vertical-align: top;
+
+    + .compareTable-row {
+
+        // scss-lint:disable NestingDepth
+        .compareTable-heading,
+        .compareTable-item {
+            border-top: container("border");
+        }
+
+        .compareTable-heading:empty {
+            border-top: 0;
+        }
+    }
+}
+
+
+// Compare table headings
+// -----------------------------------------------------------------------------
+
+.compareTable-heading {
+    font-family: fontFamily("headingSans");
+    font-size: fontSize("smaller");
+    font-weight: fontWeight("normal");
+    padding: (spacing("base") + spacing("sixth")) spacing("base");
+    position: relative;
+    text-align: right;
+    width: 0;
+
+    @include breakpoint("medium") {
+        width: grid-calc(3, $total-columns);
+    }
+}
+
+.compareTable-headingText {
+    position: absolute;
+    top: spacing("base") + spacing("sixth");
+    white-space: nowrap;
+
+    @include breakpoint("medium") {
+        position: inherit;
+        top: inherit;
+    }
+}
+
+
+// Compare table item
+// -----------------------------------------------------------------------------
+
+.compareTable-item {
+    padding: (spacing("double") + spacing("sixth")) spacing("base") (spacing("base") + spacing("sixth"));
+
+    @include breakpoint("medium") {
+        padding-top: spacing("base") + spacing("sixth");
+    }
+}
+
+
+// Remove product
+// -----------------------------------------------------------------------------
+
+.compareTable-removeProduct {
+    background-color: container("fill", "dark");
+    border-radius: 50%;
+    height: spacing("single") + spacing("base");
+    position: absolute;
+    right: -(spacing("base"));
+    top: -(spacing("base"));
+    transition: background-color 0.15s ease;
+    width: spacing("single") + spacing("base");
+
+    .icon {
+        fill: stencilColor("icon-color");
+        height: spacing("single");
+        margin-top: spacing("third");
+        width: spacing("single");
+    }
+}
+
+
+// Compare product card
+// -----------------------------------------------------------------------------
+
+.compareTable-product {
+    font-weight: fontWeight("normal");
+    padding: (spacing("single") + spacing("third")) spacing("base") (spacing("base") + spacing("sixth"));
+
+    .card {
+        margin-bottom: 0;
+    }
+    .card-img-container .card-image {
+        width: auto;
+    }
+}
+
+
+// Compare action
+// -----------------------------------------------------------------------------
+
+.compareTable-action {
+    padding: 0 spacing("base") spacing("base");
+
+    .button {
+        display: block;
+        padding-left: spacing("half");
+        padding-right: spacing("half");
+        width: 100%;
+    }
+}
+
+
+.compareTable {
+    border: 1px solid #ececec;
+    border-collapse: collapse;
+    th, td {
+        border: 1px solid #ececec;
+        border-spacing: 0px;
+    }
+    thead {
+        text-align: center;
+        .compareTable-heading {
+            text-align: center;
+            font-family: $fontFamily-headings;
+        }
+        .compareTable-headingText {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: stencilColor('color-textHeading');
+        }
+    }
+    .compareTable-item.text-center, 
+    .compareTable-heading.text-center {
+        width: 150px;
+    }
+}
+
+.compareTable-product {
+    .card {
+        border: none;
+        text-align: center;
+        .card-img-container {
+            &:before {
+                content: none;
+            }
+            &:after {
+                padding-bottom: 75%;
+            }
+        }
+        .card-body {
+            text-align: center;
+            .card-figcaption-group {
+                margin-top: 20px;
+            }
+            .button {
+                max-width: 200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    .compareTable-removeProduct {
+        top: 0px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        background-color: transparent;
+        .icon {
+            margin: 0;
+            width: 25px;
+            height: 25px;
+            padding: 5px;
+            fill: #ffffff;
+            border-radius: 50%;
+            background-color: stencilColor('color-textHeading');
+        }
+    }
+}

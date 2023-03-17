@@ -1,0 +1,48 @@
+// =============================================================================
+// PROGRESS (CSS)
+// =============================================================================
+
+.progress {
+    height: 8px;
+    margin-bottom: 1rem;
+    border-radius: 0;
+    background-color: #f5f5f5; 
+    &.primary .progress-meter {
+        background-color: #1779ba; 
+    }
+    &.secondary .progress-meter {
+        background-color: #767676; 
+    }
+    &.success .progress-meter {
+        background-color: #69c69c; 
+    }
+    &.warning .progress-meter {
+        background-color: #ffae00; 
+    }
+    &.alert .progress-meter {
+        background-color: #cc4b37; 
+    }
+}
+
+.progress-meter {
+    position: relative;
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: #1779ba; 
+}
+
+.progress-meter-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    position: absolute;
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fefefe;
+    white-space: nowrap; 
+}

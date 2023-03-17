@@ -1,0 +1,28 @@
+<header class="header themevale_header-layout-1">
+    <div class="themevale_header-PC">
+        <div class="themevale_header-top">
+            {{> components/common/navigation}}
+        </div>
+        <div class="themevale_header-middle">
+            {{> components/themevale/header/header-middle}}
+        </div>
+        <div class="themevale_header-bottom menu-sticky">
+            <div class="logo-wrapper">
+                <div class="header-sticky-logo">
+                    <a href="{{urls.home}}">
+                        {{#if settings.store_logo.image}}
+                            <img class="header-logo-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/logo-whitecolor.png" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                        {{else}}
+                            <span class="header-logo-text">{{settings.store_logo.title}}</span>
+                        {{/if}}
+                    </a>
+                </div>
+            </div>
+            {{> components/common/navigation-menu}}
+            {{> components/common/sticky-cart-search}}
+        </div>
+    </div>
+    <div class="themevale_header-Mobile">
+        {{> components/themevale/header/header-mobile}}
+    </div>
+</header>

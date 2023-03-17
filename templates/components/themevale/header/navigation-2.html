@@ -1,0 +1,95 @@
+<div class="container">
+    <nav class="navUser text-left">
+        <div class="navUser-item">
+            <ul class="navUser-list-text">
+                <li><span>Free Express Shipping for all orders</span></li>
+                <li><span>Free In-store returns.</span></li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navUser text-right">
+        <div class="navUser-item navUser-item--quickSearch">
+            {{{ snippet "forms_search"}}}
+            <form class="form" action="{{urls.search}}">
+                <fieldset class="form-fieldset">
+                    <div class="form-field style-2">
+                        <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
+                        <button class="button-submit" type="submit" aria-label="{{lang 'search.quick_search.input_label'}}"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg></button>
+                        <input class="form-input" data-search-quick name="search_query" id="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_label'}}" autocomplete="off">
+                    </div>
+                </fieldset>
+            </form>
+            <div class="quickSearchResults" data-bind="html: results"></div>
+        </div>
+        {{#if settings.gift_certificates_enabled}}
+        <div class="navUser-item">
+            <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+        </div>
+        {{/if}}
+        <div class="navUser-item navUser-item--account">
+            {{#if customer}}
+                <a class="navUser-action navUser-action--account" href="{{urls.account.index}}">
+                    {{lang 'common.myaccount'}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                </a>
+                <ul class="dropdown-menu" id="navPages-account-topbar">
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                    </li>
+                    {{#if settings.returns_enabled}}
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.inbox}}">{{lang 'account.mobile_nav.messages'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
+                    </li>
+                    {{#if settings.show_payment_methods}}
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.payment_methods.all}}">{{lang 'account.nav.payment_methods'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                    </li>
+                </ul>
+            {{else}}
+                <a class="navUser-action" href="{{urls.auth.login}}">{{lang 'common.myaccount'}}</a>
+            {{/if}}
+        </div>
+        <div class="navUser-item navUser-item--wishList">
+            <a class="navUser-action" href="{{urls.account.wishlists.all}}" aria-label="{{lang 'common.wishlist2'}}">
+                <div class="navUser-icon">
+                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-heart-2"></use></svg>
+                </div>
+            </a>
+        </div>
+        <div class="navUser-item navUser-item--cart themevale_cart">
+                <a class="navUser-action"
+                    data-cart-preview
+                    data-options="align:right"
+                    href="{{urls.cart}}" aria-label="{{lang 'common.cart'}}">
+                    <div class="navUser-icon navUser-item-cartIcon">
+                        <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cart"></use></svg>
+                    </div>
+                    <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{#if cart.items}}{{cart.quantity}}{{else}}0{{/if}}</span>
+                </a>
+                <div class="dropdown-cart" id="cart-preview-dropdown" aria-hidden="true"></div>
+            </div>
+        <div class="navUser-item navUser-item--currencySelector">
+            {{> components/common/currency-selector}}
+        </div>
+        
+    </nav>
+</div>

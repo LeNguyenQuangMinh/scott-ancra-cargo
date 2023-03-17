@@ -1,0 +1,44 @@
+<header class="header themevale_header-layout-3">
+    <div class="themevale_header-PC">
+        <div class="themevale_header-top">
+            {{> components/themevale/header/navigation-2}}
+        </div>
+        <div class="themevale_header-middle">
+            <div class="logo-wrapper">
+                {{#if page_type '===' 'default'}}
+                    <h1 class="header-logo">
+                        {{> components/common/store-logo}}
+                    </h1>
+                {{else}}
+                    <div class="header-logo">
+                        {{> components/common/store-logo}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="themevale_header-bottom menu-sticky">
+            <div class="logo-wrapper">
+                <div class="header-sticky-logo">
+                    <a href="{{urls.home}}">
+                        {{#if settings.store_logo.image}}
+                            {{#if theme_settings.logo_size '===' 'original'}}
+                                <img class="header-logo-image-unknown-size" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                            {{else}}
+                                <span class="header-logo-image-container">
+                                    <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                                </span>
+                            {{/if}}
+                        {{else}}
+                            <span class="header-logo-text">{{settings.store_logo.title}}</span>
+                        {{/if}}
+                    </a>
+                </div>
+            </div>
+            {{> components/common/navigation-menu}}
+            {{> components/common/sticky-cart-search}}
+        </div>
+    </div>
+    <div class="themevale_header-Mobile">
+        {{> components/themevale/header/header-mobile}}
+    </div>
+</header>

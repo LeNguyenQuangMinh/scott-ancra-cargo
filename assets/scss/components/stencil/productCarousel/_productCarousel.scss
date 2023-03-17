@@ -1,0 +1,75 @@
+// PRODUCT CAROUSEL
+// -----------------------------------------------------------------------------
+//
+// Purpose: Styles the product carousel component, which basically adds extras to the
+// vendor slick carousel, to specifically display product
+//
+// 1. If there's no JS layout the products out based on the grid.
+//
+// -----------------------------------------------------------------------------
+
+.productCarousel { // 1
+    @include grid-row(
+        $behavior: nest
+    );
+    margin-left: -8px;
+    margin-right: -8px;
+    @media (min-width: 1025px) {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    @media (max-width: 551px) {
+        .slick-arrow.slick-prev {
+            left: 5px;
+        }
+        .slick-arrow.slick-next {
+            right: 5px;
+        }
+    }
+}
+
+.productCarousel-slide { // 1
+    @include grid-column(6);
+    @include breakpoint("small") {
+        width: grid-calc(4, $total-columns);
+    }
+    @include breakpoint("medium") {
+        width: grid-calc(3, $total-columns);
+    }
+    @include breakpoint("large") {
+        width: grid-calc(2, $total-columns);
+    }
+    .card {
+        margin-bottom: 0;
+    }
+    padding: 0 8px;
+    @media (min-width: 1025px) {
+        padding: 0 15px;
+    }
+}
+
+.productCarousel-mobile {
+    @media (min-width: 1025px) {
+        .productCarousel-slide {
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            margin-bottom: 30px;
+        }
+        .card-img-container {
+            &:after {
+                padding-bottom: 75%;
+            }
+            .product-additional {
+                width: auto;
+                height: 100%;
+                img {
+                    height: 100%;
+                }
+            }
+        }
+        .card_optionSize {
+            display: none;
+        }
+    }
+}

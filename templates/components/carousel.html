@@ -1,0 +1,509 @@
+{{#if layout '==' 'layout-1'}}
+    <section class="heroCarousel"
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "lazyLoad": "anticipated",
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}},
+                        "autoplay": true
+                    }
+                }
+        ]}'>
+        {{#each carousel.slides}}
+        <a class="link-carousel" href="{{url}}">
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}} {{#if @index '==' 2}}abs_right{{/if}}">
+                <div class="heroCarousel-image-wrapper" {{#and image_height image_width}}style="height: {{multiply (divide image_height image_width) 100}}vw"{{/and}}>
+                    <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                    {{#if heading}}
+                        <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                    {{/if}}
+                </div>
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
+                    {{#if text}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if button_text}}
+                            {{> components/carousel-content show_background=false}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </a>
+        {{/each}}
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-2'}}
+    <section class="heroCarousel-wrapper">
+        <div class="container">
+            <div class="heroCarousel heroCarousel-2"
+                data-slick='{
+                    "dots": true,
+                    "arrows": false,
+                    "mobileFirst": true,
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1,
+                    "adaptiveHeight": true,
+                    "autoplaySpeed": {{carousel.swap_frequency}},
+                    "lazyLoad": "anticipated",
+                    "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                    "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                    "responsive": [
+                        {
+                            "breakpoint": 1050,
+                            "settings": {
+                                "dots": {{dots}},
+                                "arrows": {{arrows}},
+                                "autoplay": true
+                            }
+                        }
+                ]}'>
+                {{#each carousel.slides}}
+                <a class="link-carousel" href="{{url}}">
+                    <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}} {{#if @index '==' 2}}abs_right{{/if}}">
+                        <div class="heroCarousel-image-wrapper">
+                            <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                            {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                            {{#if heading}}
+                                <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                            {{/if}}
+                        </div>
+                        {{#if heading}}
+                            {{> components/carousel-content show_background=true}}
+                        {{else}}
+                            {{#if text}}
+                                {{> components/carousel-content show_background=true}}
+                            {{else}}
+                                {{#if button_text}}
+                                    {{> components/carousel-content show_background=false}}
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-3'}}
+    <section class="heroCarousel"
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "lazyLoad": "anticipated",
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}},
+                        "autoplay": true
+                    }
+                }
+        ]}'>
+        {{#each carousel.slides}}
+        <a class="link-carousel" href="{{url}}">
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}} {{#if @index '==' 2}}abs_right{{/if}}">
+                <div class="heroCarousel-image-wrapper">
+                    <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                    {{#if heading}}
+                        <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                    {{/if}}
+                </div>
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
+                    {{#if text}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if button_text}}
+                            {{> components/carousel-content show_background=false}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </a>
+        {{/each}}
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-4'}}
+    <section class="heroCarousel heroCarousel-parallax">
+        {{#each carousel.slides}}
+        <a class="link-carousel" href="{{url}}">
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+                <div class="heroCarousel-image-wrapper" style="background-image: url('{{image}}')">
+                    <img class="heroCarousel-image" src="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                    {{#if heading}}
+                        <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                    {{/if}}
+                </div>
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
+                    {{#if text}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if button_text}}
+                            {{> components/carousel-content show_background=false}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </a>
+        {{/each}}
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-5'}}
+    {{> components/themevale/homepage/component/services services="services-3" padding_top="padding-top-0" padding_bottom="padding-bottom-0" padding_col=theme_settings.customer-service-padding custom="custom_section_services_border"}}
+    
+    <section class="heroCarousel"
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "lazyLoad": "anticipated",
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}},
+                        "autoplay": true
+                    }
+                }
+        ]}'>
+        {{#each carousel.slides}}
+        <a class="link-carousel" href="{{url}}">
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}} {{#if @index '==' 2}}abs_right{{/if}}">
+                <div class="heroCarousel-image-wrapper" {{#and image_height image_width}}style="height: {{multiply (divide image_height image_width) 100}}vw"{{/and}}>
+                    <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                    {{#if heading}}
+                        <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                    {{/if}}
+                </div>
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
+                    {{#if text}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if button_text}}
+                            {{> components/carousel-content show_background=false}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </a>
+        {{/each}}
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-6'}}
+    <section class="heroCarousel-wrapper themevale-parallax">
+        <div class="container">
+            <div class="heroCarousel heroCarousel-2"
+                data-slick='{
+                    "dots": true,
+                    "arrows": false,
+                    "mobileFirst": true,
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1,
+                    "autoplaySpeed": {{carousel.swap_frequency}},
+                    "adaptiveHeight": true,
+                    "lazyLoad": "anticipated",
+                    "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                    "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                    "responsive": [
+                        {
+                            "breakpoint": 1050,
+                            "settings": {
+                                "dots": {{dots}},
+                                "arrows": {{arrows}},
+                                "autoplay": true
+                            }
+                        }
+                ]}'>
+                {{#each carousel.slides}}
+                    <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}} {{#if @index '==' 2}}abs_right{{/if}}">
+                        <div class="heroCarousel-image-wrapper">
+                            <a class="link-carousel" href="{{url}}">
+                                <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                                {{#if heading}}
+                                    <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                                {{/if}}
+                            </a>
+                            {{#if @index '==' 2}}
+                                <div class="lookbook-item" style="top: {{../../theme_settings.slide-product1-y}}%; left: {{../../theme_settings.slide-product1-x}}%;">
+                                    <div class="position-point" data-product-id="{{../../theme_settings.slide-product1-id}}">+</div>
+                                </div>
+                                <div class="lookbook-item" style="top: {{../../theme_settings.slide-product2-y}}%; left: {{../../theme_settings.slide-product2-x}}%;">
+                                    <div class="position-point" data-product-id="{{../../theme_settings.slide-product2-id}}">+</div>
+                                </div>
+                                <div class="lookbook-item" style="top: {{../../theme_settings.slide-product3-y}}%; left: {{../../theme_settings.slide-product3-x}}%;">
+                                    <div class="position-point" data-product-id="{{../../theme_settings.slide-product3-id}}">+</div>
+                                </div>
+                            {{/if}}
+                        </div>
+                        {{#if heading}}
+                            {{> components/carousel-content show_background=true}}
+                        {{else}}
+                            {{#if text}}
+                                {{> components/carousel-content show_background=true}}
+                            {{else}}
+                                {{#if button_text}}
+                                    {{> components/carousel-content show_background=false}}
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
+            <div class="lookbook-popup"></div>
+        </div>
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-7'}}
+    <section class="heroCarousel-wrapper">
+        <div class="heroCarousel"
+            data-slick='{
+                "dots": true,
+                "arrows": false,
+                "mobileFirst": true,
+                "slidesToShow": 1,
+                "slidesToScroll": 1,
+                "adaptiveHeight": true,
+                "lazyLoad": "anticipated",
+                "autoplaySpeed": {{carousel.swap_frequency}},
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1050,
+                        "settings": {
+                            "dots": {{dots}},
+                            "arrows": {{arrows}},
+                            "autoplay": true
+                        }
+                    }
+            ]}'>
+            {{#each carousel.slides}}
+            <a class="link-carousel" href="{{url}}">
+                <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}} {{#if @index '==' 2}}abs_right{{/if}}">
+                    <div class="heroCarousel-image-wrapper">
+                        <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                        {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                        {{#if heading}}
+                            <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                        {{/if}}
+                    </div>
+                    {{#if heading}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if text}}
+                            {{> components/carousel-content show_background=true}}
+                        {{else}}
+                            {{#if button_text}}
+                                {{> components/carousel-content show_background=false}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </a>
+            {{/each}}
+        </div>
+        <div class="custom-arrow-left">
+            <div class="triangle-left"></div>
+        </div>
+        <div class="custom-arrow-right">
+            <div class="triangle-right"></div>
+        </div>
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-8'}}
+    <section class="heroCarousel"
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "lazyLoad": "anticipated",
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}},
+                        "autoplay": true
+                    }
+                }
+        ]}'>
+        {{#each carousel.slides}}
+        <a class="link-carousel" href="{{url}}">
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}} {{#if @index '==' 2}}abs_right{{/if}}">
+                <div class="heroCarousel-image-wrapper">
+                    <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                    {{#if heading}}
+                        <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                    {{/if}}
+                </div>
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
+                    {{#if text}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if button_text}}
+                            {{> components/carousel-content show_background=false}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </a>
+        {{/each}}
+    </section>
+{{/if}}
+
+{{#if layout '==' 'layout-9'}}
+    <section class="heroCarousel"
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "lazyLoad": "anticipated",
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}},
+                        "autoplay": true
+                    }
+                }
+        ]}'>
+        {{#each carousel.slides}}
+        <a class="link-carousel" href="{{url}}">
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+                <div class="heroCarousel-image-wrapper" {{#and image_height image_width}}style="height: {{multiply (divide image_height image_width) 100}}vw"{{/and}}>
+                    <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                    {{#if heading}}
+                        <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                    {{/if}}
+                </div>
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
+                    {{#if text}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if button_text}}
+                            {{> components/carousel-content show_background=false}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </a>
+        {{/each}}
+    </section>
+{{/if}}
+
+
+{{#if layout '==' 'layout-10'}}
+    <section class="heroCarousel"
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "lazyLoad": "anticipated",
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Slideshow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Slideshow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}},
+                        "autoplay": true
+                    }
+                }
+        ]}'>
+        {{#each carousel.slides}}
+        <a class="link-carousel" href="{{url}}">
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+                <div class="heroCarousel-image-wrapper">
+                    <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+                    {{#if heading}}
+                        <div class="heroCarousel-title-mobile">{{{heading}}}</div>
+                    {{/if}}
+                </div>
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
+                    {{#if text}}
+                        {{> components/carousel-content show_background=true}}
+                    {{else}}
+                        {{#if button_text}}
+                            {{> components/carousel-content show_background=false}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </a>
+        {{/each}}
+    </section>
+{{/if}}

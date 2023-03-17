@@ -1,0 +1,14 @@
+<nav>
+    <!-- All categories -->
+    {{> components/themevale/sidebar/side-all-categories}}
+    <!-- Shop by Brands -->
+    {{> components/themevale/sidebar/side-shop-by-brands}}
+    <!-- slider product -->
+    {{#if products.featured}}
+        {{> components/themevale/sidebar/featured-products products=products.featured productsnew=products.new block_id="sidebar-products"}}
+    {{/if}}
+    <!-- advertisement image -->
+    {{> components/themevale/sidebar/advertisement-image}}
+    <!-- advertisement text -->
+    {{> components/themevale/sidebar/advertisement-content}}
+</nav>

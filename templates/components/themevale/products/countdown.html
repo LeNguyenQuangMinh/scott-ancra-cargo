@@ -1,0 +1,10 @@
+{{#each product.custom_fields}}
+	{{#if name '===' 'countdown'}}
+		<div class="productView-countDown hide">
+			<div class="countdownValue_{{../../product.id}} countdownValue">
+				{{{value}}}
+			</div>
+			<div id="countDownDate_{{../../product.id}}" class="countDownDate"></div>
+		</div>
+	{{/if}}
+{{/each}}

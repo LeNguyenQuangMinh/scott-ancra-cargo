@@ -1,0 +1,3 @@
+{
+  "components/themevale/products/countdown": "{{#each product.custom_fields}}\r\n\t{{#if name '===' 'countdown'}}\r\n\t\t<div class=\"productView-countDown hide\">\r\n\t\t\t<div class=\"countdownValue_{{../../product.id}} countdownValue\">\r\n\t\t\t\t{{{value}}}\r\n\t\t\t</div>\r\n\t\t\t<div id=\"countDownDate_{{../../product.id}}\" class=\"countDownDate\"></div>\r\n\t\t</div>\r\n\t{{/if}}\r\n{{/each}}\r\n"
+}

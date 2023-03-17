@@ -1,0 +1,41 @@
+<ul class="tabs style-5" data-tab data-themevale-products-by-category-sorting-tabs role="tablist">
+    <li class="tab is-active" role="presentation">
+        <a class="tab-title" href="#tab-productsByCategoryTabs-new-{{id}}" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-productsByCategoryTabs-new-{{id}}">{{lang 'home.tab_products.new' }}</a>
+    </li>
+    <li class="tab" role="presentation">
+        <a class="tab-title" href="#tab-productsByCategoryTabs-bestselling-{{id}}" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-productsByCategoryTabs-bestselling-{{id}}">{{lang 'home.tab_products.bestselling' }}</a>
+    </li>
+    <li class="tab" role="presentation">
+        <a class="tab-title" href="#tab-productsByCategoryTabs-featured-{{id}}" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-productsByCategoryTabs-featured-{{id}}">{{lang 'home.tab_products.featured' }}</a>
+    </li>
+    <li class="tab" role="presentation">
+        <a class="tab-title" href="#tab-productsByCategoryTabs-reviews-{{id}}" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-productsByCategoryTabs-reviews-{{id}}">{{lang 'home.tab_products.reviews' }}</a>
+    </li>
+</ul>
+<div class="tabs-contents">
+    {{>  components/themevale/homepage/component/banner-marketing-by-category-sorting-tabs banner=banner}}
+    <span class="newTextAjax">New</span>
+    <div role="tabpanel" aria-hidden="true" class="tab-content is-active" id="tab-productsByCategoryTabs-new-{{id}}" 
+        data-themevale-products-by-category-sorting-tabs="{{concat url '?sort=newest'}}"
+        data-themevale-template-products-by-category-tabs="themevale/homepage/component/ajax-products-by-category-sorting-tabs-result">
+        {{>  components/themevale/homepage/component/product-loading}}
+    </div>
+
+    <div role="tabpanel" aria-hidden="false" class="tab-content" id="tab-productsByCategoryTabs-bestselling-{{id}}" 
+        data-themevale-products-by-category-sorting-tabs="{{concat url '?sort=bestselling'}}"
+        data-themevale-template-products-by-category-tabs="themevale/homepage/component/ajax-products-by-category-sorting-tabs-result">
+        {{>  components/themevale/homepage/component/product-loading}}
+    </div>
+
+    <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-productsByCategoryTabs-featured-{{id}}" 
+        data-themevale-products-by-category-sorting-tabs="{{concat url '?sort=featured'}}"
+        data-themevale-template-products-by-category-tabs="themevale/homepage/component/ajax-products-by-category-sorting-tabs-result">
+        {{>  components/themevale/homepage/component/product-loading}}
+    </div>
+
+    <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-productsByCategoryTabs-reviews-{{id}}" 
+        data-themevale-products-by-category-sorting-tabs="{{concat url '?sort=avgcustomerreview'}}"
+        data-themevale-template-products-by-category-tabs="themevale/homepage/component/ajax-products-by-category-sorting-tabs-result">
+        {{>  components/themevale/homepage/component/product-loading}}
+    </div>
+</div>

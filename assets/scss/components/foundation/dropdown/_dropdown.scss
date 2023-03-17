@@ -1,0 +1,98 @@
+// =============================================================================
+// DROPDOWN (CSS)
+// =============================================================================
+
+
+.dropdown {
+    left: -9999px;
+    outline: none;
+    position: absolute;
+}
+
+.dropdown-menu {
+    &.is-loading .loadingOverlay {
+        background: none;
+        padding: (spacing("double") + spacing("single")) 0;
+        position: relative;
+    }
+
+    &.is-open {
+        display: block;
+    }
+}
+
+.dropdown-menu-item {
+    text-align: left;
+
+    &:first-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-top: spacing("half");
+        }
+    }
+
+    &:last-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-bottom: spacing("base");
+        }
+    }
+
+    > a {
+        margin: 0;
+        padding: spacing("sixth") (spacing("half") + spacing("quarter"));
+        text-decoration: none;
+    }
+}
+
+.form-wishlist {
+    position: relative;
+}
+
+.dropdown-menu-button {
+    width: 100%;
+
+    &.is-open {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .icon {
+        float: right;
+        margin-left: 10px;
+    }
+}
+
+#wishlist-dropdown {
+    margin-bottom: 0;
+    &.is-open {
+        background: transparent;
+        left: auto !important;
+        max-width: none !important;
+        width: 100% !important;
+        padding: 0;
+        [data-wishlist] {
+            border-top: none;
+            margin-bottom: 0px;
+            width: 100%;
+        }
+        .button {
+            width: 100%;
+            border-radius: 0px;
+            color: stencilColor('color-textHeading');
+            background-color: stencilColor("dropdown--wishList-backgroundColor");
+            &:hover, &:focus, &:active {
+                background-color: #fafafa;
+                color: stencilColor('color-textHeading');
+            }
+        }
+        .button--has-items {
+            font-weight: 600;
+        }
+        li:not(:last-child) .button {
+            border-top: none;
+        }
+    }
+}

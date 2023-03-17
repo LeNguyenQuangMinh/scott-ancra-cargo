@@ -1,0 +1,68 @@
+<div class="themevale_searchSticky" id="quickSearch">
+    {{{ snippet "forms_search"}}}
+        <form class="form" action="{{urls.search}}">
+            <fieldset class="form-fieldset">
+                <div class="form-field">
+                    <label class="is-srOnly" for="search_query_mobile">{{lang "search.quick_search.input_label"}}</label>
+                    <input class="form-input" data-search-quick name="search_query" id="search_query_mobile" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_label'}}" autocomplete="off">
+                    <button class="button-submit" type="submit" aria-label="{{lang "search.quick_search.button_search"}}"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-search"></use></svg></button>
+                </div>
+            </fieldset>
+        </form>
+        <div class="quickSearchResults" data-bind="html: results"></div>
+</div>
+{{#if theme_settings.themevale_top-promotion}}
+    {{#if theme_settings.header-layout-7}}
+        <div id="themevale_top-promotion" class="promotion-image">
+            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.themevale_top-promotion-image}}" alt="">
+            <div class="container">
+                <div class="banner-promotion" id="count-down-promotion" data-count-down="{{theme_settings.themevale_top-promotion-time}}">
+                    <p class="text">{{theme_settings.themevale_top-promotion-text}}</p>
+                    {{#if theme_settings.themevale_top-promotion-link}}
+                        <a class="link" href="{{theme_settings.themevale_top-promotion-href}}" target="_blank" rel="noopener">{{theme_settings.themevale_top-promotion-link}}</a>
+                    {{/if}}
+                    <div id="time"></div>
+                </div>
+                <a href="javascript:void(0)" class="close-banner-promotion" aria-label="Close Promotion Banner">
+                    <svg aria-hidden="true"><use xlink:href="#icon-close"></use></svg>
+                </a>
+            </div>
+        </div>
+    {{else}}
+        <div id="themevale_top-promotion">
+            <div class="container">
+                <div class="banner-promotion">
+                    <p class="text">{{theme_settings.themevale_top-promotion-text}}</p>
+                    {{#if theme_settings.themevale_top-promotion-link}}
+                        <a class="link" href="{{theme_settings.themevale_top-promotion-href}}" target="_blank" rel="noopener">{{theme_settings.themevale_top-promotion-link}}</a>
+                    {{/if}}
+                </div>
+                <a href="javascript:void(0)" class="close-banner-promotion" aria-label="Close Promotion Banner">
+                    <svg aria-hidden="true"><use xlink:href="#icon-close"></use></svg>
+                </a>
+            </div>
+        </div>
+    {{/if}}
+{{/if}}
+{{#if theme_settings.header-layout-1}}
+    {{> components/themevale/header/header-layout-1}}
+{{/if}}
+{{#if theme_settings.header_layout_2}}
+    {{> components/themevale/header/header-layout-2}}
+{{/if}}
+{{#if theme_settings.header-layout-3}}
+    {{> components/themevale/header/header-layout-3}}
+{{/if}}
+{{#if theme_settings.header-layout-4}}
+    {{> components/themevale/header/header-layout-4}}
+{{/if}}
+{{#if theme_settings.header-layout-5}}
+    {{> components/themevale/header/header-layout-5}}
+{{/if}}
+{{#if theme_settings.header-layout-6}}
+    {{> components/themevale/header/header-layout-6}}
+{{/if}}
+{{#if theme_settings.header-layout-7}}
+    {{> components/themevale/header/header-layout-7}}
+{{/if}}
+{{{region name="header_bottom"}}}

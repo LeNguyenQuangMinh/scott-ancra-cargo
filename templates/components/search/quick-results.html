@@ -1,0 +1,47 @@
+{{#if product_results.products}}
+    <ul class="productList" {{#if settings.data_tag_enabled}} data-list-name="Quick Search Results" {{/if}}>
+        {{#each product_results.products}}
+        <li class="product">
+            <article class="card">
+                <figure class="card-figure">
+                    <a class="card-link" href="{{url}}">
+                        <div class="card-img-container">
+                            <img class="card-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                        </div>
+                    </a>
+                </figure>
+                <div class="card-body">
+                    {{#if brand.name}}
+                        <p class="card-brand" data-test-info-type="brandName">{{brand.name}}</p>
+                    {{/if}}
+                    <h4 class="card-title">
+                        <a href="{{url}}">{{name}}</a>
+                    </h4>
+                    <div class="price-wrapper">
+                        <div class="card-price" data-test-info-type="price">
+                            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                                {{> components/products/price price=price}}
+                            {{else}}
+                                {{> components/common/login-for-pricing}}
+                            {{/or}}
+                        </div>
+                    </div>
+                    <p class="card-rating" data-test-info-type="productRating">
+                        <span class="rating--small">
+                            {{> components/products/ratings rating=rating}}
+                        </span>
+                    </p>
+                </div>
+            </article>
+        </li>
+        {{/each}}
+    </ul>
+{{else}}
+<div class="quickSearch-wrapper">
+    <div class="alert alert-warning">
+        <p class="quickSearchMessage">
+            {{lang 'search.results.quick_count' count=pagination.product_results.total search_query=forms.search.query}}
+        </p>
+    </div>
+</div>
+{{/if}}

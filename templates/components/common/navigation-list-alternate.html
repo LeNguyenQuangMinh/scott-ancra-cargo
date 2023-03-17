@@ -1,0 +1,17 @@
+{{#if children}}
+    <a class="navPages-action navPages-action-depth-max has-subMenu is-root" href="{{url}}">
+        <span class="text">
+            {{name}}
+            {{#if name '==' 'Buy ELLA'}}
+                <span class="navPages-label sale-label custom-label--sale">Sale</span>
+            {{/if}}
+        </span>
+        <span class="navPages-action-moreIcon">
+            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-chevron-down" /></svg>
+            Back
+        </span>
+    </a>
+    {{> components/common/navigation-dropdown}}
+{{else}}
+    <a class="navPages-action" href="{{url}}"><span class="text">{{name}}</span></a>
+{{/if}}

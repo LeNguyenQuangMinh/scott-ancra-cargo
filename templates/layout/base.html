@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="theme-color" content="#232323">
+        <meta name="Description" content="Ella BigCommerce theme developed by Themevale">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script>
+            // Change document class from no-js to js so we can detect this in css
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        <script async type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        {{ getFontsCollection }}
+        {{{stylesheet '/assets/css/theme.css'}}}
+
+        {{{head.scripts}}}
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{~inject 'cartId' cart_id}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{inject 'template' template}}
+        {{inject 'token' settings.storefront_api.token}}
+        {{~inject 'money' settings.money}}
+        {{{snippet 'htmlhead'}}}
+    </head>
+    <body class="page-type-{{page_type}} 
+        {{#if theme_settings.header-layout-6}}page--headerVertical{{/if}} 
+        {{#if theme_settings.homepage-layout-7}}page--fullWidth{{/if}} 
+        {{#if theme_settings.homepage-layout-8}}page--boxed{{/if}} 
+        {{#if theme_settings.homepage-layout-9}}page--boxed2{{/if}} 
+        {{#if customer}}wl-login{{/if}}">
+        {{{snippet 'header'}}}
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+        <!-- menu mobile  -->
+        <div class="themevale_Mobile themevale_MobileMenu" id="menu-mobile">
+            <div class="themevale_close">
+                <a href="javascript:void(0)" title="Close Menu Popup" class="close">×</a>
+            </div>
+            <div class="navPages-container" id="menuMobile" data-menu>
+            </div>
+        </div>
+
+        <!-- Account mobile  -->
+        <div class="themevale_Mobile themevale_MobileAccount" id="account-mobile">
+            <div class="themevale_close2">
+                <a href="javascript:void(0)" class="close" title="Close Acount Popup">
+                    <svg class="icon" aria-hidden="true"><use xlink:href="#times"/></svg>
+                    <span class="text">close</span>
+                </a>
+            </div>
+            <div id="accountMobile">
+                {{#if page_type '!==' 'login'}}
+                    {{> components/themevale/header/navigation-accountMobile}}
+                {{/if}}
+            </div>
+        </div>
+
+        <!-- Cart mobile  -->
+        <div class="themevale_Mobile themevale_MobileCart" id="cart-mobile">
+            <div class="themevale_close2">
+                <a href="javascript:void(0)" class="close" title="Close Cart Popup">
+                    <svg class="icon" aria-hidden="true"><use xlink:href="#times"/></svg>
+                    <span class="text">close</span>
+                </a>
+            </div>
+            <div id="cartMobile">
+                <p class="navPage-subMenu-title">
+                    <span class="text">Shopping Cart:</span>
+                </p>
+                <div class="dropdown-cart" id="cart-preview-dropdown-3" aria-hidden="true"></div>
+            </div>
+        </div>
+
+        <!-- Currency mobile  -->
+        <div class="themevale_Mobile themevale_MobileCurrency" id="currency-mobile">
+            <div class="themevale_close2">
+                <a href="javascript:void(0)" class="close" title="Close Currency Popup">
+                    <svg class="icon" aria-hidden="true"><use xlink:href="#times"/></svg>
+                    <span class="text">close</span>
+                </a>
+            </div>
+            <div id="CurrencyMobile">
+                <p class="navPage-subMenu-title">
+                    <span class="text">Currency</span>
+                </p>
+                <div id="currencySelection-3">
+                    {{#each currency_selector.currencies}}
+                    <div class="item">
+                        <a href="{{{switch_url}}}">
+                            {{#if is_active}}
+                            {{{flag}}} <strong>{{name}}</strong>
+                            {{else}}
+                            {{{flag}}} {{name}}
+                            {{/if}}
+                        </a>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar mobile -->
+        <div class="themevale_Mobile themevale_MobileSidebar" id="sidebar-mobile">
+           <div class="themevale_close2">
+                <a href="javascript:void(0)" class="close" title="Close Sidebar Popup">
+                    <svg class="icon" aria-hidden="true"><use xlink:href="#times"/></svg>
+                    <span class="text">close</span>
+                </a>
+            </div>
+            <div class="themevale_MobileContent page-sidebar" id="faceted-search-container2"></div>
+        </div>
+
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <div class="themevale_popup_left {{#if theme_settings.themevale_RecentlyBought_Position '==' 'right'}}position-right{{/if}}"> 
+            {{#if settings.privacy_cookie }}
+                {{> components/common/cookie }}
+            {{/if}}
+        </div>
+
+        <div class="themevale_background"></div>
+
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+        </script>
+
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+
+        <!-- MegaMenu -->
+        {{#if theme_settings.themevale_megamenu}}
+            {{> components/themevale/header/megamenu }}
+        {{/if}}
+        
+        <!-- Sticky Header -->
+        {{#if theme_settings.themevale_stickyHeader}}
+        <script>
+            window.themevale_Sticky();
+        </script>
+        {{/if}}       
+        
+        <!-- Newsletter Popup -->
+        {{#if theme_settings.themevale_NewsletterPopup}}
+            {{> components/themevale/newsletter}}
+            <script>
+                window.themevaleNewsletterPopup(1, true);
+            </script>
+        {{else}}
+            <script>
+                window.themevaleNewsletterPopup(1, false);
+            </script>
+        {{/if}}
+
+    </body>
+</html>

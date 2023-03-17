@@ -1,0 +1,84 @@
+// =============================================================================
+// ALERTS
+// =============================================================================
+
+.alert,
+.alertBox {
+    border-radius: 4px;
+    padding: 11px 20px;
+    border: 1px solid transparent;
+    color: stencilColor("alert-color");
+}
+
+.alertBox {
+    margin-bottom: 20px;
+}
+
+.alertBox-icon {
+    .icon {
+        @include square(25px);
+    }
+}
+
+.alertBox-message {
+    a {
+        color: inherit;
+        font-weight: 700;
+    }
+}
+
+.alert-info,
+.alertBox--info {
+    color: #31708f;
+    border-color: #e8f4fa;
+    background-color: #e8f4fa;
+    svg {
+        fill: #31708f;
+    }
+    .alertBox-close {
+        svg {
+            fill: $color-infoLight;
+        }
+    }
+}
+
+.alert-warning,
+.alertBox--warning {
+    color: #8a6d3b;
+    border-color: #faebcc;
+    background-color: #fcf8e3;
+    svg {
+        fill: #8a6d3b;
+    }
+}
+
+.alert-success,
+.alertBox--success {
+    color: #155724;
+    border-color: #c3e6cb;
+    background-color: #d4edda;
+    svg {
+        fill: #155724;
+    }
+}
+
+.alert-danger,
+.alertBox--danger,
+.alertBox--error {
+    color: #721c24;
+    border-color: #f5c6cb;
+    background-color: #f8d7da;
+    svg {
+        fill: #721c24;
+    }
+}
+
+.alert-primary,
+.alertBox--primary {
+    color: #004085;
+    border-color: #b8daff;
+    background-color: #cce5ff;
+    svg {
+        fill: #004085;
+    }
+}

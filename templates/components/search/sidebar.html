@@ -1,0 +1,18 @@
+<nav>
+    {{#if product_results.faceted_search_enabled}}
+        {{> components/faceted-search/index product_results}}
+    {{else}}
+        <!-- All categories -->
+        {{> components/themevale/sidebar/side-all-categories}}
+        <!-- Shop by Brands -->
+        {{> components/themevale/sidebar/side-shop-by-brands}}
+        <!-- slider product -->
+        {{#if products.featured}}
+            {{> components/themevale/sidebar/featured-products products=products.featured productsnew=products.new block_id="sidebar-products"}}
+        {{/if}}
+    {{/if}}
+    <!-- advertisement image -->
+    {{> components/themevale/sidebar/advertisement-image}}
+    <!-- advertisement text -->
+    {{> components/themevale/sidebar/advertisement-content}}
+</nav>

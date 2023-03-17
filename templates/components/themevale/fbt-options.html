@@ -1,0 +1,12 @@
+{{#if product.options}}
+	{{#if product.pre_order}}
+		<div class="themvale-fbt-toggle-options">{{lang 'products.pre_order'}}</div>
+	{{else}}
+		<div class="themvale-fbt-toggle-options">Choose Options</div>
+	{{/if}}
+<div class="themvale-fbt-detail-options" data-fbt-option-change>
+{{#each product.options}}
+{{{dynamicComponent 'components/themevale/options'}}}
+{{/each}}
+</div>
+{{/if}}

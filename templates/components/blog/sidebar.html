@@ -1,0 +1,12 @@
+<nav>
+    <!-- recent post -->
+    {{> components/themevale/sidebar/recent-post}}
+    <!-- slider product -->
+    {{#if products.featured}}
+        {{> components/themevale/sidebar/featured-products products=products.featured productsnew=products.new block_id="sidebar-products"}}
+    {{/if}}
+    <!-- advertisement image -->
+    {{> components/themevale/sidebar/advertisement-image}}
+    <!-- advertisement text -->
+    {{> components/themevale/sidebar/advertisement-content}}
+</nav>

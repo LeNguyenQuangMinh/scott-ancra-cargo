@@ -1,0 +1,180 @@
+<footer class="footer footer-layout-3 {{#if theme_settings.footer-dark-layout}}themevale-footer-dark{{/if}}">
+    <div class="themevale_footer-middle">
+        <div class="container">
+            <section class="footer-info themevale_footer-info col-7">
+                <div class="footer-info-col footer-dropdownmobile" data-section-type="footer-location">
+                    <h5 class="footer-info-heading">
+                        {{#if theme_settings.footer-dark-layout}}
+                            <img class="logo-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/logo-whitecolor.png" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                        {{else}}
+                            <img class="logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                        {{/if}}
+                        <svg class="icon-dropdown" aria-label="Show/Hide Store Infomation Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <div class="footer-info-list">
+                        <div class="store-address">{{nl2br settings.address}}</div>
+                        <br>
+                        <div class="store-phone">call us: {{settings.phone_number}}</div>
+                        <div class="store-email"><a href="mailto:email@domain.com">email: email@domain.com</a></div>
+                    </div>
+                    <div class="footer-info-list"> 
+                        {{#or social_media theme_settings.social_icon_google_plus_link theme_settings.social_icon_snapchat_link}}
+                            <ul class="socialLinks style-2 socialLinks--alt">
+                                {{#if social_media}}
+                                    {{#each social_media}}
+                                        <li class="socialLinks-item">
+                                            {{#if display_name '===' 'google+'}}
+                                                <a class="icon icon--google" href="{{url}}" target="_blank" rel="noopener" aria-label="Google Plus Social Media">
+                                                    <svg aria-hidden="true"><use xlink:href="#icon-google" /></svg>
+                                                </a>
+                                            {{else}}
+                                                <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener" aria-label="{{display_name}} Social Media">
+                                                    <svg aria-hidden="true"><use xlink:href="#icon-{{display_name}}" /></svg>
+                                                </a>
+                                            {{/if}}
+                                        </li>
+                                    {{/each}}
+                                {{/if}}
+                                {{#if theme_settings.social_icon_google_plus_link '!=' ''}}
+                                    <li class="socialLinks-item google-plus">
+                                        <a class="icon icon--google-plus" href="{{theme_settings.social_icon_google_plus_link}}" target="_blank" rel="noopener" aria-label="Open Google Plus Social Media in a new tab">
+                                            <svg aria-hidden="true"><use xlink:href="#icon-google-plus" /></svg>
+                                        </a>
+                                    </li>
+                                {{/if}}
+
+                                {{#if theme_settings.social_icon_snapchat_link '!=' ''}}
+                                    <li class="socialLinks-item snapchat">
+                                        <a class="icon icon--snapchat" href="{{theme_settings.social_icon_snapchat_link}}" target="_blank" rel="noopener" aria-label="Open Snapchat Social Media in a new tab">
+                                            <svg aria-hidden="true"><use xlink:href="#icon-snapchat-ghost" /></svg>
+                                        </a>
+                                    </li>
+                                {{/if}}
+                            </ul>
+                        {{/or}}
+                    </div>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">
+                        <span>Shop</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Shop Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <ul class="footer-info-list">
+                        {{#each categories}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a href="/lookbook/">lookbook</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading">
+                        <span>Infomation</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Infomation Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <ul class="footer-info-list">
+                        {{#each pages}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-services">
+                    <h5 class="footer-info-heading">
+                        <span>Customer Service</span>
+                        <svg class="icon-dropdown" aria-label="Show/Hide Customer Service Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                    </h5>
+                    <ul class="footer-info-list">
+                        <li><a href="#">Search Terms</a></li>
+                        <li><a href="#">Advanced Search</a></li>
+                        <li><a href="#">Orders and Returns</a></li>
+                        <li><a href="/contact-us/">Contact Us</a></li>
+                        <li><a href="/faqs/">Theme FAQs</a></li>
+                        <li><a href="#">Consultant</a></li>
+                        <li><a href="/contact-us/">Store Locations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-info-col" data-section-type="newsletterSubscription">
+                    <div class="item"> 
+                        {{#if settings.show_newsletter_box}}
+                            <h5 class="footer-info-heading">{{lang 'newsletter.subscribe_3'}}</h5>
+                            <p class="description">Receive our latest updates about our products and promotions.</p>
+                            <form class="form" action="{{urls.subscribe.action}}" method="post">
+                                <fieldset class="form-fieldset">
+                                    <input type="hidden" name="action" value="subscribe">
+                                    <input type="hidden" name="nl_first_name" value="bc">
+                                    <input type="hidden" name="check" value="1">
+                                    <div class="form-field">
+                                        <label class="form-label is-srOnly" for="nl_email">{{lang 'common.email_address'}}</label>
+                                        <div class="form-prefixPostfix wrap">
+                                            <input class="form-input" id="nl_email" name="nl_email" type="email" value="{{customer.email}}" placeholder="{{lang 'newsletter.email_placeholder'}}">
+                                            <input class="button form-prefixPostfix-button--postfix" type="submit" value="{{lang 'newsletter.subscribe_submit'}}">
+                                        </div>
+                                        {{#if settings.show_newsletter_summary }}
+                                            <div class="footer-newsletter-summary">{{settings.newsletter_summary}}</div>
+                                        {{/if}}
+                                    </div>
+                                </fieldset>
+                            </form>
+                        {{/if}}
+                    </div>
+                    <div class="item">
+                        <div class="themevale_securityImage">
+                            <ul>
+                                <li>
+                                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/security-1.png" alt="security image 1">
+                                </li>
+                                <li>
+                                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/security-2.png" alt="security image 2">
+                                </li>
+                                <li>
+                                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/security-3.png" alt="security image 3">
+                                </li>
+                                <li>
+                                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/security-4.png" alt="security image 4">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="themevale_footer-bottom layout-2">
+        <div class="container">
+            <div class="wrapper">
+                <div class="item">
+                    {{#if theme_settings.show_copyright_footer}}
+                        <div class="footer-copyright">
+                            <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} .</p>
+                        </div>
+                    {{/if}}
+
+                    {{#if theme_settings.show_powered_by}}
+                        <div class="footer-copyright">
+                            <p class="powered-by">Bigcommerce Themes &amp; Templates by <a href="https://www.themevale.com/" rel="nofollow">ThemeVale.com</a></p>
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="item">
+                    {{> components/common/payment-icons}}
+                    {{#if theme_settings.geotrust_ssl_common_name}}
+                        <div class="footer-geotrust-ssl-seal">
+                            {{> components/common/geotrust-ssl-seal}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

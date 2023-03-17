@@ -1,0 +1,84 @@
+<script type="text/javascript">
+  var arrNew = [0{{#each productsnew}},{{id}}{{/each}}];
+</script>
+<section class="themevale-section {{padding_top}} {{padding_bottom}}">
+    <div class="container">
+        {{#each categories}}
+            {{#if id '==' ../category_id}}
+                <div class="themevale_productsByCategoryId-carousel">
+                    <span class="newTextAjax">New</span>
+                    <div class="page-heading-wrapper">
+                        <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                        {{#if ../../has_count_down}}
+                            <div class="countDowntimer"><span class="text">End ins: </span><span id="number">{{../../../has_count_down}}</span></div>
+                        {{/if}}
+                        <a class="view-all" href="{{url}}">View all</a>
+                    </div>
+                    <div data-themevale-products-by-category-id="{{url}}" id="product-by-cate-{{id}}">
+                        {{> components/themevale/homepage/component/product-loading theme_settings=../../theme_settings}}
+                    </div>
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../category_id}}
+                        <div class="themevale_productsByCategoryId-carousel">
+                            <span class="newTextAjax">New</span>
+                            <div class="page-heading-wrapper">
+                                <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                                {{#if ../../../../has_count_down}}
+                                    <div class="countDowntimer"><span class="text">End ins: </span><span id="number">{{../../../../../has_count_down}}</span></div>
+                                {{/if}}
+                                <a class="view-all" href="{{url}}">View all</a>
+                            </div>
+                            <div data-themevale-products-by-category-id="{{url}}" id="product-by-cate-{{id}}">
+                                {{> components/themevale/homepage/component/product-loading theme_settings=../../../../theme_settings}}
+                            </div>
+                        </div>
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../../../../category_id}}
+                                <div class="themevale_productsByCategoryId-carousel">
+                                    <span class="newTextAjax">New</span>
+                                    <div class="page-heading-wrapper">
+                                        <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                                        {{#if ../../../../../../has_count_down}}
+                                            <div class="countDowntimer"><span class="text">End ins: </span><span id="number">{{../../../../../../../has_count_down}}</span></div>
+                                        {{/if}}
+                                        <a class="view-all" href="{{url}}">View all</a>
+                                    </div>
+                                    <div data-themevale-products-by-category-id="{{url}}" id="product-by-cate-{{id}}">
+                                        {{> components/themevale/homepage/component/product-loading theme_settings=../../../../../../theme_settings}}
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+        <div class="themevale-section padding-top-30">
+            <div class="themevale_image-collections-grid col-2">
+                <div class="item">
+                    <div class="image-collection no-style">
+                        <a class="image-wrapper" href="#">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/image-collection-69.jpg" alt="">
+                        </a>
+                        <div class="content-wrapper">
+                            <h3 class="title">Shop Clearance</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image-collection no-style">
+                        <a class="image-wrapper" href="#">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/image-collection-70.jpg" alt="">
+                        </a>
+                        <div class="content-wrapper">
+                            <h3 class="title">Denim Collections</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

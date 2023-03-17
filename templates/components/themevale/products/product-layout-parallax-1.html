@@ -1,0 +1,36 @@
+<section class="themevale-section themevale_product_hasbanner banner-left border-top">
+    <div class="banner-section">
+        <a href="#" class="link"></a>
+        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/banner-1.jpg" alt="banner 1">
+        <div class="banner-content">
+            <h1 class="title">#CAMPAIGNS</h1>
+            <h4 class="sub-title">Spring Summer’08</h4>
+            <div class="description">Phasellus lorem malesuada ligula pulvinar de cosmopolis</div>
+            <a href="#" class="button button--white">Shop Now</a>
+        </div>
+    </div>
+    <div class="product-section">
+        <div class="product-wrapper">
+            <h2 class="page-heading no-border"><span class="title">{{title}}</span></h2>
+            {{#if description}}
+                <p class="page-description">{{description}}</p>
+            {{/if}}
+            {{#if layout}}
+                <ul id="{{block_id}}" class="productGrid productGrid--maxCol{{ columns }} card-variant" data-product-type="top_sellers" {{#if settings.data_tag_enabled}} data-list-name="Most Popular Products" {{/if}}>
+                    {{#each products}}
+                        <li class="product">
+                            {{>components/products/card productsnew=../productsnew settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist event="list" position=(add @index 1)}}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{else}}
+                {{#if settings.data_tag_enabled}}
+                    {{> components/products/carousel productsnew=productsnew settings=settings products=products list="Most Popular Products" arrows=true dots=true}}
+                {{else}}
+                    {{> components/products/carousel products=products productsnew=productsnew settings=settings arrows=true dots=true}}
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</section>

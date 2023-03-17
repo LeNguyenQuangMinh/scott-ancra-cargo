@@ -1,0 +1,311 @@
+// =============================================================================
+// ACCORDION (CSS)
+// =============================================================================
+
+
+.accordion {
+    border: none;
+    box-shadow: none;
+    border-radius: 3px;
+    list-style: none;
+    .navList {
+        margin-bottom: 0;
+    }
+    .label-question,
+    .label-answer {
+        font-size: 10px;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 17px;
+        width: 63px;
+        height: 17px;
+        padding: 0 8px;
+        border-radius: 1px;
+        display: inline-block;
+        text-align: center;
+    }
+    .label-question {
+        background-color: #ef6454;
+    }
+    .label-answer {
+        background-color: #69c69c;
+    }
+}
+
+.accordion-title {
+    margin: 0;
+    display: block;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    border-radius: 0px;
+    padding: 10px 70px 10px 12px;
+    background-color: #f7f7f7;
+    font-family: $fontFamily-headings;
+    color: stencilColor('color-textHeading');
+    font-weight: stencilFontWeight("headings-font");
+    transition: all 0.3s ease;
+    .label-question {
+        margin-right: 5px;
+    }
+    .label-showHide {
+        top: 0;
+        bottom: 0;
+        right: 20px;
+        width: auto;
+        height: 100%;
+        color: #999999;
+        font-weight: 400;
+        line-height: 40px;
+        text-align: center;
+        position: absolute;
+        text-transform: capitalize;
+        .show {
+            display: inline-block;
+        }
+        .hide {
+            display: none;
+        }
+    }
+    .icon-arrow {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 40px;
+        height: 100%;
+        line-height: 46px;
+        text-align: center;
+        position: absolute;
+        .icon {
+            @include square(12px);
+            transition: all 0.5s ease;
+        }
+    }
+    &:focus,
+    &:hover {
+        color: stencilColor('color-textHeading');
+    }
+    .accordion-block.is-open & {
+        color: #ffffff;
+        background-color: stencilColor('color-textHeading');
+        .label-showHide {
+            color: #ffffff;
+            .hide {
+                display: inline-block;
+            }
+            .show {
+                display: none;
+            }
+        }
+        .icon-arrow {
+            .icon {
+                fill: #ffffff;
+                transform: rotate(180deg);
+            }
+        }
+    }
+    @include breakpoint('small') {
+        .label-question {
+            margin-right: 20px;
+        }
+    }
+    @media (min-width: 1025px) {
+        &:hover {
+            color: #ffffff;
+            background-color: stencilColor('color-textHeading');
+            .label-showHide {
+                color: #ffffff;
+            }
+            .icon-arrow {
+                .icon {
+                    fill: #ffffff;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+.accordion-content {
+    border: 0;
+    position: relative;
+    padding: 15px 0 0 0;
+    .label-answer {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    .form:only-child {
+        margin-bottom: 0;
+    }
+    @include breakpoint("small") {
+        padding: 25px 0 0 97px;
+        .label-answer {
+            top: 25px;
+            left: 12px;
+            position: absolute;
+        }
+    }
+}
+
+.accordion-navigation {
+    border: none;
+    position: relative;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+
+
+// Accordion list
+// -----------------------------------------------------------------------------
+//
+// Purpose: Used as FAQ, for example: FAQ page.
+//
+// -----------------------------------------------------------------------------
+.accordion--List {
+    .accordion-block + .accordion-block {
+        margin-top: 15px;
+    }
+}
+
+
+// Accordion nav list
+// -----------------------------------------------------------------------------
+//
+// Purpose: Used as navigation menu, for example: faceted search menu.
+//
+// -----------------------------------------------------------------------------
+.accordion--navList {
+    @include breakpoint("medium") {
+        border: 0;
+    }
+
+    .sidebarBlock + & {
+        @include breakpoint("medium") {
+            margin-top: $accordion-navList-spacing;
+        }
+    }
+
+    .accordion-block {
+        @include breakpoint("medium") {
+            margin-top: $accordion-navList-spacing;
+        }
+    }
+
+    .accordion-content {
+        padding: 0;
+        .toggleLink {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #323232;
+            margin-top: 5px;
+            display: inline-block;
+            .toggleLink-text {
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+            }
+        }
+    }
+
+    .accordion-navigation {
+        @include breakpoint("medium") {
+            background-position: right 0 top 50%;
+            border: 0;
+        }
+    }
+
+    .accordion-title {
+        font-weight: normal;
+        padding: $accordion-navList-padding;
+        text-decoration: none;
+        text-transform: inherit;
+
+        @include breakpoint("medium") {
+            margin-bottom: spacing("half");
+            margin-top: 0;
+            padding: 0;
+        }
+    }
+
+    .accordion-indicator {
+        fill: color("greys", "light");
+    }
+
+    .accordion-navigation-actions {
+        right: 0;
+        top: 0;
+
+        @include breakpoint("medium") {
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .sidebarBlock {
+        .accordion-navigation-actions {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+    }
+
+}
+
+
+// Accordion block
+// -----------------------------------------------------------------------------
+//
+// Purpose: Child blocks of an accordion
+//
+// -----------------------------------------------------------------------------
+.accordion-block:first-child {
+    margin-top: 0;
+
+    .accordion-navigation {
+        border-radius: $accordion-borderRadius $accordion-borderRadius 0 0;
+    }
+}
+
+.accordion-block:last-child {
+    .accordion-navigation,
+    .accordion-content {
+        border-radius: 0 0 $accordion-borderRadius $accordion-borderRadius;
+    }
+
+    .accordion-navigation {
+        border-bottom-width: 0;
+
+        // scss-lint:disable NestingDepth
+        &.is-open {
+            border-bottom-width: 1px;
+            border-radius: 0;
+        }
+    }
+}
+
+// Accordion navigation actions
+// -----------------------------------------------------------------------------
+//
+// Purpose: Action links, usually aligned to the right of .accordion-navigation
+//
+// -----------------------------------------------------------------------------
+.accordion-navigation-actions {
+    position: absolute;
+    right: $accordion-navigation-paddingHorizontal;
+    top: $accordion-navigation-paddingVertical;
+
+    > a {
+        color: stencilColor("color-textSecondary");
+        vertical-align: middle;
+
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: stencilColor("color-textSecondary--hover");
+        }
+        // scss-lint:enable NestingDepth
+    }
+}

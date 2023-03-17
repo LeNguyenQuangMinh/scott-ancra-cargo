@@ -1,0 +1,117 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_products_limit}}
+    top_sellers:
+        limit: {{theme_settings.homepage_products_limit_2}}
+    featured:
+        limit: {{theme_settings.homepage_products_limit_3}}
+---
+
+{{#partial "page"}}
+<div class="themevale_breadcrumb">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <h1 class="page-heading">{{ page.title }}</h1>
+</div>
+<main class="page">
+    <div class="themevale_lookbook" 
+        data-slick='{
+            "dots": true,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "lazyLoad": "anticipated",
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; aria-label=&apos;Next Lookbook&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; aria-label=&apos;Previous Lookbook&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1050,
+                    "settings": {
+                        "dots": false,
+                        "arrows": true
+                    }
+                }
+        ]}'>
+        <div class="themevale_lookbook-wrapper">
+            <div class="image-wrapper">
+                <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/lookbook.jpg" alt="">
+            </div>
+            <div class="content-wrapper">
+                <div class="lookbook-item" style="top: {{theme_settings.lookbook-product1-y}}%; left: {{theme_settings.lookbook-product1-x}}%;">
+                    <div class="position-point" data-product-id="{{theme_settings.lookbook-product1-id}}">+</div>
+                </div>
+                {{#if theme_settings.lookbook_slide1_products '===' 2}}
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product2-y}}%; left: {{theme_settings.lookbook-product2-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product2-id}}">+</div>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.lookbook_slide1_products '===' 3}}
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product2-y}}%; left: {{theme_settings.lookbook-product2-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product2-id}}">+</div>
+                    </div>
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product3-y}}%; left: {{theme_settings.lookbook-product3-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product3-id}}">+</div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="themevale_lookbook-wrapper">
+            <div class="image-wrapper">
+                <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/lookbook2.jpg" alt="">
+            </div>
+            <div class="content-wrapper">
+                <div class="lookbook-item" style="top: {{theme_settings.lookbook-product4-y}}%; left: {{theme_settings.lookbook-product4-x}}%;">
+                    <div class="position-point" data-product-id="{{theme_settings.lookbook-product4-id}}">+</div>
+                </div>
+                {{#if theme_settings.lookbook_slide2_products '===' 2}}
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product5-y}}%; left: {{theme_settings.lookbook-product5-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product5-id}}">+</div>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.lookbook_slide2_products '===' 3}}
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product5-y}}%; left: {{theme_settings.lookbook-product5-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product5-id}}">+</div>
+                    </div>
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product6-y}}%; left: {{theme_settings.lookbook-product6-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product6-id}}">+</div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="themevale_lookbook-wrapper">
+            <div class="image-wrapper">
+                <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/lookbook3.jpg" alt="">
+            </div>
+            <div class="content-wrapper">
+                 <div class="lookbook-item" style="top: {{theme_settings.lookbook-product7-y}}%; left: {{theme_settings.lookbook-product7-x}}%;">
+                    <div class="position-point" data-product-id="{{theme_settings.lookbook-product7-id}}">+</div>
+                </div>
+                {{#if theme_settings.lookbook_slide3_products '===' 2}}
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product8-y}}%; left: {{theme_settings.lookbook-product8-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product8-id}}">+</div>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.lookbook_slide3_products '===' 3}}
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product8-y}}%; left: {{theme_settings.lookbook-product8-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product8-id}}">+</div>
+                    </div>
+                    <div class="lookbook-item" style="top: {{theme_settings.lookbook-product9-y}}%; left: {{theme_settings.lookbook-product9-x}}%;">
+                        <div class="position-point" data-product-id="{{theme_settings.lookbook-product9-id}}">+</div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="lookbook-popup"></div>
+    <div class="themevale_lookbook-share text-right"> 
+        {{> components/common/share}}
+    </div>
+    <div class="themevale_lookbook-button text-center">
+        <a class="button" href="#">Shop lookbook</a>
+    </div>
+</main>
+{{/partial}}
+
+{{> layout/base}}

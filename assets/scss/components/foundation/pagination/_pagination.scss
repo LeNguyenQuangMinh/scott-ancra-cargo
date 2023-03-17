@@ -1,0 +1,173 @@
+// =============================================================================
+// PAGINATION (CSS)
+// =============================================================================
+
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Centred list via inline-block. Font-size: 0; to remove white-space.
+// 2. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-wrapper {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    @include breakpoint('medium') {
+        margin-top: 0;
+    }
+}
+
+.pagination-list {
+    @include clearfix;
+    font-size: 0;
+    margin-bottom: 0;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    .pagination-item {
+        font-size: 12px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    li {
+        margin-left: 10px;
+    }
+}
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-item {
+    border: none;
+    line-height: 1;
+    vertical-align: top;
+    svg {
+        fill: stencilColor('color-textHeading');
+    }
+    .pagination-link {
+        padding: 12px 0 11px 0;
+        font-size: 12px;
+        font-weight: 500;
+        color: stencilColor('color-textHeading');
+        min-width: 36px;
+        line-height: 1;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid #e6e6e6;
+        background-color: #fafafa;
+        border-radius: 0;
+        &:hover {
+            color: stencilColor('color-textHeading');
+            background-color: transparent;
+        }
+    }
+    &.pagination-item--current {
+        .pagination-link {
+            color: stencilColor('color-textHeading');
+            background-color: transparent;
+            border: 1px solid stencilColor('color-textHeading');
+        }
+    }
+    &.pagination-item--previous,
+    &.pagination-item--next {
+        > a {
+            padding: 11px 15px 10px 15px;
+            border: 1px solid #e6e6e6;
+            background-color: #fafafa;
+            text-transform: uppercase;
+        }
+    }
+    @include breakpoint("small") {
+        .pagination-link {
+            padding: 13px 0 12px 0;
+        }
+        &.pagination-item--previous,
+        &.pagination-item--next {
+            > a {
+                padding: 12px 20px 11px 20px;
+            }
+        }
+    }
+}
+
+.pagination-item--previous,
+.pagination-item--next {
+    .icon {
+        top: -1px;
+        position: relative;
+        @include square(14px);
+    }
+}
+
+.pagination-item--previous {
+    .icon {
+        margin-right: 5px;
+    }
+}
+
+.pagination-item--next {
+    .icon {
+        margin-left: 5px;
+    }
+}
+
+// Simple/small pagination (Next/Previous arrows are the only way to navigate)
+// -----------------------------------------------------------------------------
+
+.pagination-list--small {
+    position: relative;
+    .pagination-item {
+        font-size: 12px;
+        color: $pagination-list--small-color;
+        cursor: inherit;
+        line-height: $pagination-list--small-lineHeight;
+    }
+    .pagination-link {
+        padding: $pagination-list--small-link-padding;
+    }
+}
+
+
+
+.compare-link {
+    display: none;
+    @media (min-width: 1025px) {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        z-index: 10;
+        transform: translateY(-50%);
+        a {
+            position: relative;
+            line-height: 1;
+            font-size: 12px;
+            font-weight: 500;
+            color: #323232;
+            display: inline-block;
+            vertical-align: middle;
+            text-transform: capitalize;
+        }
+        .countPill {
+            height: 24px;
+            width: 24px;
+            line-height: 24px;
+            color: #323232;
+            font-weight: 400;
+            text-align: center;
+            margin-left: 10px;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: #ffe8e8;
+        }
+    }
+}

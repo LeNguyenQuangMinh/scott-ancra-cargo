@@ -1,0 +1,893 @@
+// =============================================================================
+// Stencil Checkout  - Customize the checkout experience
+// =============================================================================
+//
+// This file is for checkout customizations for Default one-page checkout.
+//
+// -----------------------------------------------------------------------------
+//
+// 1. Let press Ctrl + f and type of paste the key, then press Enter to search the content
+//
+// HALO CSS:
+//
+//  1.0 Global style
+//
+//  2.0 Thank you page
+//
+//  RESPONSIVE
+//
+//
+// -----------------------------------------------------------------------------
+
+/*=========================================
+=            www.themevale.com            =
+=========================================*/
+
+    /*--------  1.0 Global style  -------*/
+        body {
+            color: #3c3c3c;
+            font-size: 12px;
+            line-height: 22px;
+            font-weight: 400;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+        }
+
+        .page {
+            overflow-x: hidden;
+        }
+
+        h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+            color: #232323;
+            font-weight: 600;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            &:hover,
+            &:focus,
+            &:active {
+                outline: none;
+                text-decoration: none;
+            }
+        }
+
+        strong, b {
+            font-weight: 600;
+            color: #232323;
+        }
+
+        .header {
+            border: none;
+            color: #232323;
+            text-align: left;
+            min-height: 0;
+            border-bottom: none;
+            background-size: cover;
+            background-color: #f7f7f7;
+            background-image: url(https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/header-bg.jpg);
+        }
+
+        .header-logo {
+            font-size: 36px;
+            line-height: 1;
+            margin-bottom: 0;
+            padding: 60px 0;
+            img {
+                max-height: 40px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid #eeeeee;
+        }
+
+        #Header > .inner,
+        .main > .inner,
+        .footer-links > .inner {
+            max-width: 1170px;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .Content {
+            padding: 75px 0;
+            &.Widest {
+                padding: 75px 0;
+            }
+        }
+
+        .btn,
+        .btn.alt,
+        .button {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 7px 15px;
+            line-height: 20px;
+            border-radius: 0;
+            text-transform: uppercase;
+            border: 1px solid #232323;
+            background-color: #232323;
+            transition: all 0.3s ease;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+            @media (min-width: 551px) {
+                font-size: 13px;
+                padding: 7px 30px;
+            }
+            @media (min-width: 1025px) {
+                &:hover, &:focus, &:active {
+                    color: #232323;
+                    border: 1px solid #232323;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        div.checker,
+        div.radio {
+            top: -1px;
+        }
+
+        hr,
+        hr.clear {
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        input, select, textarea, 
+        input.Textbox, input[type="text"] {
+            height: 36px;
+            font-size: 12px;
+            box-shadow: none;
+            line-height: 20px;
+            padding: 7px 15px;
+            border-radius: 0;
+            border-color: #cbcbcb;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        div.selector {
+            height: 36px;
+            font-size: 12px;
+            box-shadow: none;
+            line-height: 20px;
+            border-radius: 0;
+            border-color: #dcdcdc;
+            min-height: 36px !important;
+            padding: 7px 35px 7px 15px;
+            &:focus, &.focus {
+                outline: none;
+                box-shadow: none;
+            }
+            span {
+                height: auto;
+                padding-left: 0;
+                line-height: 20px;
+            }
+        }
+
+
+        input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px white inset;
+        }
+
+    /*--------  2.0 Onepage checkout  ---*/
+    
+        .ExpressCheckoutBlock {
+            padding: 0;
+            border: none;
+            .ExpressCheckoutTitle {
+                margin: 0 0 40px 0;
+                border-bottom: 2px solid #232323;
+                h3 {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    min-width: 350px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-transform: uppercase;
+                    font-family: "Poppins", Arial, Helvetica, sans-serif;
+                }
+                .step {
+                    left: auto;
+                    width: 50px;
+                    height: 48px;
+                    color: #ffffff;
+                    font-size: 16px;
+                    font-weight: 500;
+                    border-radius: 0;
+                    line-height: 48px;
+                    position: relative;
+                    margin-right: 15px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background-color: #232323;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+                span.ExpressCheckoutCompletedContent {
+                    color: #3c3c3c;
+                    display: inline-block;
+                }
+                a.ChangeLink {
+                    right: 0;
+                    padding: 0;
+                    border: none;
+                    z-index: 10;
+                    color: #232323;
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 48px;
+                    position: absolute;
+                    text-transform: uppercase;
+                }
+            }
+            .ExpressCheckoutContent {
+                margin-bottom: 30px;
+                .PTB20 {
+                    strong {
+                        color: #232323;
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+                }
+            }
+            &.ExpressCheckoutBlockCollapsed {
+                color: #9e9e9e;
+                .ExpressCheckoutTitle {
+                    border-bottom: 2px solid #dcdcdc;
+                    h3 {
+                        color: #9e9e9e;
+                    }
+                    .step {
+                        background-color: #dcdcdc;
+                    }
+                    span.ExpressCheckoutCompletedContent {
+                        color: #9e9e9e;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        #CheckoutGuestForm {
+            h4 {
+                font-size: 13px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            .mbm {
+                > dd {
+                    font-weight: 500;
+                    margin-bottom: 15px;
+                }
+            }
+            input.btn {
+                min-width: 175px;
+            }
+        }
+
+        .AccountLogin {
+            h4 {
+                font-size: 16px;
+                text-transform: capitalize;
+            }
+            dl {
+                > dd {
+                    #login_email {
+                        margin-bottom: 10px;
+                    }
+                    #login_pass {
+                        margin-bottom: 0px;
+                    }
+                    > a {
+                        color: #646464;
+                    }
+                }
+            }
+            input.btn {
+                min-width: 180px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .HorizontalFormContainer {
+            dd {
+                .selector span {
+                    font-size: 12px;
+                    font-family: "Poppins", Arial, Helvetica, sans-serif;
+                }
+            }
+            dl {
+                > dt {
+                    color: #232323;
+                    font-weight: 500;
+                }
+            }
+            p.Submit {
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
+
+        .AddBillingAddress,
+        .AddShippingAddress {
+            .HorizontalFormContainer {
+                dl {
+                    dt {
+                        text-align: left;
+                    }
+                    dt:nth-of-type(2n) {
+                        margin-left: 150px;
+                    }
+                }
+            }
+        }
+        .SelectMultipleAddresses {
+            margin-left: 0 !important;
+        }
+
+        #uniform-sel_billing_address,
+        #uniform-sel_shipping_address {
+            width: auto;
+        }
+
+        table.General, 
+        table.CartContents {
+            thead {
+                background-color: #fafafa;
+                tr > th {
+                    font-weight: 600;
+                    line-height: 20px;
+                    padding: 8px 15px;
+                    color: #232323;
+                }
+            }
+            tbody {
+                strong {
+                    font-weight: 500;
+                    color: #232323;
+                }
+                tr > td {
+                    line-height: 20px;
+                    padding: 20px 15px;
+                    > em {
+                        font-weight: 600;
+                        color: #232323;
+                    }
+                }
+            }
+            tfoot {
+                strong {
+                    font-weight: 500;
+                    color: #232323;
+                }
+                tr.CheckoutRedeemCoupon {
+                    label {
+                        font-weight: 500;
+                        color: #232323;
+                    }
+                }
+                tr > td {
+                    em {
+                        font-weight: 600;
+                        color: #232323;
+                    }
+                }
+            }
+        }
+
+    /*--------  3.0 muiti address  ------*/
+        
+        h1.TitleHeading {
+            color: #232323;
+            line-height: 1;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+        }
+
+        .multiStep {
+            display: table;
+            width: calc(100% - 1px);
+            margin: 0;
+            margin-bottom: 30px;
+            li {
+                padding: 0;
+                display: table-cell;
+                vertical-align: middle;
+                border: 1px solid #ececec;
+                border-right: none;
+                background-color: #fff;
+                h4 {
+                    color: #3c3c3c;
+                    border-bottom: none;
+                    text-transform: capitalize;
+                    font-size: 13px;
+                    padding: 8px 0;
+                    font-weight: 500;
+                    a {
+                        color: #3c3c3c;
+                    }
+                }
+                &.ActivePage {
+                    background-color: #fafafa;
+                    h4 {
+                        padding: 8px 0;
+                        margin-bottom: 0;
+                        color: #232323;
+                        border-bottom: none;
+                    }
+                }
+                &:last-child {
+                    border-right: 1px solid #ececec;
+                }
+            }
+        }
+
+        .Content h2 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 36px;
+            text-transform: uppercase;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+        }
+        .Content h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: capitalize;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+        }
+
+        #LayoutColumn1 {
+            .Moveable {
+                .icon-add {
+                    border-radius: 0;
+                    background-color: #232323;
+                }
+                > h2 {
+                    margin: 0;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 36px;
+                    text-transform: uppercase;
+                    font-family: "Poppins", Arial, Helvetica, sans-serif;
+                }
+                h3 {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    font-family: "Poppins", Arial, Helvetica, sans-serif;
+                }
+                h4 {
+                    font-size: 13px;
+                    text-transform: uppercase;
+                }
+                .BlockContent {
+                    .TabNav {
+                        padding: 0;
+                        margin-bottom: 30px;
+                        border-bottom: 1px solid #ececec;
+                        li {
+                            a {
+                                margin: 0;
+                                font-size: 12px;
+                                font-weight: 600;
+                                color: #232323;
+                                border-color: #ececec
+                            }
+                        }
+                    }
+                    #TabContentAddressMultiple {
+                        padding-top: 0;
+                    }
+                }
+                .ExpressCheckoutContent {
+                    .CreateAccount ul li {
+                        line-height: 28px;
+                    }
+                }
+                .ShippingAddressList {
+                    position: relative;
+                    display: inline-block;
+                    min-width: 320px;
+                    li {
+                        width: 100%;
+                        margin-right: 0;
+                    }
+                    .UtilityLinks {
+                        margin: 0;
+                        top: 0;
+                        right: 0;
+                        width: auto;
+                        position: absolute;
+                    }
+                    .NoMarginBottom {
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+
+    /*--------  4.0 Thank you page  -----*/
+        .checkout-banner {
+            text-align: left;
+            a {
+                color: #232323;
+                font-size: 13px;
+            }
+        }
+
+        .ExpressCheckoutBlock {
+            .mtm .BoldUpper,
+            .NotifyMessage .Bold {
+                font-weight: 500;
+                color: #232323;
+                margin-right: 10px;
+                text-transform: capitalize;
+            }
+            .NotifyMessage .Bold {
+                color: #646464;
+                font-weight: 400;
+            }
+            .mtm a {
+                font-size: 14px;
+                font-weight: 500;
+                text-decoration: underline;
+            }
+        }
+
+        #share-product {
+            .tabs {
+                top: auto;
+                height: 40px;
+                display: block;
+                .sharingTab {
+                    border-radius: 0;
+                    color: #232323;
+                    font-weight: 600;
+                    position: relative;
+                    border-bottom: none;
+                    padding: 8px 25px;
+                    display: inline-block;
+                    vertical-align: top;
+                    border: 1px solid #ececec;
+                    font-family: "Poppins", Arial, Helvetica, sans-serif;
+                    &.active {
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+            }
+        }
+
+        #tabcontent {
+            border: 1px solid #ececec;
+            border-radius: 0;
+            #shareText {
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 600;
+                color: #232323;
+                display: block;
+                margin-bottom: 10px;
+                text-transform: capitalize;
+            }
+            #url {
+                margin-top: 10px;
+                display: none;
+            }
+            .btn {
+                min-width: 200px;
+            }
+            .chooseAnotherToShare {
+                margin-left: 15px;
+                a {
+                    margin-left: 15px;
+                }
+            }
+        }
+
+
+        #SimilarMultiProductsByCustomerViews {
+            padding-top: 50px;
+            border-top: none;
+            .ProductList{
+                margin: 0 -15px;
+                li {
+                    padding: 0 15px;
+                    margin-bottom: 40px;
+                }
+                .ProductImage {
+                    margin-bottom: 15px;
+                    > a {
+                        height: auto !important;
+                    }
+                }
+            }
+        }
+
+        .ProductList {
+            .ProductImage {
+                margin-bottom: 15px;
+                img {
+                    width: 100%;
+                    max-width: none;
+                    max-height: none;
+                }
+            }
+            .ProductDetails {
+                padding: 0;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 20px;
+                margin-bottom: 5px;
+                .pname {
+                    padding: 0;
+                    color: #232323;
+                    line-height: 20px;
+                    &:hover {
+                        color: #000000;
+                    }
+                }
+            }
+            .ProductPriceRating {
+                padding-bottom: 10px;
+                padding-top: 5px;
+            }
+            .p-price {
+                color: #232323;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 20px;
+                .RetailPriceValue {
+                    color: #8c8c8c;
+                    margin-right: 5px;
+                    font-weight: 500;
+                }
+                .SalePrice {
+                    color: #232323;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+            .btn {
+                min-width: 160px;
+            }
+        }
+    
+    /*--------  RESPONSIVE  -------------*/
+        @media (max-width: 1281px) {
+            .header-logo {
+                padding: 40px 0;
+            }
+        }
+        @media (max-width: 1024px) {
+            .main, .footer-links {
+                display: block;
+                >.inner {
+                    max-width: calc(100% - 30px);
+                }
+            }
+            .AddBillingAddress,
+            .AddShippingAddress {
+                .HorizontalFormContainer dl {
+                    dt {
+                        text-align: left;
+                    }
+                    dt:nth-of-type(2n) {
+                        margin-left: 0;
+                    }
+                }
+            }
+            .header-logo {
+                padding: 30px 0;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .ExpressCheckoutBlock {
+                .ExpressCheckoutTitle {
+                    margin-bottom: 30px;
+                    h3 {
+                        min-width: 0;
+                        margin-right: 30px;
+                    }
+                }
+            }
+            #CheckoutGuestForm, 
+            .AccountLogin h4 {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header-logo {
+                text-align: left;
+                padding: 20px 0;
+                font-size: 30px;
+                img {
+                    max-height: 30px;
+                    margin-left: 0;
+                }
+            }
+
+            .Content {
+                padding: 30px 0;
+                &.Widest {
+                    padding: 30px 0;
+                }
+            }
+
+            .checkout-banner {
+                padding: 20px 0;
+                a {
+                    font-size: 12px;
+                }
+            }
+
+            .ExpressCheckoutBlock {
+                .ExpressCheckoutTitle {
+                    .step {
+                        width: 35px;
+                        height: 35px;
+                        line-height: 37px;
+                    }
+                    a.ChangeLink {
+                        line-height: 35px;
+                    }
+                }
+            }
+
+            #multiAddressForm div.selector {
+                width: 400px;
+            }
+
+            #LayoutColumn1 .multiStep li h4 {
+                font-size: 12px;
+            }
+
+            .chooseAnotherToShare {
+                display: block;
+                margin: 10px 0 0 0;
+            }
+
+            .table.CartContents tbody tr {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            #tabcontent #shareText {
+                margin-top: 10px; 
+            }
+
+            #share-product .tabs {
+                overflow: hidden;
+            }
+
+            .ExpressCheckoutContent {
+                .AccountLogin,
+                .CreateAccount {
+                    padding: 0;
+                    width: 100%;
+                }
+            }
+
+            .mtop {
+                margin-top: 20px;
+            }
+
+            .multiStep {
+                width: 100%;
+                display: block;
+                margin-left: 0;
+                margin-right: 0;
+                li {
+                    display: block;
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;
+                    margin-bottom: 10px;
+                    border: none;
+                    h4 {
+                        border: 1px solid #ececec;
+                    }
+                    &.ActivePage {
+                        h4 {
+                            border: 1px solid #232323;
+                        }
+                    }
+                }
+            }
+
+            #LayoutColumn1 {
+                .Moveable {
+                    > h2 {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .Content h2 {
+                font-size: 14px;
+            }
+
+            #multiAddressForm div.selector {
+                width: 300px;
+            }
+
+            .CartContents tfoot .SubTotal td + td {
+                padding-left: 10px;
+                min-width: 100px;
+                em {
+                    font-style: initial;
+                }
+            }
+            #SimilarMultiProductsByCustomerViews .ProductList li {
+                width: 50%;
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            input[type="date"], input[type="email"], 
+            input[type="number"], input[type="password"], 
+            input[type="search"], input[type="tel"], 
+            input[type="text"], input[type="url"], textarea, select {
+                font-size: 12px !important;
+            }
+
+            #multiAddressForm div.selector {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 414px) {
+            #multiAddressForm div.selector {
+                width: 200px;
+            }
+            .CartContents tfoot .SubTotal td {
+                text-align: left;
+                font-size: 13px;
+            }
+
+            #SimilarMultiProductsByCustomerViews {
+                .ProductList {
+                    margin: 0 -8px;
+                    li {
+                        padding: 0 8px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 320px) {
+            #multiAddressForm div.selector {
+                width: 169px;
+            }
+        }
+    
+/*=====  End of www.themevale.com  ======*/

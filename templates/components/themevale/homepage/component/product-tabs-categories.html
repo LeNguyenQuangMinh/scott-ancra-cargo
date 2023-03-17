@@ -1,0 +1,78 @@
+<section class="themevale-section {{padding_top}} {{padding_bottom}}">
+    <div class="container">
+        {{#if title}}
+            <h2 class="page-heading {{custom}}"><span class="title">{{title}}</span></h2>
+        {{/if}}
+        <div class="themevale_product-tabs">
+            <ul class="tabs style-2" data-tab role="tablist">
+                <li class="tab is-active" role="presentation">
+                    <a class="tab-title" href="#category_1" role="tab" tabindex="0" aria-selected="true" aria-controls="category_1">{{theme_settings.homepage-tabs-products-tab-title-1}}</a>
+                </li>
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-2 '!=' ''}}
+                    <li class="tab" role="presentation">
+                        <a class="tab-title" href="#category_2" role="tab" tabindex="0" aria-selected="false" aria-controls="category_2">{{theme_settings.homepage-tabs-products-tab-title-2}}</a>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-3 '!=' ''}}
+                    <li class="tab" role="presentation">
+                        <a class="tab-title" href="#category_3" role="tab" tabindex="0" aria-selected="false" aria-controls="category_3">{{theme_settings.homepage-tabs-products-tab-title-3}}</a>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-4 '!=' ''}}
+                    <li class="tab" role="presentation">
+                        <a class="tab-title" href="#category_4" role="tab" tabindex="0" aria-selected="false" aria-controls="category_4">{{theme_settings.homepage-tabs-products-tab-title-4}}</a>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-5 '!=' ''}}
+                    <li class="tab" role="presentation">
+                        <a class="tab-title" href="#category_5" role="tab" tabindex="0" aria-selected="false" aria-controls="category_5">{{theme_settings.homepage-tabs-products-tab-title-5}}</a>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-6 '!=' ''}}
+                    <li class="tab" role="presentation">
+                        <a class="tab-title" href="#category_6" role="tab" tabindex="0" aria-selected="false" aria-controls="category_6">{{theme_settings.homepage-tabs-products-tab-title-6}}</a>
+                    </li>
+                {{/if}}
+            </ul>
+            <div class="tabs-contents">
+                <div class="tab-content is-active" id="category_1" role="tabpanel" aria-hidden="true">
+                    {{> components/themevale/homepage/component/ajax-products-by-category productsnew=productsnew category_id=theme_settings.homepage-tabs-products-tab-cateID-1}}
+                </div>
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-2 '!=' ''}}
+                    <div class="tab-content" id="category_2" role="tabpanel" aria-hidden="false">
+                        {{> components/themevale/homepage/component/ajax-products-by-category productsnew=productsnew category_id=theme_settings.homepage-tabs-products-tab-cateID-2}}
+                    </div>
+                {{/if}}
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-3 '!=' ''}}
+                    <div class="tab-content" id="category_3" role="tabpanel" aria-hidden="false">
+                        {{> components/themevale/homepage/component/ajax-products-by-category productsnew=productsnew category_id=theme_settings.homepage-tabs-products-tab-cateID-3}}
+                    </div>
+                {{/if}}
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-4 '!=' ''}}
+                    <div class="tab-content" id="category_4" role="tabpanel" aria-hidden="false">
+                        {{> components/themevale/homepage/component/ajax-products-by-category productsnew=productsnew category_id=theme_settings.homepage-tabs-products-tab-cateID-4}}
+                    </div>
+                {{/if}}
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-5 '!=' ''}}
+                    <div class="tab-content" id="category_5" role="tabpanel" aria-hidden="false">
+                        {{> components/themevale/homepage/component/ajax-products-by-category productsnew=productsnew category_id=theme_settings.homepage-tabs-products-tab-cateID-5}}
+                    </div>
+                {{/if}}
+
+                {{#if theme_settings.homepage-tabs-products-tab-cateID-6 '!=' ''}}
+                    <div class="tab-content" id="category_6" role="tabpanel" aria-hidden="false">
+                        {{> components/themevale/homepage/component/ajax-products-by-category productsnew=productsnew category_id=theme_settings.homepage-tabs-products-tab-cateID-6}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>

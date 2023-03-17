@@ -1,0 +1,61 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_products_new_limit}}
+    featured:
+        limit: 6
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject "product_currentstock" product.stock_level}}
+{{#partial "page"}}
+<div class="container">
+<div class="themevale_breadcrumb">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+</div>
+<div class="page"> 
+    <aside class="page-sidebar page-sidebar-right">
+        {{> components/themevale/sidebar/product-sidebar}}
+    </aside>
+    <main class="page-content" id="product-listing-container">
+        {{#each product.shipping_messages}}
+            {{> components/common/alert-info message}}
+        {{/each}}
+        <div class="themevale_sidebar-mobile-wrapper">
+            <div class="item item-iconSidebar text-left">
+                <div class="themevale_sidebar-mobile">
+                    <span class='text'>sidebar:</span>
+                    <svg class="icon"><use xlink:href='#sidebar'></use></svg>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemtype="http://schema.org/Product">
+            {{> components/products/product-view settings=../settings schema=true }}
+
+            {{{region name="product_below_content"}}}
+
+            {{#if product.related_products}}
+                <section class="productRelated padding-top-30 padding-bottom-50 border-top" id="product-related" data-product-related>
+                    <h2 class="page-heading no-border">{{lang 'products.related_products'}}</h2>
+                    {{> components/products/carousel productsnew=products.new settings=../settings products=product.related_products columns=4 arrows=true dots=false list="Related Product" block_id="related-products"}}
+                </section>
+            {{/if}}
+        </div>
+    </main>
+</div>
+{{#if product.similar_by_views}}
+    <section class="productSimilar padding-top-30 border-top" id="product-similar" data-product-reviews>
+        <h2 class="page-heading no-border">{{lang 'products.similar_by_views'}}</h2>
+        {{> components/products/carousel productsnew=products.new settings=../settings products=product.similar_by_views columns=5 arrows=true dots=false list="Customers Also Viewed" block_id="similar-by-views"}}
+    </section>
+{{/if}}
+</div>
+{{/partial}}
+{{> layout/base}}

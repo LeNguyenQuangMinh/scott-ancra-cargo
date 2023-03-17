@@ -1,0 +1,42 @@
+<script type="text/javascript">
+  var arrNew = [0{{#each productsnew}},{{id}}{{/each}}];
+</script>
+<section class="themevale-section background-gray {{padding_top}} {{padding_bottom}}">
+    <div class="container">
+        {{#each categories}}
+            {{#if id '==' ../category_id}}
+                <div class="themevale_productsByCategoryId-list">
+                    <span class="newTextAjax">New</span>
+                    <h2 class="page-heading no-border text-left"><a href="{{url}}">{{name}}</a></h2>
+                    <div data-themevale-products-by-category-id="{{url}}" id="product-by-cate-{{id}}">
+                        {{> components/themevale/homepage/component/product-loading theme_settings=../../theme_settings}}
+                    </div>
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../category_id}}
+                        <div class="themevale_productsByCategoryId-list">
+                            <span class="newTextAjax">New</span>
+                            <h2 class="page-heading no-border text-left"><a href="{{url}}">{{name}}</a></h2>
+                            <div data-themevale-products-by-category-id="{{url}}" id="product-by-cate-{{id}}">
+                                {{> components/themevale/homepage/component/product-loading theme_settings=../../../../theme_settings}}
+                            </div>
+                        </div>
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../../../../category_id}}
+                                <div class="themevale_productsByCategoryId-list">
+                                    <span class="newTextAjax">New</span>
+                                    <h2 class="page-heading no-border text-left"><a href="{{url}}">{{name}}</a></h2>
+                                    <div data-themevale-products-by-category-id="{{url}}" id="product-by-cate-{{id}}">
+                                        {{> components/themevale/homepage/component/product-loading theme_settings=../../../../../../theme_settings}}
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    </div>
+</section>

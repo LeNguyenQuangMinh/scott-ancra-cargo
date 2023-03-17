@@ -1,0 +1,73 @@
+
+.cookieMessage {
+    z-index: 12;
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+    line-height: 22px;
+    letter-spacing: 0.01rem;
+    width: 100%;
+    color: #ffffff;
+    border-radius: 0;
+    background-color: rgba(20, 20, 20, 0.9);
+    transition: all 0.3s ease;
+    @include breakpoint('small') {
+        margin-top: 15px;
+        width: calc(100% - 15px);
+        max-width: 360px;
+        text-align: left;
+        padding: 10px;
+    }
+    @media (min-width: 1025px) {
+        width: 100%;
+        padding: 20px;
+        font-size: 13px;
+        max-width: 450px;
+    }
+}
+
+.cookieMessage-container {
+    width: 100%;
+    p {
+        margin-bottom: 15px;
+    }
+    .group-button {
+        margin-top: 10px;
+        text-align: center;
+    }
+    @include breakpoint('small') {
+        .group-button {
+            text-align: right;
+        }
+    }
+}
+
+.privacy_policy, .privacy_accept {
+    display: inline-block;
+    vertical-align: top;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    &:hover, &:focus, &:active {
+        color: #ffffff;
+    }
+}
+
+.privacy_policy {
+    color: #818181;
+    + .privacy_accept {
+        margin-left: 15px;
+    } 
+}
+
+.privacy_accept {
+    color: #ffffff;
+    .text {
+        border-bottom: 1px solid #ffffff;
+    }
+    .icon {
+        text-align: center;
+        width: 18px;
+        height: 22px;
+    }
+}

@@ -1,0 +1,28 @@
+<ul id="productLayout" class="productGrid card-variant">
+    {{#each (limit products products_per_page)}}
+        {{#if @index '===' 6 }}
+            <li class="product text-center">
+                <a class="link" href="#">
+                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/banner-ads-3.jpg" alt="">
+                </a>
+            </li>
+        {{/if}}
+        <li class="product">
+            {{> components/products/card-category settings=../settings show_compare=../show_compare show_wishlist=../settings.show_wishlist show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
+        </li>
+        {{#if @index '===' 10}}
+            <li class="product text-center">
+                <a class="link" href="#">
+                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/banner-ads-4.jpg" alt="">
+                </a>
+            </li>
+        {{/if}}
+        {{#if @index '===' 16}}
+            <li class="product text-center">
+                <a class="link" href="#">
+                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/banner-ads-5.jpg" alt="">
+                </a>
+            </li>
+        {{/if}}
+    {{/each}}
+</ul>

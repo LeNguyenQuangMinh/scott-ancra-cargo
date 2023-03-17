@@ -1,0 +1,8 @@
+@import "clear-sans";
+
+$fonts: $fontFamily-sans $fontFamily-serif $fontFamily-mono $fontFamily-headings $fontFamily-hero;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+@if contains($fonts, "'Clear Sans', sans-serif") {
+    @include clear-sans;
+}

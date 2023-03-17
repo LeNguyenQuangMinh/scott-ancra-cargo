@@ -1,0 +1,19 @@
+{{#partial "page"}}
+<div class="themevale_breadcrumb">
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+</div>
+<main class="page">
+    <section class="page-content themevale_404 text-center">
+        <h1 class="page-404">{{lang 'page_not_found.404'}}</h1>
+        <h2 class="page-heading no-border">{{lang 'page_not_found.page_heading'}}</h1>
+        <p class="u-textAlignCenter">
+            {{lang 'page_not_found.message'}}
+        </p>
+        <div class="search-page">
+            {{> components/common/search-box}}
+        </div>
+    </section>
+</main>
+
+{{/partial}}
+{{> layout/base}}

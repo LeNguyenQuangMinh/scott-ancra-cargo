@@ -1,0 +1,384 @@
+// =============================================================================
+// LOGIN (CSS)
+// =============================================================================
+//
+// Let press Ctrl + f and type of paste the key, then press Enter to search the content
+//
+//  1.0 Login page
+//
+//  2.0 Account created
+//
+//  3.0 Forgot pass
+//
+//  4.0 New password
+//
+//  RESPONSIVE
+//
+//
+// -----------------------------------------------------------------------------
+
+
+/*=========================================
+=            www.themevale.com            =
+=========================================*/
+
+    /*--------  1.0 Login page  ---------*/
+        .login-row {
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+            .login-form {
+                width: 100%;
+                display: block;
+                margin-bottom: 30px;
+            }
+            .new-customer {
+                width: 100%;
+                display: block;
+            }
+            @include breakpoint("small") {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                .login-form {
+                    width: 50%;
+                    padding-top: 30px;
+                    padding-right: 30px;
+                    margin-bottom: 0;
+                }
+                .new-customer {
+                    width: 50%;
+                }
+            }
+            @include breakpoint("medium") {
+                .login-form {
+                    padding-right: 50px;
+                }
+            }
+            @media (min-width: 1025px) {
+                .login-form {
+                    width: 470px;
+                    padding-right: 0px;
+                }
+                .new-customer {
+                    width: 600px;
+                }
+            }
+        }
+
+        .login-form {
+            .form-actions {
+                margin-top: 25px;
+                text-align: left;
+                .button {
+                    min-width: 150px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .forgot-password {
+                    display: block;
+                    position: relative;
+                    margin-top: 10px;
+                    margin-left: 0;
+                    color: stencilColor('color-textLink');
+                    @include breakpoint("medium") {
+                        margin-top: 0;
+                        margin-left: 30px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    @media (min-width: 1025px) {
+                        &:before {
+                            content: "";
+                            left: 0;
+                            width: 0;
+                            bottom: 0;
+                            height: 1px;
+                            position: absolute;
+                            transition: all 0.3s ease;
+                            background-color: stencilColor('color-textLink--hover');
+                        }
+                        &:hover {
+                            color: stencilColor('color-textLink--hover');
+                            &:before {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }   
+            }
+        }
+
+        .new-customer {
+            padding: 25px 20px;
+            background-color: #fafafa;
+            .panel-header, .panel-body {
+                background-color: transparent;
+            }
+            .panel-header {
+                padding: 0;
+                .panel-title {
+                    font-size: 16px;
+                    line-height: 1;
+                    margin-bottom: 20px;
+                    font-weight: 600;
+                    font-family: $fontFamily-headings;
+                    color: stencilColor('color-textHeading');
+                    text-transform: uppercase;
+                }
+            }
+            .panel-body {
+                padding: 0;
+                margin-bottom: 0;
+                .new-customer-intro {
+                    margin-bottom: 7px;   
+                }
+                ul li {
+                    line-height: 30px;
+                }
+            }
+            .button {
+                margin-top: 5px;
+                min-width: 200px;
+                margin-bottom: 0;
+            }
+            @include breakpoint("medium") {
+                padding: 35px;
+            }
+        }
+
+    /*--------  2.0 Account created  ----*/
+        .page-account-created {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            .alertBox {
+                display: block;
+                .alertBox-message {
+                    width: auto;
+                }
+            }
+            .button {
+                margin: 20px 0 0 0;
+                min-width: 200px;
+            }
+            .page-heading {
+                line-height: 1.5;
+                &:before,
+                &:after {
+                    content: none;
+                }
+            }
+            @include breakpoint('small') {
+                margin-top: 50px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .button[value="Create Account"] {
+            min-width: 200px;
+        }
+
+        .page-type-shippingaddressform {
+            form[data-address-form] {
+                .button {
+                    min-width: 180px;
+                }
+            }
+        }
+
+    /*--------  3.0 Forgot pass  --------*/
+        .forgot-password-form {
+            .form-prefixPostfix {
+                display: block;
+                .button {
+                    width: auto;
+                    display: inline-block;
+                    margin-top: 15px;
+                    min-width: 200px;
+                }
+                @include breakpoint("large") {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    .button {
+                        margin-top: 0;
+                        margin-left: 20px;
+                    }
+                    .form-inlineMessage {
+                        position: absolute;
+                        bottom: -10px;
+                    }
+                }
+            }
+        }
+
+    /*--------  4.0 New password  -------*/
+        .new-password-form {
+            .button[value="Continue"] {
+                min-width: 200px;
+            }
+        }
+
+    /*--------  5.0 Gift Certificates  --*/
+        .gift_certificate-page {
+            &.account {
+                margin-top: 0;
+            }
+            > ol {
+                li {
+                    margin-bottom: 7px;
+                }
+            }
+            > h3 {
+                font-size: 16px;
+                margin-top: 0;
+                line-height: 1.5;
+                margin-bottom: 15px;
+                @include breakpoint("small") {
+                    font-size: 20px;
+                }
+            }
+            strong {
+                font-weight: 600;
+            }
+        }
+
+        #gift-certificate-balance {
+            .form-prefixPostfix {
+                display: block;
+                .button {
+                    margin-top: 15px;
+                    min-width: 200px;
+                }
+                @include breakpoint("small") {
+                    .button {
+                        width: auto;
+                    }
+                }
+                @include breakpoint("large") {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    .button {
+                        margin-top: 0;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+
+        #gift-certificate-form {
+            .form-field-group {
+                padding: 20px;
+                background-color: #fafafa;
+            }
+            @include breakpoint("small") {
+                #gift-certificate-preview {
+                    min-width: 120px;
+                }
+                #gift-certificate-submit {
+                    min-width: 300px;
+                }
+            }
+            @include breakpoint("medium") {
+                #gift-certificate-preview {
+                    min-width: 160px;
+                }
+                #gift-certificate-submit {
+                    min-width: 400px;
+                }
+            }
+        }
+
+        .GiftCertificateBody {
+            #GiftCertificateAmount {
+                font-size: 24px;
+            }
+            .StoreInfo {
+                padding-right: 30%;
+            }
+            #LogoContainer h1 {
+                font-size: 24px;
+                line-height: 1.2;
+            }
+        }
+
+
+    /*--------  6.0 Login form  ---------*/
+        .login-dropdown {
+            display: none;
+            z-index: 21;
+            width: 300px;
+            right: 0;
+            left: auto;
+            text-align: left;
+            border-radius: 0px;
+            top: calc(100% + 10px);
+            position: absolute;
+            background-color: #ffffff;
+            padding: 20px 20px 25px 20px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+            .form-input {
+                padding: 0px 15px;
+                min-height: 36px;
+            }
+            .button {
+                padding: 11px 15px 10px 15px;
+            }
+            .login-header {
+                display: block;
+                align-items: center;
+                padding: 0 0 15px 0;
+                justify-content: space-between;
+                border-bottom: 1px solid #eeeeee;
+                .login-title {
+                    margin: 0;
+                    line-height: 1;
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+            .login-content {
+                padding: 20px 0;
+                .login-form {
+                    margin-bottom: 0;
+                }
+                .form-field {
+                    margin-bottom: 17px;
+                }
+                .form-actions {
+                    margin-top: 0;
+                    text-align: center;
+                    .forgot-password,
+                    .button {
+                        margin-left: 0;
+                    }
+                    .forgot-password {
+                        display: inline-block;
+                    }
+                    .button {
+                        width: 100%;
+                        display: block;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+            .new-customer {
+                padding: 0;
+                background-color: transparent;
+                .button {
+                    margin-top: 0;
+                    width: 100%;
+                    display: block;
+                }
+            }
+        }
+
+        /*.is-open ~ .login-dropdown {
+            top: calc(100% + 10px);
+            opacity: 1;
+            visibility: visible;
+        }*/
+    
+/*=====  End of www.themevale.com  ======*/

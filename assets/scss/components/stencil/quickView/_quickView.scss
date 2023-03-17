@@ -1,0 +1,16 @@
+// =============================================================================
+// QUICK VIEW (CSS)
+// =============================================================================
+
+.quickView {
+    @media (min-width: 768px) {
+    	.themevale_productView {
+    		.themevale_productView-left {
+    			width: 45%;
+    		}
+    		.themevale_productView-right {
+    			width: 55%;
+    		}
+    	}
+    }
+}
