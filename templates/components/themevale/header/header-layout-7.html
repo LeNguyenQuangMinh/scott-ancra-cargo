@@ -4,38 +4,50 @@
             {{> components/themevale/header/navigation-4}}
         </div>
         <div class="themevale_header-middle">
-            <div class="container">
-                <div class="headerMiddle-item text-left">
-                    <div class="logo-wrapper">
-                        {{#if page_type '===' 'default'}}
-                            <h1 class="header-logo">
-                                {{> components/common/store-logo}}
-                            </h1>
-                        {{else}}
-                            <div class="header-logo">
-                                {{> components/common/store-logo}}
-                            </div>
-                        {{/if}}
-                    </div>
-                </div>
-                <div class="headerMiddle-item text-center">
-                    <div class="navUser-item navUser-item--quickSearch">
-                        <div class="themevale_search-custom" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
-                            {{> components/common/quick-search-all}}
+            <div class="container-main">
+                <div class="header-middle-wrapper">
+                    <div class="header-middle__left">
+                        <div class="header-middle__left-logo">
+                            {{#if page_type '===' 'default'}}
+                                <h1 class="header-logo">
+                                    {{> components/common/store-logo}}
+                                </h1>
+                            {{else}}
+                                <div class="header-logo">
+                                    {{> components/common/store-logo}}
+                                </div>
+                            {{/if}}
                         </div>
-                    </div>   
-                </div>
-                <div class="headerMiddle-item text-right">     
-                    <div class="navUser-item navUser-item--locator">
-                        <a href="#" class="navUser-link">
-                            <span class="navUser-text">Dealer Locator</span>
-                            <span class="navUser-icon">
-                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-arrow"></use></svg>
-                            </span>
-                        </a>
-                    </div>                              
-                    <div class="navUser-item navUser-item--currencySelector">
-                        {{> components/common/currency-selector}}
+                    </div>
+
+                    <div class="header-middle__right">
+                        <div class="header-middle__right-top">
+                            <ul class="right-top__list">
+                                <li class="right-top__item">
+                                    <span class="right-top__icon">
+                                        <img src="https://cdn11.bigcommerce.com/s-nhruxm7d0j/images/stencil/original/image-manager/resources-icon.png" alt="Icon Resources">
+                                    </span>
+                                    <a href="#" class="right-top__link">Resources</a>
+
+                                </li>
+                                <li class="right-top__item">
+                                    <span class="right-top__icon">
+                                        <img src="https://cdn11.bigcommerce.com/s-nhruxm7d0j/images/stencil/original/image-manager/location-icon.png" alt="Icon Rep Locator">
+                                    </span>
+                                    <a href="#" class="right-top__link">Rep Locator</a>
+                                </li>
+                                <li class="right-top__item right-top__item--currency">
+                                    {{> components/common/currency-selector}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header-middle__right-bottom">
+                            <div class="navUser-item navUser-item--quickSearch">
+                                <div class="themevale_search-custom" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+                                    {{> components/common/quick-search-all}}
+                                </div>
+                            </div>   
+                        </div>
                     </div>
                 </div>
             </div>

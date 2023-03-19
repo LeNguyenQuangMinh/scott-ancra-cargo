@@ -1,36 +1,8 @@
-<footer class="footer footer-layout-4 {{#if theme_settings.footer-dark-layout}}themevale-footer-dark{{/if}}">
-    <div class="themevale_footer-top">
-        <div class="container">
-            <div class="item text-center">
-                {{#if settings.show_newsletter_box}}
-                    <div class="subscription-form-5">
-                        <h5 class="footer-info-heading">Email Sign Up</h5>
-                        <form class="form" action="{{urls.subscribe.action}}" method="post">
-                            <fieldset class="form-fieldset">
-                                <input type="hidden" name="action" value="subscribe">
-                                <input type="hidden" name="nl_first_name" value="bc">
-                                <input type="hidden" name="check" value="1">
-                                <div class="form-field">
-                                    <label class="form-label is-srOnly" for="nl_email">{{lang 'common.email_address'}}</label>
-                                    <div class="form-prefixPostfix wrap">
-                                        <input class="form-input" id="nl_email" name="nl_email" type="email" value="{{customer.email}}" placeholder="Email Address">
-                                        <input class="button form-prefixPostfix-button--postfix" type="submit" value="{{lang 'newsletter.subscribe_submit_2'}}">
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                {{/if}}
-                <div class="item">
-                    {{> components/common/social-links}}
-                </div>
-            </div>
-        </div>
-    </div>
+<footer class="footer {{#if theme_settings.footer-dark-layout}}themevale-footer-dark{{/if}}">
     <div class="themevale_footer-middle">
-        <div class="container">
+        <div class="container-main">
             <section class="footer-info themevale_footer-info col-5">
-                <div class="footer-info-col" data-section-type="">
+                <div class="footer-info-col footer-info-col--first" data-section-type="">
                     <div class="item">
                         <h5 class="footer-info-heading">
                             {{#if theme_settings.footer-dark-layout}}
@@ -38,21 +10,24 @@
                             {{else}}
                                 <img class="logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
                             {{/if}}
-                            <svg class="icon-dropdown" aria-label="Show/Hide Store Infomation Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
                         </h5>
                         <div class="footer-info-list">
-                            <div class="store-address">{{nl2br settings.address}}</div>
-                            <div class="store-phone"><strong>Phone:</strong>{{settings.phone_number}}</div>
-                            <div class="store-email"><strong>Fax:</strong><a href="tel:(908)2311379">(908) 231-1379</a></div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="themevale_securityImage">
-                            <ul>
-                                <li>
-                                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-3tntjfynbx/product_images/uploaded_images/security-1.png" alt="security image 1">
-                                </li>
-                            </ul>
+                            About Ancra Cargo <br>
+                            Careers <br>
+                            Warranty and Terms & Conditions <br>
+                            Blog <br>
+                            <br>
+                            <br>
+                            Ancra Cargo was founded in 1969 with your security in mind. We started with the mission to improve safety and security for the material handling industry and originally focused on the airline industry. We quickly realized that engineered products were needed in every market segment that moved quantities of cargo, and our comprehensive product lines were born.
+                            <br>
+                            <br>
+                            
+                            Now with one of the broadest lines of cargo control products in the industry, Ancra can save you time and effort in finding just the products you need. <br>
+                            LET US HELP YOU
+                            <br>
+                            <br>
+                            
+                            We are always interested in new product ideas. If you have an idea you would like to submit, please see our IDEA SUBMISSION FORM
                         </div>
                     </div>
                 </div>
@@ -84,69 +59,6 @@
                         <li><a href="#">Warnings And Instructions</a></li>
                         <li><a href="#">Clearance</a></li>
                     </ul>
-                </div>
-
-                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-services">
-                    <h5 class="footer-info-heading">
-                        <span>{{theme_settings.footer-title-col-4}}</span>
-                        <svg class="icon-dropdown" aria-label="Show/Hide Customer Service Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
-                    </h5>
-                    <ul class="footer-info-list">
-                        <li><a href="#">About Kinedyne</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Woman Owned Business</a></li>
-                        <li><a href="#">Cargo Securement Blog</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-services">
-                    <h5 class="footer-info-heading">
-                        <span>{{theme_settings.footer-title-col-5}}</span>
-                        <svg class="icon-dropdown" aria-label="Show/Hide Customer Service Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
-                    </h5>
-                    <ul class="footer-info-list">
-                        <li>
-                            <a href="#">
-                                <span class="ordering-icon">
-                                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-blog"></use></svg>
-                                </span>
-                                <span class="ordering-address">From United States
-                                    Call 1-800-848-6057</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="ordering-icon">
-                                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-blog"></use></svg>
-                                </span>
-                                <span class="ordering-address">From Canada
-                                    Call 1-800-268-3530</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="ordering-icon">
-                                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-custom-blog"></use></svg>
-                                </span>
-                                <span class="ordering-address">From Mexico
-                                    Call +52 55 5318 4844
-                                    01 800 021 3452</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-services">
-                    <h5 class="footer-info-heading">
-                        <span>Rep Locator</span>
-                        <svg class="icon-dropdown" aria-label="Show/Hide Customer Service Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
-                    </h5>
-                    {{#if theme_settings.find_your_territory_manager_enable}}
-                        {{> components/themevale/fytm}}
-                    {{/if}}
                 </div>
                 
             </section>

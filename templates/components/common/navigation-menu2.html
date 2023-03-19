@@ -1,61 +1,21 @@
-<div class="navPages-container" id="menu" data-menu role="menu" aria-label="Main Menu">
-    <div class="themevale_allCategories {{#if theme_settings.themevale_allCategories_open}}is-open{{/if}}">
-        <p class="themevale_allCategories-text">
-            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-menu-mobile"></use></svg>
-            <span class="text">{{lang 'category.label'}}</span>
-        </p>
-        <div class="themevale_allCategories-dropdown">
-            <ul class="navPages-list navPages-list-depth-max{{#if theme_settings.themevale_megamenu}} navPages-list-megamenu{{/if}}" data-level-list>
-                {{#each categories}}
-                    {{#or (if id '==' 167) (if id '==' 168) (if id '==' 169) (if id '==' 170)}}
-                    {{else}}
-                        <li class="navPages-item{{#if children}} has-dropdown{{else}} navPages-action-end{{/if}}" data-level="2">
-                            {{#if children}}
-                                <a class="navPages-action navPages-action-depth-max has-subMenu is-root" href="{{url}}">
-                                    {{#if image}}
-                                        <img class="image-icon" src="{{getImage image 'categories_size'}}" alt="{{name}}">
-                                    {{/if}}
-                                    <span class="text">{{name}}</span>
-                                    <span class="navPages-action-moreIcon">
-                                        <svg class="icon" aria-hidden="true"><use xlink:href="#icon-chevron-down" /></svg>
-                                        Back
-                                    </span>
-                                </a>
-                                {{> components/common/navigation-dropdown}}
-                            {{else}}
-                                <a class="navPages-action" href="{{url}}">
-                                    {{#if image}}
-                                        <img class="image-icon" src="{{getImage image 'categories_size'}}" alt="{{name}}">
-                                    {{/if}}
-                                    <span class="text">{{name}}</span>
-                                </a>
-                            {{/if}}
-                        </li>
-                    {{/or}}
-                {{/each}}
-            </ul>
-        </div>
-    </div>
+<div class="navPages-container container-main" id="menu" data-menu role="menu" aria-label="Main Menu">
     <nav class="navPages">
         <ul class="navPages-list navPages-list-depth-max{{#if theme_settings.themevale_megamenu}} navPages-list-megamenu{{/if}}" data-level-list>
             {{#each categories}}
-                {{#or (if id '==' 167) (if id '==' 168) (if id '==' 169) (if id '==' 170)}}
-                    <li class="navPages-item navPages-item-custom{{#if children}} has-dropdown{{else}} navPages-action-end{{/if}}" data-level="2">
-                        {{> components/common/navigation-list-alternate}}
-                    </li>
-                {{else}}
-                    <li class="navPages-item navPages-item-hidden{{#if children}} has-dropdown{{else}} navPages-action-end{{/if}}" data-level="2">
-                        {{> components/common/navigation-list-alternate}}
-                    </li>
-                {{/or}}
+                <li class="navPages-item{{#if children}} has-dropdown{{else}} navPages-action-end{{/if}}" data-level="2">
+                    {{> components/common/navigation-list-alternate}}
+                </li>
             {{/each}}
             {{#unless theme_settings.hide_content_navigation}}
                 {{#each pages}}
-                    <li class="navPages-item navPages-item-page{{#if children}} has-dropdown{{else}} navPages-action-end{{/if}} Thao-test" data-level="2">
+                    <li class="navPages-item navPages-item-page{{#if children}} has-dropdown{{else}} navPages-action-end{{/if}}" data-level="2">
                         {{> components/common/navigation-list-alternate}}
                     </li>
                  {{/each}}
             {{/unless}}
+
+            <!-- Custom Start -->
+            <ul class="header-top-left__list custom-menu-mb-pages"></ul>
         </ul>
 
         <ul class="navPages-list navPages-list--user" data-level-list>

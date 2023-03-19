@@ -1,0 +1,284 @@
+.container-main {
+    width: 100%;
+    max-width: 1525px !important;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1526px) {
+        padding: 0 12px;
+    }
+    
+}
+
+.container-full {
+    width: 100%;
+    max-width: 100% !important;
+}
+
+/* Header */
+.themevale_header-PC {
+    .themevale_header-top {
+        background-color: #ffffff;
+        border-bottom: 1px solid #ebebeb;
+        padding: 0;
+        .custom-header-top-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            .header-top-left {
+                .header-top-left__list {
+                    list-style: none;
+                    display: flex;
+                    margin: 0;
+                    .header-top-left__item {
+                        border: 1px solid #d1d1d1;
+                        padding: 20px 24px 18px 22px;
+                        background-color: #f4f4f4;
+                        cursor: pointer;
+                        .header-top-left__link {
+                            color: #000000;
+                            font-size: 16px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                    }
+                    
+                    .header-top-left__item + .header-top-left__item {
+                        border-left: none;
+                    }
+                }
+            }
+            
+            .header-top-right {
+                @media screen and (max-width: 1200px) {
+                    .header-top-right-text {
+                        display: none;
+                    }
+
+                    .header-top-right-text:last-child {
+                        display: block;
+                    }
+                }
+                .header-top-right-text {
+                    font-weight: bold;
+                    font-size: 16px;
+                    color: #000000;
+                    
+                    &--first {
+                        margin-right: 35px;
+                    }
+                    
+                    &--or {
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+
+                    &--link {
+                        text-decoration: underline;
+                    }
+                } 
+
+                .header-top-right-icon  {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+    /* Header Middle */
+    .themevale_header-middle {
+        padding: 0;
+
+        @media screen and (max-width: 1023.98px) {
+            padding: 0 20px;
+        }
+        
+        .header-middle-wrapper  {
+            display: flex;
+            justify-content: space-between;
+            
+            .header-middle__left {
+                display: flex;
+                align-items: center;
+                .header-middle__left-logo {
+                    
+                }
+            }
+            
+            .header-middle__right {
+                .header-middle__right-top {
+                    .right-top__list {
+                        display: flex;
+                        list-style: none;
+                        justify-content: flex-end;
+                        margin: 0;
+
+                        .right-top__item + .right-top__item {
+                            border-left: none;
+                        }
+                        
+                        .right-top__item {
+                            border: 1px solid #c4c4c4;
+                            padding: 16px 17px 16px 20px;
+                            cursor: pointer;
+                            
+                            .right-top__icon {
+                                display: inline-block;
+                            }
+                            
+                            .right-top__link {
+                                color: #000000;
+                                text-decoration: underline;
+                                font-size: 16px;
+                                font-weight: normal;
+                                text-transform: uppercase;
+                                margin-left: 5px;
+                            }
+                            
+                            &.right-top__item--currency {
+                                display: flex;
+                                align-items: center;
+                                padding-top: 10px;
+                                padding-right: 20px;
+                                padding-left: 20px;
+                                
+                                .image-flag {
+                                    margin-right: 8px;
+                                    img {
+                                        border-radius: 0;
+                                        height: 18px;
+                                        width: 32px;
+                                    }
+                                }
+                                
+                                &.is-show {
+                                    .dropdown-menu {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .header-middle__right-bottom {
+                    margin-top: 30px;
+                    margin-bottom: 35px;
+                    .navUser-item--quickSearch {
+                        margin-right: 0;
+
+                        .themevale_search-custom {
+                            width: 420px;
+
+                            .form-field {
+                                border-radius: 0px;
+                                box-shadow: none;
+                                border: 1px solid #c1c1c1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+
+    /* Header Bottom */
+    .themevale_header-bottom {
+        background-color: #ffffff;
+        border-top: none;
+        border-bottom: 1px solid #ebebeb;
+        padding-bottom: 16px;
+        
+        .navPages-container {
+            .navPages {
+                .navPages-list {
+                    .navPages-item {
+                        border-left: 1px solid #ebebeb;
+                        padding-left: 11px;
+                        margin-right: 0;
+                        padding-right: 11px;
+                        white-space: wrap;
+                        max-width: 190px;
+                        
+                        .navPages-action {
+                            color:  #000000;
+                            text-transform: uppercase;
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+    
+                            .text {
+                                white-space: wrap;
+                            }
+                        }
+                    }
+                }
+    
+            }
+        }
+    }
+}
+
+/* Mobile */
+.header-top-left__list {
+    &.custom-menu-mb-pages {
+        @media screen and (max-width: 1023.98px) {
+            .header-top-left__item {
+                padding: 12px 20px;
+                cursor: pointer;
+                border-bottom: 1px solid #ebebeb;
+
+                .header-top-left__link {
+                    font-size: 13px;
+                    font-weight: 600;
+                    letter-spacing: 0.65px;
+                    line-height: 20px;
+                    text-transform: uppercase;
+                    color: #232323;
+                }
+            }
+        }
+        
+    }
+}
+
+/* Footer */
+.footer  {
+    background-color: #144997;
+    .themevale_footer-middle {
+        .themevale_footer-info {
+            margin: 0;
+            .footer-info-col {
+                width: 100%;
+                max-width: 19.2%;
+
+                @media screen and (max-width: 767.98px) {
+                    max-width: 100%;
+                }
+                
+                &.footer-info-col--first {
+                    max-width: 61.6%;
+                    width: 100%;
+
+                    @media screen and (max-width: 767.98px) {
+                        max-width: 100%;
+                    }
+                }
+                
+                .item {
+                    color: #ffffff;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+                
+                .footer-info-heading {
+                    color: #ffffff;
+                }
+                
+                .footer-info-list > li > a {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}

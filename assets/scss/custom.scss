@@ -1,7 +1,4 @@
 /* Custom Styles */
-*{
-	font-family: 'Montserrat', sans-serif;
-}
 .themevale-header-transparent .navPages .navPages-item>.navPages-action .text {
 	color: stencilColor('navPages-transparent-color');
 }
@@ -84,20 +81,8 @@
 
 
 @media(min-width: 1025px) {
-	.themevale_header-layout-6 .themevale_header-top {
-		padding: 0;
-		background-color: #eb6b10;
-		.container {
-			justify-content: flex-end;
-			height: 35px;
-		}
-	}
 	.themevale_search-custom #search_category {
 		display: none;
-	}
-
-	.themevale_header-layout-6 .themevale_header-middle .container {
-		height: 92px;
 	}
 
 	.headerMiddle-item.text-right {
@@ -150,29 +135,10 @@
 		}
 	}
 
-	.themevale_header-middle {
-		.navUser-item + .navUser-item {
-			background-color: #ffffff;
-		}
-
-		& .navUser-action {
-			height: 46px;
-			display: inline-flex;
-			align-items: center;
-			padding: 14px;
-		}
-	}
-
 	.navUser-action .navUser-icon, .navUser-action .navUser-text {
 		font-size: 13px;
 		color: #ffffff;
 		font-weight: 500;
-	}
-
-	.themevale_header-layout-6 {
-		.themevale_header-middle {
-			background-color: #eeeeee;
-		}
 	}
 
 	.themevale_header-layout-6 .themevale_header-bottom {
@@ -203,34 +169,6 @@
 
 	.themevale_allCategories .themevale_allCategories-text .text {
 		font-size: 16px;
-	}
-
-	.themevale_header-middle {
-		.container {
-			.headerMiddle-item.text-left {
-				width: 25%;
-			}
-			.headerMiddle-item.text-center {
-				width: 32%;
-				.navUser-item--quickSearch {
-					width: 100%;
-
-					.themevale_search-custom {
-						width: 100%;
-					}
-				}
-			}
-			.headerMiddle-item.text-right {
-				width: 42%;
-
-				.navUser-item--locator {
-					.navUser-link {
-						width: 240px;
-						padding: 15px;
-					}
-				}
-			}
-		}
 	}
 
 	.themevale_header-layout-6 .navPages-container {
@@ -700,102 +638,6 @@
 
 		.socialLinks .socialLinks-item {
 			margin-right: 16px;
-		}
-	}
-	
-	.themevale_footer-middle {
-		.footer-info.col-5 {
-			.footer-info-col {
-				width: 32%;
-				
-				.footer-info-list {
-					.store-address, .store-phone, .store-email {
-						font-size: 16px;
-						line-height: 22px;
-						color: #262626;
-						font-weight: 400;
-						
-						strong {
-							color: #000000;
-							display: inline-block;
-							margin-right: 10px;
-							
-						}
-					}
-	
-					& > li a {
-						font-size: 16px;
-						font-weight: 400;
-						line-height: 34px;
-						color: #262626;
-						display: inline;
-						margin-bottom: 0;
-						background-size: 0 1px;
-						background-repeat: no-repeat;
-						transition: background-size .3s;
-						background-image: linear-gradient(to right,#f7f7f7,#f7f7f7),linear-gradient(to right,#4c4c4c,#4c4c4c);
-						background-position: 100% 100%,0 85%;
-						padding-bottom: 4px;
-
-	
-						.ordering-icon {
-							display: block;
-							svg {
-								width: 53px;
-								height: 35px;
-							}
-						}
-	
-						.ordering-address {
-							display: block;
-						}
-
-						&::before {
-							display: none;
-						}
-
-						&:hover {
-							background-size: 100% 1px;
-						}
-					}
-				}
-	
-				.footer-info-heading {
-					font-size: 21px;
-					line-height: 25px;
-					font-weight: 700;
-					color: #eb6b10;
-				}
-
-				&:nth-child(5) {
-					ul {
-						li {
-							a {
-								&::before {
-									display: none;
-								}
-								.ordering-address {
-									display: inline;
-									margin-bottom: 0;
-									background-size: 0 1px;
-									background-repeat: no-repeat;
-									transition: background-size .3s;
-									background-image: linear-gradient(to right,#f7f7f7,#f7f7f7),linear-gradient(to right,#4c4c4c,#4c4c4c);
-									background-position: 100% 100%,0 85%;
-									padding-bottom: 4px;
-								}
-
-								&:hover {
-									.ordering-address {
-										background-size: 100% 1px;
-									}
-								}
-							}
-						}
-					}
-				}
-				
-			}
 		}
 	}
 	
@@ -1335,25 +1177,7 @@
 		padding: 0;
 	}
 }
-@media(min-width: 1200px) {
-	.themevale_header-layout-6 .navPages-container {
-		width: 1190px;
-		max-width: 11900px;
-	}
-	.container {
-		max-width: 1190px;
-		padding: 0;
-	}
 
-	#fytm-block {
-		#fytm-form {
-			display: flex;
-		}
-		#fytmZip {
-			width: calc(100% - 154px);
-		}
-	}
-}
 @media(min-width: 1300px) {
 	.themevale_header-layout-6 .navPages-container {
 		width: 1290px;
@@ -1414,31 +1238,6 @@
 				margin: 0 0 0 30px;
 			}
 	
-		}
-	} 
-
-	.themevale_footer-middle {
-		.footer-info.col-5 {
-			.footer-info-col {
-				&:nth-child(1) {
-					width: 20%;
-				}
-				&:nth-child(2) {
-					width: 15%;
-				}
-				&:nth-child(3) {
-					width: 15%;
-				}
-				&:nth-child(4) {
-					width: 15%;
-				}
-				&:nth-child(5) {
-					width: 15%;
-				}
-				&:nth-child(6) {
-					width: 20%;
-				}
-			}
 		}
 	} 
 
@@ -1852,52 +1651,6 @@
 					width: 26%;
 				}
 				width: 16%;
-				
-				.footer-info-list {
-					.store-address, .store-phone, .store-email {
-						font-size: 16px;
-						line-height: 22px;
-						color: #262626;
-						font-weight: 400;
-						
-						strong {
-							color: #000000;
-							display: inline-block;
-							margin-right: 10px;
-							
-						}
-					}
-	
-					& > li a {
-						font-size: 16px;
-						font-weight: 400;
-						line-height: 34px;
-						color: #262626;
-	
-						.ordering-icon {
-							display: block;
-							svg {
-								width: 53px;
-								height: 35px;
-							}
-						}
-	
-						.ordering-address {
-							display: block;
-						}
-					}
-				}
-	
-				.footer-info-heading {
-					font-size: 21px;
-					line-height: 25px;
-					font-weight: 700;
-					color: #eb6b10;
-				}
-
-				#fytm-block #fytmSubmit {
-					margin-top: 0;
-				}
 				
 			}
 		}
@@ -2340,14 +2093,6 @@
 					margin-right: 30px;
 				}
 				
-				.footer-info-heading {
-					margin: 0 15px;
-					color: #ffffff;
-					font-size: 21px;
-					font-weight: 700; 
-					line-height: 25px;
-				}
-				
 				.form-field {
 					.form-prefixPostfix {
 						.form-input {
@@ -2393,56 +2138,6 @@
 		}
 	}
 	
-	.themevale_footer-middle {
-		.footer-info.col-5 {
-			.footer-info-col {
-				width: 17%;
-				
-				.footer-info-list {
-					.store-address, .store-phone, .store-email {
-						font-size: 16px;
-						line-height: 22px;
-						color: #262626;
-						font-weight: 400;
-						
-						strong {
-							color: #000000;
-							display: inline-block;
-							margin-right: 10px;
-							
-						}
-					}
-	
-					& > li a {
-						font-size: 16px;
-						font-weight: 400;
-						line-height: 34px;
-						color: #262626;
-	
-						.ordering-icon {
-							display: block;
-							svg {
-								width: 53px;
-								height: 35px;
-							}
-						}
-	
-						.ordering-address {
-							display: block;
-						}
-					}
-				}
-	
-				.footer-info-heading {
-					font-size: 21px;
-					line-height: 25px;
-					font-weight: 700;
-					color: #eb6b10;
-				}
-				
-			}
-		}
-	}
 	
 	.themevale_footer-bottom .wrapper {
 		display: block;

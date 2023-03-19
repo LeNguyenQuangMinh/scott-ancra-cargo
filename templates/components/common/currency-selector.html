@@ -5,8 +5,7 @@
     aria-expanded="false"
 >
     <span class="image-flag">{{{currency_selector.active_currency_flag}}}</span> 
-    <span class="text-flag">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
-    <i class="icon" aria-hidden="true"><svg aria-hidden="true"><use xlink:href="#icon-chevron-down" /></svg></i>
+    <i class="icon right-top__icon" aria-hidden="true"><svg aria-hidden="true"><use xlink:href="#icon-chevron-down" /></svg></i>
 </a>
 <ul class="dropdown-menu" id="currencySelection" data-dropdown-content aria-hidden="true" tabindex="-1">
     {{#each currency_selector.currencies}}

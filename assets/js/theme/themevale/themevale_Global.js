@@ -520,6 +520,32 @@ export default function(context) {
             facebookLike();
         }
     });
+
+    /* Custom start */
+    function appendPagesToMenuMobile () {
+        if($(window).width() < 1024) {
+            let headerTopLeftList = $('.header-top-left__item');
+
+            for (const item of headerTopLeftList) {
+                $( ".custom-menu-mb-pages" ).append(item);
+            }
+        }else {
+            let headerTopLeftList = $('.header-top-left__item');
+
+            for (const item of headerTopLeftList) {
+                $( ".header-top-left .header-top-left__list" ).append(item);
+            }
+        }
+    }
+    appendPagesToMenuMobile ();
+
+    function showBoxCurrency () {
+        let currencyButton = document.querySelector('.right-top__icon');
+        currencyButton.addEventListener('click', () => {
+            console.log('ok', currencyButton)
+        })
+    }
+    showBoxCurrency();
     
     // ========================================================================
     // WINDOWN RESIZE
@@ -529,5 +555,6 @@ export default function(context) {
         sidebar_mobile();
         footer_mobile();
         services_slider();
+        appendPagesToMenuMobile();
     });
 }
